@@ -1,0 +1,55 @@
+# fplc gradient — report agent
+#
+# The instruction as SENT (payload field `prompt`), extracted from the requests of
+# the published replicates and verified across all 20 of them. This file is
+# generated; the authoritative copy is that field in the payload beside it and
+# in every request.json.
+#
+# One line of this prompt is chain-derived: the agent is told which plots
+# exist in its own replicate, built from what the upstream analysis script
+# produced. The line printed below is the most common of 4 variants across
+# the 20 replicates; all of them were:
+#   15 x  1. Chromatogram {Id} (chromatogram_{ID}.png) - path_variable
+#    2 x  1. Chromatogram {Id} (chromatogram_{ID}.png) - fstring_plot
+#    2 x  1. Akta Chromatogram {Id} (akta_chromatogram_{ID}.png) - fstring_plot
+#    1 x  1. Akta Chromatogram {Id} (akta_chromatogram_{ID}.png) - path_variable
+# ---------------------------------------------------------------------------
+WORKFLOW CONTEXT:
+The following workflow describes the experimental process:
+{
+  "type": "steps",
+  "content": [
+    {
+      "device": "Utility",
+      "method": "Pause",
+      "params": {
+        "message": "Manually fill sample loop"
+      }
+    },
+    {
+      "device": "AKTA Pure",
+      "method": "Run Protocol",
+      "params": {
+        "akta_phases": [],
+        "sample_signals": [
+          "uv1",
+          "cond"
+        ],
+        "sample_time": 1
+      }
+    }
+  ]
+}
+
+USER REQUEST:
+Please create a report for my ÄKTA chromatography run. Include the utilized run parameters, the available placeholders, and the plots.
+Structure:
+1.	Heading
+2.	Start & End-Date
+3.	Methods (Describe the automated workflow)
+4.	Results (Plots)
+
+SELECTED PLOTS TO INCLUDE:
+1. Chromatogram {Id} (chromatogram_{ID}.png) - path_variable
+
+Please create specific sections in the HTML template for each selected plot. Use placeholders like [[PLOT_1]], [[PLOT_2]], etc. for the plot images. Include descriptive headings and proper styling for each plot section. IMPORTANT: The plots will be uploaded to eLabFTW and need proper download URLs.

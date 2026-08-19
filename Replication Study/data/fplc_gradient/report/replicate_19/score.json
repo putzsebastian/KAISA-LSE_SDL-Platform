@@ -1,0 +1,94 @@
+{
+  "pass": true,
+  "codes": [
+    "REFERENCE_PLACEHOLDER_UNUSED",
+    "SECTION_NAMING_DIFFERS"
+  ],
+  "fatal_codes": [],
+  "findings": [
+    {
+      "code": "SECTION_NAMING_DIFFERS",
+      "requested": "2.\tStart & End-Date",
+      "detail": "content present but under no similarly-named heading"
+    },
+    {
+      "code": "REFERENCE_PLACEHOLDER_UNUSED",
+      "placeholders": [
+        "PLOTS_SECTION"
+      ]
+    }
+  ],
+  "requested_sections": [
+    "1.\tHeading",
+    "2.\tStart & End-Date",
+    "3.\tMethods (Describe the automated workflow)",
+    "4.\tResults (Plots)"
+  ],
+  "section_evidence": [
+    {
+      "requested": "1.\tHeading",
+      "kind": "title",
+      "satisfied": true
+    },
+    {
+      "requested": "2.\tStart & End-Date",
+      "tokens": [
+        "start",
+        "end",
+        "date"
+      ],
+      "matched": [
+        "start",
+        "end",
+        "date"
+      ],
+      "headings": [],
+      "satisfied": true
+    },
+    {
+      "requested": "3.\tMethods (Describe the automated workflow)",
+      "tokens": [
+        "methods",
+        "automated",
+        "workflow"
+      ],
+      "matched": [
+        "methods",
+        "automated",
+        "workflow"
+      ],
+      "headings": [
+        "methods",
+        "automated workflow description"
+      ],
+      "satisfied": true
+    },
+    {
+      "requested": "4.\tResults (Plots)",
+      "tokens": [
+        "results",
+        "plots"
+      ],
+      "matched": [
+        "results",
+        "plots"
+      ],
+      "headings": [
+        "results"
+      ],
+      "satisfied": true
+    }
+  ],
+  "candidate_sections": [
+    "experiment information",
+    "methods",
+    "automated workflow description",
+    "run parameters",
+    "results",
+    "\u00e4kta chromatogram"
+  ],
+  "candidate_placeholders": 20,
+  "reference_placeholders": 21,
+  "parameter_set_size": 19,
+  "selected_plots": 1
+}

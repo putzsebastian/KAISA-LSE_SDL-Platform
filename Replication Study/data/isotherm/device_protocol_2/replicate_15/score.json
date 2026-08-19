@@ -1,0 +1,11 @@
+{
+  "pass": false,
+  "codes": [
+    "SIM_FAILED"
+  ],
+  "systematic_multiples": null,
+  "destinations_matched": null,
+  "destinations_total": null,
+  "candidate_error": "RuntimeError [line 119]: Invalid target for multichannel transfer: [Location(point=Point(x=14.155, y=67.305, z=78.375), labware=B1 of Cytiva AcroPrep Advance 96-Well Filterplate 1ml on Heater-Shaker M",
+  "comparator": "destinations"
+}

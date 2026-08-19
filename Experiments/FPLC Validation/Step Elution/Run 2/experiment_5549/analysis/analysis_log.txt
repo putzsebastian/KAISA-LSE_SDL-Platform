@@ -1,0 +1,15 @@
+Return code: 0
+STDOUT:
+INFO: Loaded experiment JSON from: ../experiment_5549.json
+INFO: Fetching AKTA data for experiment 5549 from control server...
+INFO: Saved AKTA server results to: ../results/akta_results_5549.json
+INFO: Saved processed data CSV to: ../results/processed_akta_data_5549.csv
+INFO: Identified 2 peak(s).
+INFO: Saved peak table CSV to: ../results/peak_table_5549.csv
+INFO: Saved chromatogram PNG to: ../results/chromatogram_5549.png
+INFO: Saved chromatogram PDF to: ../results/chromatogram_5549.pdf
+Saved analysis results JSON to: ../results/analysis_results_5549.json
+SUCCESS: Analysis successful!
+
+STDERR:
+

@@ -1,0 +1,19 @@
+{
+  "calls": [
+    {
+      "node": "Validate Script",
+      "run_index": 0,
+      "start_ms": 1786041613582,
+      "duration_ms": 59,
+      "status": "success"
+    },
+    {
+      "node": "Save Script1",
+      "run_index": 0,
+      "start_ms": 1786041681715,
+      "duration_ms": 63,
+      "status": "success"
+    }
+  ],
+  "count": 2
+}

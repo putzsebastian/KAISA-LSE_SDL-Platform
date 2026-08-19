@@ -1,0 +1,9 @@
+Flow rate: 8.33e-09 m^3/s
+Starting simulation...
+Simulation finished.
+Results saved to results.json
+Chromatogram saved to chromatogram_column.png
+Dual y-axis chromatogram saved to chromatogram_dual_axis_column.png
+Inlet profile saved to inlet_profile.png
+
+Simulation completed successfully!

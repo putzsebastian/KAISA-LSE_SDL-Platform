@@ -1,0 +1,83 @@
+{
+  "_comment": "Live n8n Paper-3 agents. webhook = path registered in n8n; workflow_id = n8n id; mode = how the artifact comes back. Verified 2026-08-05.",
+  "n8n_base_url": "http://localhost:5678",
+  "callback_host": "host.docker.internal",
+  "callback_port": 8765,
+  "container_scratch_root": "/app/data/replication/scratch",
+  "host_scratch_root": "main-app/data/replication/scratch",
+  "agents": {
+    "device_protocol": {
+      "webhook": "opentrons-ai-lab167-p3",
+      "workflow_id": "platform-id-08",
+      "workflow_name": "Device Protocol Agent Paper 3 Lab 167",
+      "mode": "callback",
+      "artifact_ext": ".py",
+      "tool_nodes": [
+        "OT_Script_Simulation",
+        "Get_Opentrons_API_Info"
+      ],
+      "artifact_node": "Edit Fields1"
+    },
+    "orchestration": {
+      "webhook": "workflow-generator-lab167-p3",
+      "workflow_id": "platform-id-03",
+      "workflow_name": "Orchestration Agent 167 Paper 3",
+      "mode": "sync",
+      "artifact_key": "script_content",
+      "artifact_ext": ".py",
+      "tool_nodes": [
+        "Validate Script",
+        "Save Script1"
+      ]
+    },
+    "analysis": {
+      "webhook": "evaluation-script-generator-p3",
+      "workflow_id": "platform-id-05",
+      "workflow_name": "Data analysis Agent Paper 3",
+      "mode": "sync",
+      "artifact_key": "script_content",
+      "artifact_ext": ".py",
+      "tool_nodes": [
+        "Validate Script",
+        "Validate Script1",
+        "Save_Script",
+        "Save_Script1"
+      ]
+    },
+    "report": {
+      "webhook": "report-generator-p3",
+      "workflow_id": "platform-id-06",
+      "workflow_name": "Report Agent Paper 3",
+      "mode": "sync",
+      "artifact_key": "template_content",
+      "artifact_ext": ".html",
+      "tool_nodes": [
+        "Validate_Script",
+        "Save_Script"
+      ]
+    },
+    "database": {
+      "webhook": "generate-db-schema-p3",
+      "workflow_id": "platform-id-07",
+      "workflow_name": "Database Agent Paper 3",
+      "mode": "sync",
+      "artifact_key": "commit_script",
+      "artifact_ext": ".py",
+      "tool_nodes": [
+        "Validate Script"
+      ]
+    },
+    "orchestration_lab168": {
+      "webhook": "workflow-generator-lab168-p3",
+      "workflow_id": "platform-id-04",
+      "workflow_name": "Orchestration Agent Lab 168 Paper 3",
+      "mode": "sync",
+      "artifact_key": "script_content",
+      "artifact_ext": ".py",
+      "tool_nodes": [
+        "Validate Script",
+        "Save Script1"
+      ]
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "name": "flow_sheet",
+  "units": [
+    {
+      "id": 1,
+      "name": "inlet",
+      "type": "Inlet",
+      "transport_model": null,
+      "binding_model": null
+    },
+    {
+      "id": 2,
+      "name": "column",
+      "type": "Column",
+      "transport_model": "LumpedRateModelWithPores",
+      "binding_model": "MobilePhaseModulator"
+    },
+    {
+      "id": 3,
+      "name": "dead_volume",
+      "type": "TubularReactor",
+      "transport_model": null,
+      "binding_model": null
+    },
+    {
+      "id": 4,
+      "name": "outlet",
+      "type": "Outlet",
+      "transport_model": null,
+      "binding_model": null
+    }
+  ],
+  "connections": [
+    {
+      "from": "inlet",
+      "to": "dead_volume"
+    },
+    {
+      "from": "column",
+      "to": "outlet"
+    },
+    {
+      "from": "dead_volume",
+      "to": "column"
+    }
+  ],
+  "inlets": [
+    "inlet"
+  ],
+  "outlets": [
+    "outlet"
+  ]
+}

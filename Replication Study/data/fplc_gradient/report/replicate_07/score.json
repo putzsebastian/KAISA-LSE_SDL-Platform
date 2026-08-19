@@ -1,0 +1,91 @@
+{
+  "pass": true,
+  "codes": [
+    "REFERENCE_PLACEHOLDER_UNUSED"
+  ],
+  "fatal_codes": [],
+  "findings": [
+    {
+      "code": "REFERENCE_PLACEHOLDER_UNUSED",
+      "placeholders": [
+        "PLOTS_SECTION"
+      ]
+    }
+  ],
+  "requested_sections": [
+    "1.\tHeading",
+    "2.\tStart & End-Date",
+    "3.\tMethods (Describe the automated workflow)",
+    "4.\tResults (Plots)"
+  ],
+  "section_evidence": [
+    {
+      "requested": "1.\tHeading",
+      "kind": "title",
+      "satisfied": true
+    },
+    {
+      "requested": "2.\tStart & End-Date",
+      "tokens": [
+        "start",
+        "end",
+        "date"
+      ],
+      "matched": [
+        "start",
+        "end",
+        "date"
+      ],
+      "headings": [
+        "2. start &amp; end date"
+      ],
+      "satisfied": true
+    },
+    {
+      "requested": "3.\tMethods (Describe the automated workflow)",
+      "tokens": [
+        "methods",
+        "automated",
+        "workflow"
+      ],
+      "matched": [
+        "methods",
+        "automated",
+        "workflow"
+      ],
+      "headings": [
+        "3. methods",
+        "3.1 automated workflow description"
+      ],
+      "satisfied": true
+    },
+    {
+      "requested": "4.\tResults (Plots)",
+      "tokens": [
+        "results",
+        "plots"
+      ],
+      "matched": [
+        "results",
+        "plots"
+      ],
+      "headings": [
+        "4. results"
+      ],
+      "satisfied": true
+    }
+  ],
+  "candidate_sections": [
+    "1. experiment information",
+    "2. start &amp; end date",
+    "3. methods",
+    "3.1 automated workflow description",
+    "3.2 run parameters (available placeholders)",
+    "4. results",
+    "4.1 chromatogram"
+  ],
+  "candidate_placeholders": 20,
+  "reference_placeholders": 21,
+  "parameter_set_size": 19,
+  "selected_plots": 1
+}

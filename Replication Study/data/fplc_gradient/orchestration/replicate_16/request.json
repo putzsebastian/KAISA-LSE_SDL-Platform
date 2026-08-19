@@ -1,0 +1,73 @@
+{
+  "workflow_type": "master_script_generation",
+  "process_id": 36,
+  "process_name": "ÄKTA - Gradient Elution",
+  "process_type": "automated",
+  "autonomous_context": "",
+  "workflow_data": {
+    "type": "steps",
+    "content": [
+      {
+        "device": "Utility",
+        "method": "Pause",
+        "params": {
+          "message": "Manually fill sample loop"
+        }
+      },
+      {
+        "device": "AKTA Pure",
+        "method": "Run Protocol",
+        "params": {
+          "akta_phases": [],
+          "sample_signals": [
+            "uv1",
+            "cond"
+          ],
+          "sample_time": 1
+        }
+      }
+    ]
+  },
+  "protocol_files": [
+    {
+      "workflow_step_number": 2,
+      "protocol_step_number": 1,
+      "device": "AKTA Pure",
+      "method": "Run Protocol",
+      "filename": "Template_387_AKTA_Protocol_1.py",
+      "relative_path": "protocols/Template_387_AKTA_Protocol_1.py",
+      "full_path": "/app/processes/automated/AKTA_-_Gradient_Elution_20260326_100607_36/protocols/Template_387_AKTA_Protocol_1.py",
+      "full_path_normalized": "/app/processes/automated/AKTA_-_Gradient_Elution_20260326_100607_36/protocols/Template_387_AKTA_Protocol_1.py",
+      "device_type": "akta",
+      "file_type": "python",
+      "parameters": {
+        "akta_phases": [],
+        "sample_signals": [
+          "uv1",
+          "cond"
+        ],
+        "sample_time": 1
+      }
+    }
+  ],
+  "process_folder_path": "/app/data/replication/batches/<run>/replicate_016",
+  "protocols_folder": "/app/data/replication/batches/<run>/replicate_016/protocols",
+  "user_id": 1,
+  "username": "sebastianputz",
+  "timestamp": "2026-08-11T16:34:10.958626+00:00",
+  "lab_id": "168",
+  "sampler": null,
+  "granularity": null,
+  "ms_batch_config": null,
+  "devices_used": [
+    "AKTA Pure"
+  ],
+  "instrument_directive": "",
+  "metadata": {
+    "elab_api_base": "https://eln.example.org",
+    "template_id": "387",
+    "confirmed_protocols": [
+      "akta-0"
+    ]
+  }
+}

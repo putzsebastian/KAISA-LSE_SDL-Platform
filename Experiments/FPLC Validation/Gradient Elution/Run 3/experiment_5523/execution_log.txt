@@ -1,0 +1,38 @@
+Command: /opt/conda/envs/sdl-app/bin/python /app/experiments/experiment_5523/main.py 5523 387 --ur5-ip <UR5_IP> --opentrons-ip <OPENTRONS_IP> --ur10-ip <UR10_IP>
+Return code: 0
+STDOUT:
+Starting experiment execution for ID: 5523, Template ID: 387
+ [COMPLETED] Protocol_Validation: Protocol files validated
+Protocol files validated
+Loaded experiment parameters (example):
+  Number of Samples: 1
+  Incubation Time: 0s
+Step 1: Connecting to AKTA and setting injection valve to waste...
+ [COMPLETED] AKTA_Valve_Waste: Injection valve set to waste position
+Step 2: Waiting for user to connect syringe...
+ PAUSED: Connect syringe to the AKTA injection port, then press Resume
+ [PAUSED] Pause: Connect syringe to the AKTA injection port, then press Resume
+ Pause registered in system. Waiting for user to resume via UI...
+ User resumed execution via UI
+ [RUNNING] Pause_Resume: User resumed execution via UI
+Step 3: Setting injection valve to manual load...
+ [COMPLETED] AKTA_Valve_Load: Injection valve set to manual load position
+Step 4: Waiting for user to fill sample loop...
+ PAUSED: Fill the sample loop with the syringe, then press Resume
+ [PAUSED] Pause: Fill the sample loop with the syringe, then press Resume
+ Pause registered in system. Waiting for user to resume via UI...
+ User resumed execution via UI
+ [RUNNING] Pause_Resume: User resumed execution via UI
+Step 5: Running AKTA Pure protocol...
+ [RUNNING] AKTA_Run_Protocol: Starting AKTA chromatography run
+ [COMPLETED] AKTA_Run_Protocol: ÄKTA chromatography run completed
+AKTA chromatography run completed.
+ÄKTA results data saved to /app/experiments/experiment_5523/results/akta_results_5523.json
+ [COMPLETED] Experiment_Completion: Experiment 5523 completed successfully!
+Experiment 5523 completed successfully!
+Results saved to: /app/experiments/experiment_5523/results/Experiment_5523_Results.json
+ [COMPLETED] Save_Results: Results saved to: /app/experiments/experiment_5523/results/Experiment_5523_Results.json
+Experiment execution completed!
+
+STDERR:
+

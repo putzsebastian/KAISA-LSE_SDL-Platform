@@ -1,0 +1,98 @@
+{
+  "pass": true,
+  "codes": [
+    "SECTION_NAMING_DIFFERS"
+  ],
+  "fatal_codes": [],
+  "findings": [
+    {
+      "code": "SECTION_NAMING_DIFFERS",
+      "requested": "Start & End-Date",
+      "detail": "content present but under no similarly-named heading"
+    }
+  ],
+  "requested_sections": [
+    "Heading",
+    "Start & End-Date",
+    "Methods (Describe the automated workflow)",
+    "Results (Plots)"
+  ],
+  "section_evidence": [
+    {
+      "requested": "Heading",
+      "kind": "title",
+      "satisfied": true
+    },
+    {
+      "requested": "Start & End-Date",
+      "tokens": [
+        "start",
+        "end",
+        "date"
+      ],
+      "matched": [
+        "start",
+        "end",
+        "date"
+      ],
+      "headings": [],
+      "satisfied": true
+    },
+    {
+      "requested": "Methods (Describe the automated workflow)",
+      "tokens": [
+        "methods",
+        "automated",
+        "workflow"
+      ],
+      "matched": [
+        "methods",
+        "automated",
+        "workflow"
+      ],
+      "headings": [
+        "methods",
+        "overview of automated workflow",
+        "key experimental parameters"
+      ],
+      "satisfied": true
+    },
+    {
+      "requested": "Results (Plots)",
+      "tokens": [
+        "results",
+        "plots"
+      ],
+      "matched": [
+        "results",
+        "plots"
+      ],
+      "headings": [
+        "data processing",
+        "results",
+        "loading isotherms at different salt concentrations"
+      ],
+      "satisfied": true
+    }
+  ],
+  "candidate_sections": [
+    "experiment information",
+    "objective",
+    "methods",
+    "overview of automated workflow",
+    "key experimental parameters",
+    "automated equilibration of resin",
+    "automated ligand loading and incubation",
+    "filtration and collection of flow-through",
+    "preparation of measurement plate and spectrophotometric readout",
+    "data processing",
+    "results",
+    "loading isotherms at different salt concentrations",
+    "summary of experimental design",
+    "notes"
+  ],
+  "candidate_placeholders": 32,
+  "reference_placeholders": 32,
+  "parameter_set_size": 31,
+  "selected_plots": 1
+}

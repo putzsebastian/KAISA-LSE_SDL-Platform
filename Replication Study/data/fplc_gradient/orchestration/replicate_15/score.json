@@ -1,0 +1,33 @@
+{
+  "pass": true,
+  "codes": [],
+  "fatal_codes": [],
+  "findings": [],
+  "workflow_devices": [
+    "Utility",
+    "AKTA Pure"
+  ],
+  "workflow_steps": 2,
+  "reference_calls": 2,
+  "candidate_calls": 2,
+  "reference_lifecycle": {
+    "akta": [
+      "disconnect"
+    ],
+    "tecan": [
+      "disconnect"
+    ]
+  },
+  "candidate_lifecycle": {
+    "akta": [
+      "disconnect"
+    ],
+    "tecan": [
+      "disconnect"
+    ]
+  },
+  "devices_driven": [
+    "AKTA Pure",
+    "Utility"
+  ]
+}

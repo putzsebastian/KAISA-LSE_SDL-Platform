@@ -1,0 +1,35 @@
+{
+  "process_name": "3 Comp - Gradient Elution - MPM",
+  "process_type": "cadet_simulation",
+  "process_id": 14,
+  "n_components": 3,
+  "workflow": {
+    "type": "cadet_simulation",
+    "steps": [
+      {
+        "step": "load_parameters",
+        "description": "Load parameters from experiment metadata"
+      },
+      {
+        "step": "build_model",
+        "description": "Build CADET-Process model"
+      },
+      {
+        "step": "run_simulation",
+        "description": "Execute CADET simulation"
+      },
+      {
+        "step": "save_results",
+        "description": "Save simulation results"
+      },
+      {
+        "step": "generate_plots",
+        "description": "Generate visualization plots"
+      }
+    ]
+  },
+  "visualizations": [
+    "chromatogram",
+    "inlet_profile"
+  ]
+}

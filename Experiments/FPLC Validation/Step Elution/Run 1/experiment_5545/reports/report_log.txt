@@ -1,0 +1,107 @@
+Return code: 0
+STDOUT:
+Generating report for experiment 5545
+Template fields configured: 16
+Selected plots: 1
+SUCCESS: Loaded template: /app/experiments/experiment_5545/reports/report_template_388.html
+Loading experiment data from eLabFTW...
+INFO: Getting experiment data from: https://<ELAB_HOST>/api/v2/experiments/5545
+INFO: Using API token: 4-609da19a3a54e6518c...
+INFO: Response status: 200
+SUCCESS: Successfully retrieved experiment data (title: ÄKTA - Two Step Elution - Ovalbumin Transferrin - 650mM NaCl 3.5 CV, 1600 mM NaCl 6 CV)
+Extracting field values...
+Extracted 20 field values from eLabFTW
+  CIP_2_HOLD_DURATION: 600
+  CIP_3_DURATION: 462
+  CIP_4_DURATION: 577
+  CIP_5_DURATION: 462
+  CIP_DURATION: 692
+  ELUTE_ISOCRATIC_2_DURATION: 692
+  ELUTE_ISOCRATIC_2_PERCENT_B: 80
+  ELUTE_ISOCRATIC_DURATION: 404
+  ELUTE_ISOCRATIC_PERCENT_B: 32.5
+  EQUILIBRATION_DURATION: 600
+  EQUILIBRATION_FLOW_RATE: 0.5
+  LOAD_INJECT_DURATION: 150
+  LOAD_INJECT_FLOW_RATE: 0.2
+  PROCESS_ID: 37
+  WASH_DURATION: 346
+  WASH_FLOW_RATE: 0.5
+  EXPERIMENT_ID: 5545
+  EXPERIMENT_TITLE: ÄKTA - Two Step Elution - Ovalbumin Transferrin - 650mM NaCl 3.5 CV, 1600 mM NaCl 6 CV
+  EXPERIMENT_DATE: 2026-05-20
+  REPORT_DATE: 2026-05-20 14:40:42
+Loading analysis results...
+Loaded analysis results from: ../results/analysis_results_5545.json
+Finding selected plot files...
+Looking for 1 selected plots in ../results
+  Searching for plot 1: chromatogram_{ID}.png
+    Found with pattern 'chromatogram_5545.png': ../results/chromatogram_5545.png
+Found 1/1 selected plots
+Creating plots section with eLabFTW longnames...
+Uploaded chromatogram_5545.png to eLabFTW
+Retrieved longname for chromatogram_5545.png: f3/f30133eafff030f60f95ac420b2621825783b9b96f14b8a2874d1efe05eb731544e4dd4f4353365670fc6f981d414b66160d2b4e0f2aebe29b3d8c35e797f3fa.png
+Uploaded chromatogram_5545.png to eLabFTW
+Retrieved longname for chromatogram_5545.png: 8d/8de44e07cd752086551bae2aab94f72934105b8b5b3a0dfdbd5c3da5461aae101e1c56ead44cdfd6dd0e80d571783ceebf38443ebe17d1ee1ea3a93c2b692bbf.png
+Including analysis results: ['experiment_id', 'status', 'message', 'plots', 'data_outputs', 'metadata', 'files_processed', 'peak_count', 'peaks', 'signal_summary']
+Replacing 32 placeholders...
+  CIP_2_HOLD_DURATION -> 600
+  CIP_3_DURATION -> 462
+  CIP_4_DURATION -> 577
+  CIP_5_DURATION -> 462
+  CIP_DURATION -> 692
+  ELUTE_ISOCRATIC_2_DURATION -> 692
+  ELUTE_ISOCRATIC_2_PERCENT_B -> 80
+  ELUTE_ISOCRATIC_DURATION -> 404
+  ELUTE_ISOCRATIC_PERCENT_B -> 32.5
+  EQUILIBRATION_DURATION -> 600
+  EQUILIBRATION_FLOW_RATE -> 0.5
+  LOAD_INJECT_DURATION -> 150
+  LOAD_INJECT_FLOW_RATE -> 0.2
+  PROCESS_ID -> 37
+  WASH_DURATION -> 346
+  WASH_FLOW_RATE -> 0.5
+  EXPERIMENT_ID -> 5545
+  EXPERIMENT_TITLE -> ÄKTA - Two Step Elution - Ovalbumin Transferrin - ...
+  EXPERIMENT_DATE -> 2026-05-20
+  REPORT_DATE -> 2026-05-20 14:40:42
+  PLOTS_SECTION -> 
+                <div class="plot-container" id="p...
+  PLOT_1 -> <img src="app/download.php?name=chromatogram_5545....
+Made 22 placeholder replacements
+Uploading additional files to eLabFTW...
+Uploaded additional file: akta_results_5545.json
+Uploaded additional file: analysis_results_5545.json
+Uploaded additional file: Experiment_5545_Results.json
+Uploaded additional file: processed_akta_data_5545.csv
+Uploaded additional file: peak_table_5545.csv
+Uploaded additional file: chromatogram_5545.pdf
+Updating experiment body in eLabFTW...
+INFO: Testing eLabFTW connection to: https://<ELAB_HOST>
+INFO: API token starts with: 4-609da19a3a54e6518c...
+INFO: Experiment ID: 5545
+INFO: GET test status: 200
+INFO: Updating experiment body (length: 5623 characters)
+INFO: PATCH response status: 200
+SUCCESS: Updated experiment 5545 with report
+
+Report generation complete!
+   Local report: ../results/report_5545.html
+   Template fields: 16
+   Selected plots: 1 (1 found)
+   Plot files uploaded: 1
+   Additional files uploaded: 6
+   Placeholders replaced: 22
+   eLabFTW: https://<ELAB_HOST>/experiments/view/5545
+
+Success!
+   Experiment: 5545
+   Template fields: 16
+   Selected plots: 1 (1 found)
+   Plot files uploaded: 1
+   Additional files uploaded: 6
+   Total files uploaded: 7
+   Placeholders replaced: 22
+
+STDERR:
+

@@ -1,0 +1,10 @@
+{
+  "experiment": "model_comparison",
+  "artifact": "protocol_4/gpt-5-nano",
+  "comparator": "destinations (net volume per destination well)",
+  "protocol": "4",
+  "replicates": 20,
+  "passed": 11,
+  "model": "gpt-5-nano",
+  "prompt": "the corrected prompt"
+}

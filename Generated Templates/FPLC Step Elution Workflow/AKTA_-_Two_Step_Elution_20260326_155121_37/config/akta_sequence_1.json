@@ -1,0 +1,207 @@
+{
+  "phases": [
+    {
+      "type": "equilibration",
+      "name": "Equilibration",
+      "flow_rate": {
+        "type": "placeholder",
+        "param": "EQUILIBRATION_FLOW_RATE"
+      },
+      "percent_b": {
+        "type": "fixed",
+        "value": 0
+      },
+      "duration": {
+        "type": "placeholder",
+        "param": "EQUILIBRATION_DURATION"
+      },
+      "auto_zero": true,
+      "hold": false,
+      "inlet_a": 1,
+      "inlet_b": 1
+    },
+    {
+      "type": "load",
+      "name": "Load / Inject",
+      "flow_rate": {
+        "type": "placeholder",
+        "param": "LOAD_INJECT_FLOW_RATE"
+      },
+      "percent_b": {
+        "type": "fixed",
+        "value": 0
+      },
+      "duration": {
+        "type": "placeholder",
+        "param": "LOAD_INJECT_DURATION"
+      },
+      "inject": true,
+      "auto_zero": false,
+      "hold": false,
+      "inlet_a": 1,
+      "inlet_b": 1
+    },
+    {
+      "type": "wash",
+      "name": "Wash",
+      "flow_rate": {
+        "type": "placeholder",
+        "param": "WASH_FLOW_RATE"
+      },
+      "percent_b": {
+        "type": "fixed",
+        "value": 0
+      },
+      "duration": {
+        "type": "placeholder",
+        "param": "WASH_DURATION"
+      },
+      "auto_zero": false,
+      "hold": false,
+      "inlet_a": 1,
+      "inlet_b": 1
+    },
+    {
+      "type": "isocratic",
+      "name": "Elute (Isocratic) 1",
+      "flow_rate": {
+        "type": "same_as_previous"
+      },
+      "percent_b": {
+        "type": "placeholder",
+        "param": "ELUTE_ISOCRATIC_PERCENT_B"
+      },
+      "duration": {
+        "type": "placeholder",
+        "param": "ELUTE_ISOCRATIC_DURATION"
+      },
+      "auto_zero": false,
+      "hold": false,
+      "inlet_a": 1,
+      "inlet_b": 1
+    },
+    {
+      "type": "isocratic",
+      "name": "Elute (Isocratic) 2",
+      "flow_rate": {
+        "type": "same_as_previous"
+      },
+      "percent_b": {
+        "type": "placeholder",
+        "param": "ELUTE_ISOCRATIC_2_PERCENT_B"
+      },
+      "duration": {
+        "type": "placeholder",
+        "param": "ELUTE_ISOCRATIC_2_DURATION"
+      },
+      "auto_zero": false,
+      "hold": false,
+      "inlet_a": 1,
+      "inlet_b": 1
+    },
+    {
+      "type": "cip",
+      "name": "CIP High Salt",
+      "flow_rate": {
+        "type": "same_as_previous"
+      },
+      "percent_b": {
+        "type": "fixed",
+        "value": 100
+      },
+      "duration": {
+        "type": "placeholder",
+        "param": "CIP_DURATION"
+      },
+      "auto_zero": false,
+      "hold": false,
+      "inlet_a": 1,
+      "inlet_b": 1
+    },
+    {
+      "type": "cip",
+      "name": "CIP NaOH",
+      "flow_rate": {
+        "type": "same_as_previous"
+      },
+      "percent_b": {
+        "type": "fixed",
+        "value": 0
+      },
+      "duration": {
+        "type": "fixed",
+        "value": 300
+      },
+      "auto_zero": false,
+      "hold": true,
+      "hold_duration": {
+        "type": "placeholder",
+        "param": "CIP_2_HOLD_DURATION"
+      },
+      "inlet_a": 2,
+      "inlet_b": 1
+    },
+    {
+      "type": "cip",
+      "name": "CIP H2O 1",
+      "flow_rate": {
+        "type": "same_as_previous"
+      },
+      "percent_b": {
+        "type": "fixed",
+        "value": 100
+      },
+      "duration": {
+        "type": "placeholder",
+        "param": "CIP_3_DURATION"
+      },
+      "auto_zero": false,
+      "hold": false,
+      "inlet_a": 1,
+      "inlet_b": 2
+    },
+    {
+      "type": "cip",
+      "name": "CIP HCl",
+      "flow_rate": {
+        "type": "same_as_previous"
+      },
+      "percent_b": {
+        "type": "fixed",
+        "value": 0
+      },
+      "duration": {
+        "type": "placeholder",
+        "param": "CIP_4_DURATION"
+      },
+      "auto_zero": false,
+      "hold": false,
+      "inlet_a": 3,
+      "inlet_b": 1
+    },
+    {
+      "type": "cip",
+      "name": "CIP H2O 2",
+      "flow_rate": {
+        "type": "same_as_previous"
+      },
+      "percent_b": {
+        "type": "fixed",
+        "value": 100
+      },
+      "duration": {
+        "type": "placeholder",
+        "param": "CIP_5_DURATION"
+      },
+      "auto_zero": false,
+      "hold": false,
+      "inlet_a": 1,
+      "inlet_b": 2
+    }
+  ],
+  "sample_signals": [
+    "uv1",
+    "cond"
+  ],
+  "sample_time": 1
+}

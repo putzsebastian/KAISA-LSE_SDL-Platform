@@ -1,0 +1,12 @@
+{
+  "calls": [
+    {
+      "node": "Validate Script",
+      "run_index": 0,
+      "start_ms": 1786531510831,
+      "duration_ms": 40,
+      "status": "success"
+    }
+  ],
+  "count": 1
+}

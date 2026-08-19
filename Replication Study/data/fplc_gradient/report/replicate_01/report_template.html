@@ -1,0 +1,113 @@
+<p><span style="font-size:18pt;"><strong>[[EXPERIMENT_TITLE]] - ÄKTA Chromatography Run Report</strong></span></p>
+<p> </p>
+<h4><span style="font-size:14pt;">1. Experiment Information</span></h4>
+<p><strong>Experiment ID:</strong> [[EXPERIMENT_ID]]</p>
+<p><strong>Process ID:</strong> [[PROCESS_ID]]</p>
+<p> </p>
+<h4><span style="font-size:14pt;">2. Start &amp; End Date</span></h4>
+<p><strong>Start Date:</strong> [[EXPERIMENT_DATE]]</p>
+<p><strong>Report / End Date:</strong> [[REPORT_DATE]]</p>
+<p> </p>
+<h4><span style="font-size:14pt;">3. Methods</span></h4>
+<h5><span style="font-size:12pt;">3.1 Overview of Automated Workflow</span></h5>
+<ul>
+<li>The experiment was performed on an ÄKTA Pure chromatography system controlled by an automated workflow.</li>
+<li>The workflow began with a manual pause step to allow the operator to fill the sample loop ("Manually fill sample loop").</li>
+<li>After the loop was filled, the run was resumed and the automated ÄKTA protocol was started.</li>
+<li>Sample detection signals recorded during the run included UV (uv1) and conductivity (cond).</li>
+<li>Sample data were collected with a sampling time of 1 second.</li>
+</ul>
+<h5><span style="font-size:12pt;">3.2 Chromatography Run Parameters (Available Placeholders)</span></h5>
+<p>The following run parameters are available as placeholders in this template:</p>
+<table style="border-collapse:collapse;width:99.9866%;" border="1">
+<tr>
+<th style="height:22.3828px;">Parameter</th>
+<th style="height:22.3828px;">Placeholder</th>
+<th style="height:22.3828px;">Description</th>
+</tr>
+<tr>
+<td style="height:22.3828px;">Process ID</td>
+<td style="height:22.3828px;">[[PROCESS_ID]]</td>
+<td style="height:22.3828px;">Identifier of the automated chromatography process / workflow.</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Equilibration duration</td>
+<td style="height:22.3828px;">[[EQUILIBRATION_DURATION]]</td>
+<td style="height:22.3828px;">Time for column equilibration before sample loading.</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Equilibration flow rate</td>
+<td style="height:22.3828px;">[[EQUILIBRATION_FLOW_RATE]]</td>
+<td style="height:22.3828px;">Flow rate used during column equilibration.</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Load/inject duration</td>
+<td style="height:22.3828px;">[[LOAD_INJECT_DURATION]]</td>
+<td style="height:22.3828px;">Total time used for loading and/or injecting the sample.</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Load/inject flow rate</td>
+<td style="height:22.3828px;">[[LOAD_INJECT_FLOW_RATE]]</td>
+<td style="height:22.3828px;">Flow rate used during sample loading/injection.</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Elution gradient duration</td>
+<td style="height:22.3828px;">[[ELUTE_GRADIENT_DURATION]]</td>
+<td style="height:22.3828px;">Total duration of the elution gradient.</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Elution gradient start</td>
+<td style="height:22.3828px;">[[ELUTE_GRADIENT_GRADIENT_START]]</td>
+<td style="height:22.3828px;">Starting composition of the elution gradient (e.g. %B).</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Elution gradient end</td>
+<td style="height:22.3828px;">[[ELUTE_GRADIENT_GRADIENT_END]]</td>
+<td style="height:22.3828px;">Final composition of the elution gradient (e.g. %B).</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Wash duration</td>
+<td style="height:22.3828px;">[[WASH_DURATION]]</td>
+<td style="height:22.3828px;">Duration of the post-elution wash step.</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Wash flow rate</td>
+<td style="height:22.3828px;">[[WASH_FLOW_RATE]]</td>
+<td style="height:22.3828px;">Flow rate used during the wash step.</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">CIP duration</td>
+<td style="height:22.3828px;">[[CIP_DURATION]]</td>
+<td style="height:22.3828px;">Overall duration of the main CIP (clean-in-place) step.</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">CIP 2 hold duration</td>
+<td style="height:22.3828px;">[[CIP_2_HOLD_DURATION]]</td>
+<td style="height:22.3828px;">Hold time during the second CIP phase.</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">CIP 3 duration</td>
+<td style="height:22.3828px;">[[CIP_3_DURATION]]</td>
+<td style="height:22.3828px;">Duration of the third CIP phase.</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">CIP 4 duration</td>
+<td style="height:22.3828px;">[[CIP_4_DURATION]]</td>
+<td style="height:22.3828px;">Duration of the fourth CIP phase.</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">CIP 5 duration</td>
+<td style="height:22.3828px;">[[CIP_5_DURATION]]</td>
+<td style="height:22.3828px;">Duration of the fifth CIP phase.</td>
+</tr>
+</table>
+<p> </p>
+<h4><span style="font-size:14pt;">4. Results</span></h4>
+<h5><span style="font-size:12pt;">4.1 Chromatogram</span></h5>
+[[PLOT_1]]
+<p><em>Figure 1: ÄKTA chromatogram (UV and conductivity signals over time/volume) for process [[PROCESS_ID]]. The chromatogram image file (e.g. chromatogram_{ID}.png) should be uploaded to eLabFTW and its download URL inserted in place of [[PLOT_1]].</em></p>
+<ul>
+<li>Review peak shape, retention times, and resolution between peaks.</li>
+<li>Compare UV (uv1) and conductivity (cond) traces to verify expected column behavior.</li>
+<li>Verify that equilibration, loading, wash, elution, and CIP segments correspond to the programmed parameters listed above.</li>
+</ul>

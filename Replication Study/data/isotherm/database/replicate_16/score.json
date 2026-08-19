@@ -1,0 +1,205 @@
+{
+  "pass": true,
+  "codes": [
+    "COLUMN_MAPPING_MISMATCH",
+    "DESCRIPTION_TEXT_DIFFERS",
+    "ROW_MISMATCH",
+    "SCHEMA_COLUMN_NAMING_DIFFERS"
+  ],
+  "fatal_codes": [],
+  "findings": [],
+  "n_findings": 0,
+  "n_prose_differences": 112,
+  "findings_by_column": [
+    {
+      "table": "experiment_executions",
+      "column": "results",
+      "code": "ROW_MISMATCH",
+      "count": 28,
+      "example": {
+        "code": "ROW_MISMATCH",
+        "table": "experiment_executions",
+        "row": 0,
+        "column": "results.analysis_files",
+        "reference": "[]",
+        "candidate": "None"
+      }
+    },
+    {
+      "table": "process_schemas",
+      "column": "metadata_schema",
+      "code": "ROW_MISMATCH",
+      "count": 25,
+      "example": {
+        "code": "ROW_MISMATCH",
+        "table": "process_schemas",
+        "row": 0,
+        "column": "metadata_schema.properties.Calibration Curve Intercept.type",
+        "reference": "number",
+        "candidate": "['number', 'string']"
+      }
+    },
+    {
+      "table": "process_schemas",
+      "column": "results_schema",
+      "code": "ROW_MISMATCH",
+      "count": 23,
+      "example": {
+        "code": "ROW_MISMATCH",
+        "table": "process_schemas",
+        "row": 0,
+        "column": "results_schema.properties.analysis_metadata",
+        "reference": "{'type': 'object', 'description': 'Metadata stored by the analysis script including concentration lists, calibration par",
+        "candidate": "None"
+      }
+    },
+    {
+      "table": "process_schemas",
+      "column": "field_mapping",
+      "code": "COLUMN_MAPPING_MISMATCH",
+      "count": 11,
+      "example": {
+        "code": "COLUMN_MAPPING_MISMATCH",
+        "table": "process_schemas",
+        "row": 0,
+        "column": "field_mapping.Buffer",
+        "reference": "buffer",
+        "candidate": "buffer_name"
+      }
+    },
+    {
+      "table": "process_schemas",
+      "column": "results_schema",
+      "code": "SCHEMA_COLUMN_NAMING_DIFFERS",
+      "count": 11,
+      "example": {
+        "code": "SCHEMA_COLUMN_NAMING_DIFFERS",
+        "table": "process_schemas",
+        "row": 0,
+        "column": "results_schema.properties.analysis_timestamp",
+        "reference": "None",
+        "candidate": "{'type': 'string', 'description': 'ISO 8601 timestamp when analysis results were collected.'}"
+      }
+    },
+    {
+      "table": "process_schemas",
+      "column": "results_schema",
+      "code": "DESCRIPTION_TEXT_DIFFERS",
+      "count": 5,
+      "example": {
+        "code": "DESCRIPTION_TEXT_DIFFERS",
+        "table": "process_schemas",
+        "row": 0,
+        "column": "results_schema.properties.analysis_status.description",
+        "reference": "Status of the analysis result collection",
+        "candidate": "Status of the analysis script for this experiment."
+      }
+    },
+    {
+      "table": "experiment_executions",
+      "column": "metadata",
+      "code": "ROW_MISMATCH",
+      "count": 3,
+      "example": {
+        "code": "ROW_MISMATCH",
+        "table": "experiment_executions",
+        "row": 0,
+        "column": "metadata.Ligand concentrations",
+        "reference": "0.2;0.5;1.0;1.5;2;5;7",
+        "candidate": "[0.2, 0.5, 1.0, 1.5, 2.0, 5.0, 7.0]"
+      }
+    },
+    {
+      "table": "process_schemas",
+      "column": "description",
+      "code": "ROW_MISMATCH",
+      "count": 1,
+      "example": {
+        "code": "ROW_MISMATCH",
+        "table": "process_schemas",
+        "row": 0,
+        "column": "description",
+        "reference": "Automated loading isotherm resin workflow using Tecan absorbance data, processed replicate and aggregated data tables, a",
+        "candidate": "None"
+      }
+    },
+    {
+      "table": "process_schemas",
+      "column": "expected_files",
+      "code": "ROW_MISMATCH",
+      "count": 1,
+      "example": {
+        "code": "ROW_MISMATCH",
+        "table": "process_schemas",
+        "row": 0,
+        "column": "expected_files.data",
+        "reference": "['analysis_results_{elab_id}.json', 'langmuir_fits_{elab_id}.csv', 'processed_aggregated_{elab_id}.csv', 'processed_repl",
+        "candidate": "['analysis_results_{elab_id}.json', 'langmuir_fit_results_{elab_id}.csv', 'loading_isotherm_summary_{elab_id}.csv', 'tec"
+      }
+    },
+    {
+      "table": "process_schemas",
+      "column": "metadata_schema",
+      "code": "SCHEMA_COLUMN_NAMING_DIFFERS",
+      "count": 1,
+      "example": {
+        "code": "SCHEMA_COLUMN_NAMING_DIFFERS",
+        "table": "process_schemas",
+        "row": 0,
+        "column": "metadata_schema.properties.Shaker Speed Incubation.unit",
+        "reference": "None",
+        "candidate": "rpm"
+      }
+    },
+    {
+      "table": "experiment_executions",
+      "column": "comments",
+      "code": "ROW_MISMATCH",
+      "count": 1,
+      "example": {
+        "code": "ROW_MISMATCH",
+        "table": "experiment_executions",
+        "row": 0,
+        "column": "comments",
+        "reference": "<p style=\"line-height:1;\">\u00a0</p>\n<p>\u00a0</p>",
+        "candidate": "None"
+      }
+    },
+    {
+      "table": "experiment_executions",
+      "column": "completed_at",
+      "code": "ROW_MISMATCH",
+      "count": 1,
+      "example": {
+        "code": "ROW_MISMATCH",
+        "table": "experiment_executions",
+        "row": 0,
+        "column": "completed_at",
+        "reference": "2026-03-27T13:00:49",
+        "candidate": "None"
+      }
+    },
+    {
+      "table": "experiment_executions",
+      "column": "started_at",
+      "code": "ROW_MISMATCH",
+      "count": 1,
+      "example": {
+        "code": "ROW_MISMATCH",
+        "table": "experiment_executions",
+        "row": 0,
+        "column": "started_at",
+        "reference": "2026-03-27T00:00:00",
+        "candidate": "None"
+      }
+    }
+  ],
+  "reference_rows": {
+    "process_schemas": 1,
+    "experiment_executions": 1
+  },
+  "candidate_rows": {
+    "process_schemas": 1,
+    "experiment_executions": 1
+  }
+}

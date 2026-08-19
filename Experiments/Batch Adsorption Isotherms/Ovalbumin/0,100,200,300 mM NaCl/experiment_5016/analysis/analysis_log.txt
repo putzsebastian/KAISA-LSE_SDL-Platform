@@ -1,0 +1,14 @@
+Return code: 0
+STDOUT:
+INFO: Loading experiment data JSON from: ../experiment_5016.json
+INFO: Fetching Tecan data for experiment 5016 from device control server...
+INFO: Expecting columns (replicates x salts): 3 x 4 = 12
+SUCCESS: Saved processed replicates CSV to: ../results/processed_replicates_5016.csv
+SUCCESS: Saved processed aggregated CSV to: ../results/processed_aggregated_5016.csv
+SUCCESS: Saved Langmuir fit parameters CSV to: ../results/langmuir_fits_5016.csv
+SUCCESS: Saved isotherm plots to: ../results/loading_isotherms_5016.png and ../results/loading_isotherms_5016.pdf
+SUCCESS: Saved analysis results JSON to: ../results/analysis_results_5016.json
+SUCCESS: Analysis successful!
+
+STDERR:
+

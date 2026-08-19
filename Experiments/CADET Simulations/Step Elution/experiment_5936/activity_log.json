@@ -1,0 +1,25 @@
+{
+  "experiment_id": "5936",
+  "experiment_name": "3 Comp - Two Step Elution - CIP - MPM - 2026-08-17",
+  "process_id": "62",
+  "created_at": "2026-08-17T13:03:18.818631",
+  "user": "sebastianputz",
+  "status": "completed",
+  "activities": [
+    {
+      "timestamp": "2026-08-17T13:03:18.818708",
+      "action": "experiment_created",
+      "details": "Experiment created via Execution Wizard Step 6"
+    },
+    {
+      "timestamp": "2026-08-17T13:03:23.136229",
+      "action": "simulation_started",
+      "details": "Simulation started with timeout=300s"
+    },
+    {
+      "timestamp": "2026-08-17T13:03:37.007641",
+      "action": "simulation_completed",
+      "details": "Completed in 13.87s"
+    }
+  ]
+}

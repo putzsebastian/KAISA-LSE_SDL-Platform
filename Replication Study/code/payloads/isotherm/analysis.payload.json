@@ -1,0 +1,217 @@
+{
+  "workflow_type": "evaluation_script_generation",
+  "prompt": "\n\nUSER ANALYSIS REQUIREMENTS:\nGenerate a Python data analysis script with the following requirements:\r\n\r\nSCRIPT USAGE CONTEXT:\r\n**IMPORTANT**: This script will be called programmatically from an external endpoint/system with specific parameters. The script must be designed for:\r\n- ✅ External execution via command line or function calls\r\n- ✅ Robust error handling with informative messages  \r\n- ✅ Structured output (JSON results + files)\r\n- ✅ Flexible parameter handling (experiment ID, paths)\r\n- ✅ Both standalone and importable functionality\r\n\r\nEXPERIMENT DATA ACCESS:\r\nThe script should load experiment data from a JSON file using:\r\n```python\r\nimport json\r\nimport sys\r\nimport argparse\r\nfrom pathlib import Path\r\n\r\n# Accept experiment ID as parameter (command line or function argument)\r\ndef analyze_experiment(experiment_id=None, data_folder='../data', results_folder='../results'):\r\n    # Auto-detect experiment ID if not provided\r\n    if experiment_id is None:\r\n        if len(sys.argv) > 1:\r\n            experiment_id = sys.argv[1]\r\n        else:\r\n            # Auto-detect from most recent file or raise error\r\n            pass\r\n    \r\n    # Load experiment data with proper error handling\r\n    data_file_path = Path(data_folder) / f'experiment_{experiment_id}.json'\r\n    try:\r\n        with open(data_file_path, 'r') as f:\r\n            experiment_data = json.load(f)\r\n    except FileNotFoundError:\r\n        raise FileNotFoundError(f\"Data file not found: {data_file_path}\")\r\n    except json.JSONDecodeError as e:\r\n        raise ValueError(f\"Invalid JSON format: {e}\")\r\n\r\n# Access eLabFTW extra fields with error handling:\r\ntry:\r\n    metadata = experiment_data['metadata_decoded']['extra_fields']\r\n    # Available eLabFTW fields from template:\r\n    # Buffer: metadata['Buffer']['value']\r\n    # Salt Name: metadata['Salt Name']['value']\r\n    # Process ID: metadata['Process ID']['value']\r\n    # Pump Speed: metadata['Pump Speed']['value']\r\n    # Replicates: metadata['Replicates']['value']\r\n    # Resin Mass: metadata['Resin Mass']['value']\r\n    # Ligand Name: metadata['Ligand Name']['value']\r\n    # Total volume: metadata['Total volume']['value']\r\n    # Venting time: metadata['Venting time']['value']\r\n    # Pump Duration: metadata['Pump Duration']['value']\r\n    # Incubation Time: metadata['Incubation Time']['value']\r\n    # Salt concentrations: metadata['Salt concentrations']['value']\r\n    # Equilibration Cycles: metadata['Equilibration Cycles']['value']\r\n    # Equilibration Volume: metadata['Equilibration Volume']['value']\r\n    # Ligand concentrations: metadata['Ligand concentrations']['value']\r\n    # Incubation Temperature: metadata['Incubation Temperature']['value']\r\n    # Measurement Wavelength: metadata['Measurement Wavelength']['value']\r\n    # Calibration Curve Slope: metadata['Calibration Curve Slope']['value']\r\n    # Salt concentration unit: metadata['Salt concentration unit']['value']\r\n    # Shaker Speed Incubation: metadata['Shaker Speed Incubation']['value']\r\n    # Salt Stock Concentration: metadata['Salt Stock Concentration']['value']\r\n    # Ligand concentration unit: metadata['Ligand concentration unit']['value']\r\n    # Ligand Stock Concentration: metadata['Ligand Stock Concentration']['value']\r\n    # Calibration Curve Intercept: metadata['Calibration Curve Intercept']['value']\r\n    # Equilibration Cycle Duration: metadata['Equilibration Cycle Duration']['value']\r\n    # Number of salt concentrations: metadata['Number of salt concentrations']['value']\r\n    # Number of ligand concentrations: metadata['Number of ligand concentrations']['value']\r\nexcept KeyError as e:\r\n    raise KeyError(f\"Missing expected metadata field: {e}\")\r\n```\r\n\r\nREQUIRED SCRIPT STRUCTURE:\r\n```python\r\n#!/usr/bin/env python3\r\n\"\"\"\r\nAnalysis Script - [Brief Description]\r\nCan be called externally with experiment ID as parameter.\r\n\"\"\"\r\n\r\ndef analyze_experiment(experiment_id=None, data_folder='../data', results_folder='../results'):\r\n    \"\"\"\r\n    Main analysis function\r\n    \r\n    Args:\r\n        experiment_id (str): Experiment ID \r\n        data_folder (str): Path to data folder\r\n        results_folder (str): Path to results folder\r\n    \r\n    Returns:\r\n        dict: Analysis results with all key metrics\r\n    \"\"\"\r\n    # Implementation here\r\n    return results_dict\r\n\r\ndef main():\r\n    \"\"\"Command line interface\"\"\"\r\n    parser = argparse.ArgumentParser(description='Analyze experiment data')\r\n    parser.add_argument('experiment_id', nargs='?', help='Experiment ID')\r\n    parser.add_argument('--data-folder', default='../data', help='Data folder path')\r\n    parser.add_argument('--results-folder', default='../results', help='Results folder path')\r\n    \r\n    args = parser.parse_args()\r\n    \r\n    try:\r\n        results = analyze_experiment(\r\n            experiment_id=args.experiment_id,\r\n            data_folder=args.data_folder,\r\n            results_folder=args.results_folder\r\n        )\r\n        print(f\"✅ Analysis successful!\")\r\n        return 0\r\n    except Exception as e:\r\n        print(f\"❌ Analysis failed: {e}\")\r\n        return 1\r\n\r\nif __name__ == \"__main__\":\r\n    sys.exit(main())\r\n```\r\n\r\nFOLDER STRUCTURE & FILE HANDLING:\r\n- **protocols/** folder: Contains protocol files (Python, XML)\r\n- **data/** folder: Contains experimental output data (experiment_[ID].json files)\r\n- **results/** folder: Save ALL analysis outputs here\r\n- **analysis/** folder: Current script location\r\n\r\nOUTPUT REQUIREMENTS:\r\n1. **Save results as JSON**: Include all key metrics, file paths, metadata\r\n2. **Generate plots**: Save as PNG/PDF with descriptive filenames  \r\n3. **Export processed data**: Save as CSV for further analysis\r\n4. **Progress logging**: Use print() statements for debugging/monitoring\r\n5. **File naming**: Use experiment ID in all output filenames\r\n\r\nERROR HANDLING REQUIREMENTS:\r\n- ✅ Validate all input parameters and file paths\r\n- ✅ Handle missing/corrupted data files gracefully  \r\n- ✅ Provide specific error messages (not generic \"failed\")\r\n- ✅ Validate eLabFTW field existence and data types\r\n- ✅ Handle missing or invalid experimental data points\r\n- ✅ Return proper exit codes (0=success, 1=error)\r\n\r\nCALLING PATTERNS:\r\nThe script should support these usage patterns:\r\n1. **Command line**: `python analysis_script.py 3914`\r\n2. **Function import**: `from analysis_script import analyze_experiment; results = analyze_experiment(\"3914\")`\r\n3. **Auto-detection**: `python analysis_script.py` (finds most recent experiment)\r\n4. **Custom paths**: `python analysis_script.py 3914 --data-folder /path/to/data`\r\n\r\nUSER REQUIREMENTS:\r\nPlease create script for data analysis of Tecan platereader data for loading isotherm determination. The file contains the raw absorbance data.\r\nTested concentrations:\r\n[[NUMBER_OF_LIGAND_CONCENTRATIONS]] different initial ligand concentrations (up to 8) were tested with [[NUMBER_OF_SALT_CONCENTRATIONS]] different salt concentrations and each point was replicated [[REPLICATES]] times. The exact ligand and salt concentrations are given in [[LIGAND_CONCENTRATIONS]] and [[SALT_CONCENTRATIONS]] as strings separated by semicolons.\r\nPlate layout:\r\nIn a column of wells, the initial ligand concentrations, c0, are ascending with increasing row number, e.g. from A1-H1 if [[NUMBER_OF_LIGAND_CONCENTRATIONS]]=8. The exact ligand concentrations are given in [[LIGAND_CONCENTRATIONS]] as strings separated by semicolons. The ligand concentration unit is given in [[LIGAND_CONCENTRATION_UNIT]]. The salt concentrations are ascending row-wise, but the replicates are grouped together. The exact salt concentrations are given in [[SALT_CONCENTRATIONS]] as strings separated by semicolons and replicates are given in [[REPLICATES]]. The salt concentration unit is given in [[SALT_CONCENTRATION_UNIT]]. For example if [[NUMBER_OF_SALT_CONCENTRATIONS]]=4, [[SALT_CONCENTRATIONS]]=’0;100;200;500’ and [[REPLICATES]]=3, the columns A1-A3 have a salt concentration of 0, A4-A6 have 100, A7-A9 have 200 and A10-A12 have 500. All columns have the same initial ligand concentrations c0, e.g. if [[NUMBER_OF_LIGAND_CONCENTRATIONS]]=8 and [[LIGAND_CONCENTRATIONS]]=’0;0.5;1;2;3;5;7;10’ the initial ligand concentrations during binding (c0) are ascending by row in each column from 0 in A to 10 in H. All 96 wells of the plate are measured, but not in every case each well contains a datapoint, e.g. if [[NUMBER_OF_LIGAND_CONCENTRATIONS]]=6, only rows A-F contain data for the evaluation.\r\nAnalysis steps:\r\n1.\tFor each required well, calculate the equilibrium ligand concentration in the supernatant (cE). The slope of the calibration curve and the intercept are given in [[CALIBRATION_CURVE_SLOPE]] and [[CALIBRATION_CURVE_INTERCEPT]]. The calibration curve maps concentration to absorbance as Absorbance = slope * concentration + intercept, so you must INVERT it to obtain a concentration from a measured absorbance: cE = (Absorbance - intercept) / slope. Do not apply it the other way round. Sanity-check the result: every cE must lie between 0 and the largest initial concentration c0, and cE must vary strongly across a column as c0 varies. If it does not, the calibration has been applied backwards.\r\n2.\tCalculate the Mean and Standard Deviation of the equilibrium ligand concentrations in the supernatant for all replicates of a parameter combination (wells with same ligand and salt concentration). This must yield exactly [[NUMBER_OF_LIGAND_CONCENTRATIONS]] x [[NUMBER_OF_SALT_CONCENTRATIONS]] aggregated points, one per combination, each averaging [[REPLICATES]] wells. If you obtain a different number of groups, the well-to-condition mapping is wrong - re-check it against the plate layout above rather than continuing.\r\n3.\tCalculate the loading q of the adsorbent material for each parameter combination. The mass of the adsorbent resin/particles in each well, m_resin is given in [[RESIN_MASS]] (in mg). The total volume, v_total, in each well is [[TOTAL_VOLUME]] (in uL). Therefore q=(c0-cE)*v_total/m_resin. Use v_total in uL and m_resin in mg exactly as given - the formula is already dimensionally consistent, so do NOT convert either to other units (no uL->mL, no mg->g). q is then in the ligand concentration unit times uL per mg.\r\n4.\tFor each salt concentration make a Langmuir fit through the existing data points for that salt concentration. Fit the loading q against the EQUILIBRIUM ligand concentration cE (the mean value calculated in step 2) as the independent variable - not against the initial concentration c0.\r\n5.\tPlot all isotherms (actual data points + fits) in one graph. Use different colors for the different salt concentrations. Include the fit parameters and the R² of the fit in the legend.\r\nExample data:\r\nThe attached example file shows how the data would look like with [[NUMBER_OF_LIGAND_CONCENTRATIONS]]=8, [[NUMBER_OF_SALT_CONCENTRATIONS]]=4 and [[REPLICATES]]=3.",
+  "process_id": "15",
+  "template_id": "278",
+  "process_name": "Loading Isotherm Resin",
+  "process_type": "automated",
+  "autonomous_mode": false,
+  "optimization_target": null,
+  "optimization_config": {},
+  "process_folder_path": null,
+  "analysis_folder": null,
+  "expected_filename": "analysis_script_15.py",
+  "expected_save_path": null,
+  "user_id": 1,
+  "username": "sebastianputz",
+  "timestamp": null,
+  "lab_id": "167",
+  "metadata": {
+    "elab_api_base": "https://<ELAB_HOST>",
+    "script_type": "evaluation",
+    "has_optimization_target": false
+  },
+  "template_fields": [
+    {
+      "name": "Buffer",
+      "type": "text",
+      "placeholder": "BUFFER"
+    },
+    {
+      "name": "Salt Name",
+      "type": "text",
+      "placeholder": "SALT_NAME"
+    },
+    {
+      "name": "Process ID",
+      "type": "text",
+      "placeholder": "PROCESS_ID"
+    },
+    {
+      "name": "Pump Speed",
+      "type": "number",
+      "placeholder": "PUMP_SPEED"
+    },
+    {
+      "name": "Replicates",
+      "type": "number",
+      "placeholder": "REPLICATES"
+    },
+    {
+      "name": "Resin Mass",
+      "type": "number",
+      "placeholder": "RESIN_MASS"
+    },
+    {
+      "name": "Ligand Name",
+      "type": "text",
+      "placeholder": "LIGAND_NAME"
+    },
+    {
+      "name": "Total volume",
+      "type": "number",
+      "placeholder": "TOTAL_VOLUME"
+    },
+    {
+      "name": "Venting time",
+      "type": "number",
+      "placeholder": "VENTING_TIME"
+    },
+    {
+      "name": "Pump Duration",
+      "type": "number",
+      "placeholder": "PUMP_DURATION"
+    },
+    {
+      "name": "Incubation Time",
+      "type": "number",
+      "placeholder": "INCUBATION_TIME"
+    },
+    {
+      "name": "Salt concentrations",
+      "type": "text",
+      "placeholder": "SALT_CONCENTRATIONS"
+    },
+    {
+      "name": "Equilibration Cycles",
+      "type": "number",
+      "placeholder": "EQUILIBRATION_CYCLES"
+    },
+    {
+      "name": "Equilibration Volume",
+      "type": "number",
+      "placeholder": "EQUILIBRATION_VOLUME"
+    },
+    {
+      "name": "Ligand concentrations",
+      "type": "text",
+      "placeholder": "LIGAND_CONCENTRATIONS"
+    },
+    {
+      "name": "Incubation Temperature",
+      "type": "number",
+      "placeholder": "INCUBATION_TEMPERATURE"
+    },
+    {
+      "name": "Measurement Wavelength",
+      "type": "number",
+      "placeholder": "MEASUREMENT_WAVELENGTH"
+    },
+    {
+      "name": "Calibration Curve Slope",
+      "type": "number",
+      "placeholder": "CALIBRATION_CURVE_SLOPE"
+    },
+    {
+      "name": "Salt concentration unit",
+      "type": "text",
+      "placeholder": "SALT_CONCENTRATION_UNIT"
+    },
+    {
+      "name": "Shaker Speed Incubation",
+      "type": "number",
+      "placeholder": "SHAKER_SPEED_INCUBATION"
+    },
+    {
+      "name": "Salt Stock Concentration",
+      "type": "number",
+      "placeholder": "SALT_STOCK_CONCENTRATION"
+    },
+    {
+      "name": "Ligand concentration unit",
+      "type": "text",
+      "placeholder": "LIGAND_CONCENTRATION_UNIT"
+    },
+    {
+      "name": "Ligand Stock Concentration",
+      "type": "number",
+      "placeholder": "LIGAND_STOCK_CONCENTRATION"
+    },
+    {
+      "name": "Calibration Curve Intercept",
+      "type": "number",
+      "placeholder": "CALIBRATION_CURVE_INTERCEPT"
+    },
+    {
+      "name": "Equilibration Cycle Duration",
+      "type": "number",
+      "placeholder": "EQUILIBRATION_CYCLE_DURATION"
+    },
+    {
+      "name": "Number of salt concentrations",
+      "type": "number",
+      "placeholder": "NUMBER_OF_SALT_CONCENTRATIONS"
+    },
+    {
+      "name": "Number of ligand concentrations",
+      "type": "number",
+      "placeholder": "NUMBER_OF_LIGAND_CONCENTRATIONS"
+    }
+  ],
+  "experiment_data_structure": {
+    "experiment_json_path": "experiment_[ID].json",
+    "field_access_pattern": "experiment_data['metadata_decoded']['extra_fields']['FIELD_NAME']['value']",
+    "available_fields": [
+      "Buffer",
+      "Salt Name",
+      "Process ID",
+      "Pump Speed",
+      "Replicates",
+      "Resin Mass",
+      "Ligand Name",
+      "Total volume",
+      "Venting time",
+      "Pump Duration",
+      "Incubation Time",
+      "Salt concentrations",
+      "Equilibration Cycles",
+      "Equilibration Volume",
+      "Ligand concentrations",
+      "Incubation Temperature",
+      "Measurement Wavelength",
+      "Calibration Curve Slope",
+      "Salt concentration unit",
+      "Shaker Speed Incubation",
+      "Salt Stock Concentration",
+      "Ligand concentration unit",
+      "Ligand Stock Concentration",
+      "Calibration Curve Intercept",
+      "Equilibration Cycle Duration",
+      "Number of salt concentrations",
+      "Number of ligand concentrations"
+    ],
+    "optimization_output_required": false,
+    "target_metric_name": null,
+    "folder_structure": {
+      "protocols": "protocols/ - Contains protocol files (Python, XML)",
+      "data": "data/ - Contains experimental output data",
+      "results": "results/ - Save analysis results here",
+      "analysis": "analysis/ - Current script location"
+    }
+  },
+  "example_file": {
+    "filename": "isotherm_mock_data.xlsx",
+    "size": 11986,
+    "content_base64": "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",
+    "mime_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+  },
+  "sampler": null,
+  "granularity": null,
+  "ms_batch_config": null,
+  "devices_used": [
+    "Opentrons OT-2",
+    "Tecan Spark",
+    "UR5",
+    "VacuuPump"
+  ]
+}

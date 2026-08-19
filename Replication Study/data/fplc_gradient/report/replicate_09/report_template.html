@@ -1,0 +1,160 @@
+<p><span style="font-size:18pt;"><strong>[[EXPERIMENT_TITLE]] - ÄKTA Chromatography Run Report</strong></span></p>
+
+<h4><span style="font-size:14pt;">1. Experiment Information</span></h4>
+<p><strong>Experiment ID:</strong> [[EXPERIMENT_ID]]</p>
+<p><strong>Process ID:</strong> [[PROCESS_ID]]</p>
+<p><strong>Report Generated:</strong> [[REPORT_DATE]]</p>
+<p> </p>
+
+<h4><span style="font-size:14pt;">2. Start &amp; End Date</span></h4>
+<p><strong>Run Start Date:</strong> [[EXPERIMENT_DATE]]</p>
+<p><strong>Run End Date:</strong> [[REPORT_DATE]]</p>
+<p> </p>
+
+<h4><span style="font-size:14pt;">3. Methods</span></h4>
+<p><strong>Overview of Automated Workflow:</strong></p>
+<ol>
+<li><strong>Manual Preparation</strong>:
+<ul>
+<li>Pause step executed with instruction: "Manually fill sample loop".</li>
+<li>Operator fills the ÄKTA sample loop with the prepared sample according to the experimental plan.</li>
+</ul>
+</li>
+<li><strong>ÄKTA Pure - Automated Chromatography Run</strong>:
+<ul>
+<li>ÄKTA Pure system started using a predefined method controlling column loading, washing, elution, and cleaning-in-place (CIP) phases.</li>
+<li>System recorded UV signal (uv1) and conductivity (cond) throughout the run at 1 s sampling intervals.</li>
+</ul>
+</li>
+</ol>
+
+<h5><span style="font-size:12pt;">Run Parameters</span></h5>
+<table style="border-collapse:collapse;width:99.9866%;" border="1">
+<tr>
+<th>Parameter</th>
+<th>Placeholder</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Process ID</td>
+<td>[[PROCESS_ID]]</td>
+<td>Identifier of the automated ÄKTA process.</td>
+</tr>
+<tr>
+<td>Equilibration Duration</td>
+<td>[[EQUILIBRATION_DURATION]]</td>
+<td>Time used to equilibrate the column before loading.</td>
+</tr>
+<tr>
+<td>Equilibration Flow Rate</td>
+<td>[[EQUILIBRATION_FLOW_RATE]]</td>
+<td>Flow rate applied during column equilibration.</td>
+</tr>
+<tr>
+<td>Load/Inject Duration</td>
+<td>[[LOAD_INJECT_DURATION]]</td>
+<td>Total time used for sample loading/injection.</td>
+</tr>
+<tr>
+<td>Load/Inject Flow Rate</td>
+<td>[[LOAD_INJECT_FLOW_RATE]]</td>
+<td>Flow rate during sample loading/injection.</td>
+</tr>
+<tr>
+<td>Wash Duration</td>
+<td>[[WASH_DURATION]]</td>
+<td>Duration of post-load column washing.</td>
+</tr>
+<tr>
+<td>Wash Flow Rate</td>
+<td>[[WASH_FLOW_RATE]]</td>
+<td>Flow rate during wash phase.</td>
+</tr>
+<tr>
+<td>Elution Gradient Duration</td>
+<td>[[ELUTE_GRADIENT_DURATION]]</td>
+<td>Total time of the elution gradient.</td>
+</tr>
+<tr>
+<td>Elution Gradient Start (%B)</td>
+<td>[[ELUTE_GRADIENT_GRADIENT_START]]</td>
+<td>Starting buffer B percentage for the gradient.</td>
+</tr>
+<tr>
+<td>Elution Gradient End (%B)</td>
+<td>[[ELUTE_GRADIENT_GRADIENT_END]]</td>
+<td>Final buffer B percentage at the end of the gradient.</td>
+</tr>
+<tr>
+<td>CIP Duration (overall)</td>
+<td>[[CIP_DURATION]]</td>
+<td>Total duration of column cleaning-in-place procedure.</td>
+</tr>
+<tr>
+<td>CIP Step 2 Hold Duration</td>
+<td>[[CIP_2_HOLD_DURATION]]</td>
+<td>Hold time during CIP step 2.</td>
+</tr>
+<tr>
+<td>CIP Step 3 Duration</td>
+<td>[[CIP_3_DURATION]]</td>
+<td>Duration of CIP step 3.</td>
+</tr>
+<tr>
+<td>CIP Step 4 Duration</td>
+<td>[[CIP_4_DURATION]]</td>
+<td>Duration of CIP step 4.</td>
+</tr>
+<tr>
+<td>CIP Step 5 Duration</td>
+<td>[[CIP_5_DURATION]]</td>
+<td>Duration of CIP step 5.</td>
+</tr>
+</table>
+<p> </p>
+
+<h4><span style="font-size:14pt;">4. Results</span></h4>
+<h5><span style="font-size:12pt;">4.1 Chromatogram</span></h5>
+[[PLOT_1]]
+<p><em>Figure 1: Chromatogram from the ÄKTA Pure run (UV and conductivity versus time). The underlying image should be linked via an eLabFTW download URL for the uploaded file (e.g. chromatogram_{ID}.png).</em></p>
+<p> </p>
+
+<h5><span style="font-size:12pt;">Summary of Available Placeholders</span></h5>
+<table style="border-collapse:collapse;width:99.9866%;" border="1">
+<tr>
+<th>Category</th>
+<th>Placeholder</th>
+</tr>
+<tr>
+<td>Experiment Meta</td>
+<td>[[EXPERIMENT_ID]], [[EXPERIMENT_TITLE]], [[EXPERIMENT_DATE]], [[REPORT_DATE]]</td>
+</tr>
+<tr>
+<td>Process Meta</td>
+<td>[[PROCESS_ID]]</td>
+</tr>
+<tr>
+<td>Equilibration</td>
+<td>[[EQUILIBRATION_DURATION]], [[EQUILIBRATION_FLOW_RATE]]</td>
+</tr>
+<tr>
+<td>Load / Inject</td>
+<td>[[LOAD_INJECT_DURATION]], [[LOAD_INJECT_FLOW_RATE]]</td>
+</tr>
+<tr>
+<td>Wash</td>
+<td>[[WASH_DURATION]], [[WASH_FLOW_RATE]]</td>
+</tr>
+<tr>
+<td>Elution</td>
+<td>[[ELUTE_GRADIENT_DURATION]], [[ELUTE_GRADIENT_GRADIENT_START]], [[ELUTE_GRADIENT_GRADIENT_END]]</td>
+</tr>
+<tr>
+<td>CIP</td>
+<td>[[CIP_DURATION]], [[CIP_2_HOLD_DURATION]], [[CIP_3_DURATION]], [[CIP_4_DURATION]], [[CIP_5_DURATION]]</td>
+</tr>
+<tr>
+<td>Plots</td>
+<td>[[PLOT_1]]</td>
+</tr>
+</table>

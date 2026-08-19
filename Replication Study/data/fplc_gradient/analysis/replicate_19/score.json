@@ -1,0 +1,43 @@
+{
+  "pass": true,
+  "codes": [
+    "PDF_NOT_PRODUCED",
+    "PEAK_COUNT_MISMATCH"
+  ],
+  "fatal_codes": [],
+  "findings": [
+    {
+      "code": "PEAK_COUNT_MISMATCH",
+      "expected": 1,
+      "found": 2,
+      "benign": true,
+      "detail": "the prompt sets no criterion for what counts as a peak"
+    },
+    {
+      "code": "PDF_NOT_PRODUCED",
+      "benign": true
+    }
+  ],
+  "n_findings": 0,
+  "peaks_found": 2,
+  "peaks_reference": 1,
+  "results_dir": [
+    "akta_chromatogram_5520.png",
+    "akta_peaks_5520.csv",
+    "akta_results_5520.json",
+    "akta_timeseries_5520.csv",
+    "analysis_results_5520.json"
+  ],
+  "plots_produced": [
+    "akta_chromatogram_5520.png"
+  ],
+  "csv_produced": [
+    "akta_peaks_5520.csv",
+    "akta_timeseries_5520.csv"
+  ],
+  "server_routes": [
+    "/api/akta/results/5520"
+  ],
+  "undefined_endpoints": [],
+  "results_carrier": "analysis_results_5520.json"
+}

@@ -1,0 +1,263 @@
+{
+  "parameters_schema": {
+    "properties": {
+      "buffer": {
+        "description": "Buffer used for the loading isotherm experiment",
+        "type": "string"
+      },
+      "calibration_curve_intercept": {
+        "description": "Intercept of the calibration curve used to convert absorbance to equilibrium concentration",
+        "type": "number"
+      },
+      "calibration_curve_slope": {
+        "description": "Slope of the calibration curve used to convert absorbance to equilibrium concentration",
+        "type": "number"
+      },
+      "equilibration_cycle_duration_s": {
+        "description": "Duration of each equilibration cycle",
+        "type": "number",
+        "unit": "s"
+      },
+      "equilibration_cycles": {
+        "description": "Number of equilibration cycles",
+        "type": "integer"
+      },
+      "equilibration_volume_ul": {
+        "description": "Volume used in each equilibration step",
+        "type": "number",
+        "unit": "\u00b5L"
+      },
+      "incubation_temperature_c": {
+        "description": "Incubation temperature",
+        "type": "number",
+        "unit": "\u00b0C"
+      },
+      "incubation_time_min": {
+        "description": "Incubation time before measurement",
+        "type": "number",
+        "unit": "min"
+      },
+      "ligand_concentration_unit": {
+        "description": "Unit for ligand concentrations",
+        "type": "string"
+      },
+      "ligand_concentrations": {
+        "description": "Semicolon-separated list of ligand concentrations as recorded in eLabFTW",
+        "type": "string"
+      },
+      "ligand_name": {
+        "description": "Name of the ligand being loaded onto the resin",
+        "type": "string"
+      },
+      "ligand_stock_concentration": {
+        "description": "Stock concentration of ligand",
+        "type": "number"
+      },
+      "measurement_wavelength_nm": {
+        "description": "Absorbance measurement wavelength",
+        "type": "number",
+        "unit": "nm"
+      },
+      "number_of_ligand_concentrations": {
+        "description": "Number of ligand concentrations used in the experiment",
+        "type": "integer"
+      },
+      "number_of_salt_concentrations": {
+        "description": "Number of salt concentrations used in the experiment",
+        "type": "integer"
+      },
+      "process_id_field": {
+        "description": "Process ID recorded in eLabFTW metadata",
+        "type": "integer"
+      },
+      "pump_duration_s": {
+        "description": "Pump duration",
+        "type": "number",
+        "unit": "s"
+      },
+      "pump_speed": {
+        "description": "Pump speed used during loading or transfer steps",
+        "type": "number"
+      },
+      "replicates": {
+        "description": "Number of replicate measurements per salt concentration",
+        "type": "integer"
+      },
+      "resin_mass_mg": {
+        "description": "Mass of resin used",
+        "type": "number",
+        "unit": "mg"
+      },
+      "salt_concentration_unit": {
+        "description": "Unit for salt concentrations",
+        "type": "string"
+      },
+      "salt_concentrations": {
+        "description": "Semicolon-separated list of salt concentrations as recorded in eLabFTW",
+        "type": "string"
+      },
+      "salt_name": {
+        "description": "Name of the salt used in the experiment",
+        "type": "string"
+      },
+      "salt_stock_concentration": {
+        "description": "Stock concentration of salt",
+        "type": "number"
+      },
+      "shaker_speed_incubation": {
+        "description": "Shaker speed during incubation",
+        "type": "number"
+      },
+      "total_volume_ul": {
+        "description": "Total sample volume used for loading",
+        "type": "number",
+        "unit": "\u00b5L"
+      },
+      "venting_time_s": {
+        "description": "Venting time",
+        "type": "number",
+        "unit": "s"
+      }
+    },
+    "type": "object"
+  },
+  "results_schema": {
+    "properties": {
+      "analysis_metadata": {
+        "description": "Metadata stored by the analysis script including concentration lists, calibration parameters, and units",
+        "type": "object"
+      },
+      "analysis_status": {
+        "description": "Status of the analysis result collection",
+        "enum": [
+          "pending",
+          "completed",
+          "failed",
+          "success"
+        ],
+        "type": "string"
+      },
+      "data_files": {
+        "description": "Generated result data file names",
+        "properties": {
+          "analysis_results_json": {
+            "description": "JSON file containing full analysis output",
+            "type": "string"
+          },
+          "langmuir_fits_csv": {
+            "description": "CSV file containing Langmuir fit parameters",
+            "type": "string"
+          },
+          "processed_aggregated_csv": {
+            "description": "CSV file containing aggregated condition-level processed data",
+            "type": "string"
+          },
+          "processed_replicates_csv": {
+            "description": "CSV file containing replicate-level processed data",
+            "type": "string"
+          },
+          "tecan_data_xlsx": {
+            "description": "Fetched or copied raw Tecan Excel data file",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "fits_by_salt": {
+        "description": "Langmuir fit parameters grouped by salt concentration",
+        "type": "object"
+      },
+      "plots": {
+        "description": "Generated plot file names",
+        "properties": {
+          "loading_isotherms_pdf": {
+            "description": "PDF plot of loading isotherms and Langmuir fits",
+            "type": "string"
+          },
+          "loading_isotherms_png": {
+            "description": "PNG plot of loading isotherms and Langmuir fits",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "summary": {
+        "description": "Summary of loading isotherm analysis outputs",
+        "properties": {
+          "experiment_id": {
+            "description": "Experiment identifier used in analysis",
+            "type": "string"
+          },
+          "measurement_wavelength_nm": {
+            "description": "Measurement wavelength used in absorbance analysis",
+            "type": "number",
+            "unit": "nm"
+          },
+          "message": {
+            "description": "Status or error message from the analysis",
+            "type": "string"
+          },
+          "n_aggregated_records": {
+            "description": "Number of aggregated condition-level processed data records",
+            "type": "integer"
+          },
+          "n_fit_rows": {
+            "description": "Number of Langmuir fit rows produced",
+            "type": "integer"
+          },
+          "n_replicate_records": {
+            "description": "Number of replicate-level processed data records",
+            "type": "integer"
+          },
+          "num_ligand_concentrations": {
+            "description": "Number of ligand concentrations analyzed",
+            "type": "integer"
+          },
+          "num_salt_conditions": {
+            "description": "Number of salt conditions analyzed",
+            "type": "integer"
+          },
+          "q_unit": {
+            "description": "Unit of the calculated loading q",
+            "type": "string"
+          },
+          "replicates": {
+            "description": "Number of replicate measurements per salt concentration",
+            "type": "integer"
+          },
+          "resin_mass_mg": {
+            "description": "Resin mass used in the analysis",
+            "type": "number",
+            "unit": "mg"
+          },
+          "tecan_data_source": {
+            "description": "Source of the Tecan absorbance data",
+            "type": "string"
+          },
+          "total_volume_ul": {
+            "description": "Total volume used in the analysis",
+            "type": "number",
+            "unit": "\u00b5L"
+          }
+        },
+        "type": "object"
+      },
+      "timestamp": {
+        "description": "Timestamp when results were collected",
+        "type": "string"
+      }
+    },
+    "type": "object"
+  },
+  "expected_data_files": [
+    "analysis_results_{elab_id}.json",
+    "processed_replicates_{elab_id}.csv",
+    "processed_aggregated_{elab_id}.csv",
+    "langmuir_fits_{elab_id}.csv",
+    "tecan_data_{elab_id}.xlsx"
+  ],
+  "expected_plot_files": [
+    "loading_isotherms_{elab_id}.png",
+    "loading_isotherms_{elab_id}.pdf"
+  ]
+}

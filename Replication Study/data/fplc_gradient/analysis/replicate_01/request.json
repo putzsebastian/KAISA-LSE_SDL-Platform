@@ -1,0 +1,130 @@
+{
+  "workflow_type": "evaluation_script_generation",
+  "prompt": "\n\nUSER ANALYSIS REQUIREMENTS:\nGenerate a Python data analysis script with the following requirements:\r\n\r\nSCRIPT USAGE CONTEXT:\r\n**IMPORTANT**: This script will be called programmatically from an external endpoint/system with specific parameters. The script must be designed for:\r\n- ✅ External execution via command line or function calls\r\n- ✅ Robust error handling with informative messages  \r\n- ✅ Structured output (JSON results + files)\r\n- ✅ Flexible parameter handling (experiment ID, paths)\r\n- ✅ Both standalone and importable functionality\r\n\r\nEXPERIMENT DATA ACCESS:\r\nThe script should load experiment data from a JSON file using:\r\n```python\r\nimport json\r\nimport sys\r\nimport argparse\r\nfrom pathlib import Path\r\n\r\n# Accept experiment ID as parameter (command line or function argument)\r\ndef analyze_experiment(experiment_id=None, data_folder='../data', results_folder='../results'):\r\n    # Auto-detect experiment ID if not provided\r\n    if experiment_id is None:\r\n        if len(sys.argv) > 1:\r\n            experiment_id = sys.argv[1]\r\n        else:\r\n            # Auto-detect from most recent file or raise error\r\n            pass\r\n    \r\n    # Load experiment data with proper error handling\r\n    data_file_path = Path(data_folder) / f'experiment_{experiment_id}.json'\r\n    try:\r\n        with open(data_file_path, 'r') as f:\r\n            experiment_data = json.load(f)\r\n    except FileNotFoundError:\r\n        raise FileNotFoundError(f\"Data file not found: {data_file_path}\")\r\n    except json.JSONDecodeError as e:\r\n        raise ValueError(f\"Invalid JSON format: {e}\")\r\n\r\n# Access eLabFTW extra fields with error handling:\r\ntry:\r\n    metadata = experiment_data['metadata_decoded']['extra_fields']\r\n    # Available eLabFTW fields from template:\r\n    # Process ID: metadata['Process ID']['value']\r\n    # CIP_DURATION: metadata['CIP_DURATION']['value']\r\n    # WASH_DURATION: metadata['WASH_DURATION']['value']\r\n    # CIP_3_DURATION: metadata['CIP_3_DURATION']['value']\r\n    # CIP_4_DURATION: metadata['CIP_4_DURATION']['value']\r\n    # CIP_5_DURATION: metadata['CIP_5_DURATION']['value']\r\n    # WASH_FLOW_RATE: metadata['WASH_FLOW_RATE']['value']\r\n    # CIP_2_HOLD_DURATION: metadata['CIP_2_HOLD_DURATION']['value']\r\n    # LOAD_INJECT_DURATION: metadata['LOAD_INJECT_DURATION']['value']\r\n    # LOAD_INJECT_FLOW_RATE: metadata['LOAD_INJECT_FLOW_RATE']['value']\r\n    # EQUILIBRATION_DURATION: metadata['EQUILIBRATION_DURATION']['value']\r\n    # ELUTE_GRADIENT_DURATION: metadata['ELUTE_GRADIENT_DURATION']['value']\r\n    # EQUILIBRATION_FLOW_RATE: metadata['EQUILIBRATION_FLOW_RATE']['value']\r\n    # ELUTE_GRADIENT_GRADIENT_END: metadata['ELUTE_GRADIENT_GRADIENT_END']['value']\r\n    # ELUTE_GRADIENT_GRADIENT_START: metadata['ELUTE_GRADIENT_GRADIENT_START']['value']\r\nexcept KeyError as e:\r\n    raise KeyError(f\"Missing expected metadata field: {e}\")\r\n```\r\n\r\nREQUIRED SCRIPT STRUCTURE:\r\n```python\r\n#!/usr/bin/env python3\r\n\"\"\"\r\nAnalysis Script - [Brief Description]\r\nCan be called externally with experiment ID as parameter.\r\n\"\"\"\r\n\r\ndef analyze_experiment(experiment_id=None, data_folder='../data', results_folder='../results'):\r\n    \"\"\"\r\n    Main analysis function\r\n    \r\n    Args:\r\n        experiment_id (str): Experiment ID \r\n        data_folder (str): Path to data folder\r\n        results_folder (str): Path to results folder\r\n    \r\n    Returns:\r\n        dict: Analysis results with all key metrics\r\n    \"\"\"\r\n    # Implementation here\r\n    return results_dict\r\n\r\ndef main():\r\n    \"\"\"Command line interface\"\"\"\r\n    parser = argparse.ArgumentParser(description='Analyze experiment data')\r\n    parser.add_argument('experiment_id', nargs='?', help='Experiment ID')\r\n    parser.add_argument('--data-folder', default='../data', help='Data folder path')\r\n    parser.add_argument('--results-folder', default='../results', help='Results folder path')\r\n    \r\n    args = parser.parse_args()\r\n    \r\n    try:\r\n        results = analyze_experiment(\r\n            experiment_id=args.experiment_id,\r\n            data_folder=args.data_folder,\r\n            results_folder=args.results_folder\r\n        )\r\n        print(f\"✅ Analysis successful!\")\r\n        return 0\r\n    except Exception as e:\r\n        print(f\"❌ Analysis failed: {e}\")\r\n        return 1\r\n\r\nif __name__ == \"__main__\":\r\n    sys.exit(main())\r\n```\r\n\r\nFOLDER STRUCTURE & FILE HANDLING:\r\n- **protocols/** folder: Contains protocol files (Python, XML)\r\n- **data/** folder: Contains experimental output data (experiment_[ID].json files)\r\n- **results/** folder: Save ALL analysis outputs here\r\n- **analysis/** folder: Current script location\r\n\r\nOUTPUT REQUIREMENTS:\r\n1. **Save results as JSON**: Include all key metrics, file paths, metadata\r\n2. **Generate plots**: Save as PNG/PDF with descriptive filenames  \r\n3. **Export processed data**: Save as CSV for further analysis\r\n4. **Progress logging**: Use print() statements for debugging/monitoring\r\n5. **File naming**: Use experiment ID in all output filenames\r\n\r\nERROR HANDLING REQUIREMENTS:\r\n- ✅ Validate all input parameters and file paths\r\n- ✅ Handle missing/corrupted data files gracefully  \r\n- ✅ Provide specific error messages (not generic \"failed\")\r\n- ✅ Validate eLabFTW field existence and data types\r\n- ✅ Handle missing or invalid experimental data points\r\n- ✅ Return proper exit codes (0=success, 1=error)\r\n\r\nCALLING PATTERNS:\r\nThe script should support these usage patterns:\r\n1. **Command line**: `python analysis_script.py 3914`\r\n2. **Function import**: `from analysis_script import analyze_experiment; results = analyze_experiment(\"3914\")`\r\n3. **Auto-detection**: `python analysis_script.py` (finds most recent experiment)\r\n4. **Custom paths**: `python analysis_script.py 3914 --data-folder /path/to/data`\r\n\r\nUSER REQUIREMENTS:\r\nPlease create a data analysis script for my AKTA run. Plot the chromatogram. Use different colors for UV 280nm and conductivity. Identify peaks if present and calculate their retention time. Include the peak labelling with their retention time in the plot, but only if peaks were identified.",
+  "process_id": 36,
+  "template_id": 387,
+  "process_name": "ÄKTA - Gradient Elution",
+  "process_type": "automated",
+  "autonomous_mode": false,
+  "optimization_target": null,
+  "optimization_config": {},
+  "process_folder_path": "/app/data/replication/batches/<run>/replicate_001",
+  "analysis_folder": "/app/data/replication/batches/<run>/replicate_001/analysis",
+  "expected_filename": "analysis_script_36.py",
+  "expected_save_path": "/app/data/replication/batches/<run>/replicate_001/analysis/analysis_script_36.py",
+  "user_id": 1,
+  "username": "sebastianputz",
+  "timestamp": "2026-08-11T16:09:04.481665+00:00",
+  "lab_id": "168",
+  "metadata": {
+    "elab_api_base": "https://eln.example.org",
+    "script_type": "evaluation",
+    "has_optimization_target": false
+  },
+  "template_fields": [
+    {
+      "name": "Process ID",
+      "type": "text",
+      "placeholder": "PROCESS_ID"
+    },
+    {
+      "name": "CIP_DURATION",
+      "type": "number",
+      "placeholder": "CIP_DURATION"
+    },
+    {
+      "name": "WASH_DURATION",
+      "type": "number",
+      "placeholder": "WASH_DURATION"
+    },
+    {
+      "name": "CIP_3_DURATION",
+      "type": "number",
+      "placeholder": "CIP_3_DURATION"
+    },
+    {
+      "name": "CIP_4_DURATION",
+      "type": "number",
+      "placeholder": "CIP_4_DURATION"
+    },
+    {
+      "name": "CIP_5_DURATION",
+      "type": "number",
+      "placeholder": "CIP_5_DURATION"
+    },
+    {
+      "name": "WASH_FLOW_RATE",
+      "type": "number",
+      "placeholder": "WASH_FLOW_RATE"
+    },
+    {
+      "name": "CIP_2_HOLD_DURATION",
+      "type": "number",
+      "placeholder": "CIP_2_HOLD_DURATION"
+    },
+    {
+      "name": "LOAD_INJECT_DURATION",
+      "type": "number",
+      "placeholder": "LOAD_INJECT_DURATION"
+    },
+    {
+      "name": "LOAD_INJECT_FLOW_RATE",
+      "type": "number",
+      "placeholder": "LOAD_INJECT_FLOW_RATE"
+    },
+    {
+      "name": "EQUILIBRATION_DURATION",
+      "type": "number",
+      "placeholder": "EQUILIBRATION_DURATION"
+    },
+    {
+      "name": "ELUTE_GRADIENT_DURATION",
+      "type": "number",
+      "placeholder": "ELUTE_GRADIENT_DURATION"
+    },
+    {
+      "name": "EQUILIBRATION_FLOW_RATE",
+      "type": "number",
+      "placeholder": "EQUILIBRATION_FLOW_RATE"
+    },
+    {
+      "name": "ELUTE_GRADIENT_GRADIENT_END",
+      "type": "number",
+      "placeholder": "ELUTE_GRADIENT_GRADIENT_END"
+    },
+    {
+      "name": "ELUTE_GRADIENT_GRADIENT_START",
+      "type": "number",
+      "placeholder": "ELUTE_GRADIENT_GRADIENT_START"
+    }
+  ],
+  "experiment_data_structure": {
+    "experiment_json_path": "experiment_[ID].json",
+    "field_access_pattern": "experiment_data['metadata_decoded']['extra_fields']['FIELD_NAME']['value']",
+    "available_fields": [
+      "Process ID",
+      "CIP_DURATION",
+      "WASH_DURATION",
+      "CIP_3_DURATION",
+      "CIP_4_DURATION",
+      "CIP_5_DURATION",
+      "WASH_FLOW_RATE",
+      "CIP_2_HOLD_DURATION",
+      "LOAD_INJECT_DURATION",
+      "LOAD_INJECT_FLOW_RATE",
+      "EQUILIBRATION_DURATION",
+      "ELUTE_GRADIENT_DURATION",
+      "EQUILIBRATION_FLOW_RATE",
+      "ELUTE_GRADIENT_GRADIENT_END",
+      "ELUTE_GRADIENT_GRADIENT_START"
+    ],
+    "optimization_output_required": false,
+    "target_metric_name": null,
+    "folder_structure": {
+      "protocols": "protocols/ - Contains protocol files (Python, XML)",
+      "data": "data/ - Contains experimental output data",
+      "results": "results/ - Save analysis results here",
+      "analysis": "analysis/ - Current script location"
+    }
+  }
+}

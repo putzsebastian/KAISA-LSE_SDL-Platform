@@ -1,0 +1,21 @@
+{
+  "node_runs": {
+    "Webhook": 1,
+    "Edit Fields": 1,
+    "Respond to Webhook": 1,
+    "Window Buffer Memory": 2,
+    "OpenAI Chat Model": 3,
+    "Get_Opentrons_API_Info": 4,
+    "Qdrant Vector Store": 4,
+    "Embeddings OpenAI": 4,
+    "OpenAI Chat Model1": 4,
+    "OT_Script_Simulation": 1,
+    "Structured Output Parser": 2,
+    "AI Agent": 1,
+    "Edit Fields1": 1,
+    "Convert to File": 1,
+    "Save Script": 1,
+    "HTTP Request": 1
+  },
+  "source": "execution.raw.json"
+}

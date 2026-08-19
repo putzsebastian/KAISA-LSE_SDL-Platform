@@ -1,0 +1,18 @@
+{
+  "CIP_2_HOLD_DURATION": "cip_2_hold_duration",
+  "CIP_3_DURATION": "cip_3_duration",
+  "CIP_4_DURATION": "cip_4_duration",
+  "CIP_5_DURATION": "cip_5_duration",
+  "CIP_DURATION": "cip_duration",
+  "ELUTE_ISOCRATIC_2_DURATION": "elute_isocratic_2_duration",
+  "ELUTE_ISOCRATIC_2_PERCENT_B": "elute_isocratic_2_percent_b",
+  "ELUTE_ISOCRATIC_DURATION": "elute_isocratic_duration",
+  "ELUTE_ISOCRATIC_PERCENT_B": "elute_isocratic_percent_b",
+  "EQUILIBRATION_DURATION": "equilibration_duration",
+  "EQUILIBRATION_FLOW_RATE": "equilibration_flow_rate",
+  "LOAD_INJECT_DURATION": "load_inject_duration",
+  "LOAD_INJECT_FLOW_RATE": "load_inject_flow_rate",
+  "Process ID": "process_id",
+  "WASH_DURATION": "wash_duration",
+  "WASH_FLOW_RATE": "wash_flow_rate"
+}

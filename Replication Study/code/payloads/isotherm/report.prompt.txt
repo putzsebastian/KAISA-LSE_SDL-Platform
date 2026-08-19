@@ -1,0 +1,424 @@
+# isotherm — report agent
+#
+# The instruction as SENT (payload field `prompt`), extracted from the requests of
+# the published replicates and verified across all 20 of them. This file is
+# generated; the authoritative copy is that field in the payload beside it and
+# in every request.json.
+# ---------------------------------------------------------------------------
+WORKFLOW CONTEXT:
+The following workflow describes the experimental process:
+{
+  "type": "steps",
+  "content": [
+    {
+      "device": "Opentrons OT-2",
+      "method": "Run Protocol w/ Custom Labware",
+      "params": {
+        "labware_file": "cytiva_96_filterwellplate_1ml.json"
+      }
+    },
+    {
+      "device": "UR5",
+      "method": "Grab",
+      "params": {
+        "object": "96DeepWP",
+        "location": "Storage2"
+      }
+    },
+    {
+      "device": "UR5",
+      "method": "Place",
+      "params": {
+        "object": "96DeepWP",
+        "location": "Pump_Pos1",
+        "rehome": false
+      }
+    },
+    {
+      "device": "UR5",
+      "method": "Place_Vacuum_Manifold",
+      "params": {
+        "rehome": false
+      }
+    },
+    {
+      "device": "UR5",
+      "method": "Grab",
+      "params": {
+        "object": "Filterplate",
+        "location": "OT2_Pos1"
+      }
+    },
+    {
+      "device": "UR5",
+      "method": "Place",
+      "params": {
+        "object": "Filterplate",
+        "location": "Pump_Pos2",
+        "rehome": false
+      }
+    },
+    {
+      "device": "VacuuPump",
+      "method": "Pump",
+      "params": {
+        "speed": "25",
+        "duration": "30"
+      }
+    },
+    {
+      "device": "Utility",
+      "method": "Wait",
+      "params": {
+        "duration": "300",
+        "message": "Venting..."
+      }
+    },
+    {
+      "device": "UR5",
+      "method": "Grab",
+      "params": {
+        "object": "Filterplate",
+        "location": "Pump_Pos2"
+      }
+    },
+    {
+      "device": "UR5",
+      "method": "Place",
+      "params": {
+        "object": "Filterplate",
+        "location": "OT2_Pos1",
+        "rehome": true
+      }
+    },
+    {
+      "type": "loop_start",
+      "loop_id": "loop_1",
+      "iteration_type": "elabftw",
+      "iterations": "Equilibration Cycles",
+      "variable_name": "i"
+    },
+    {
+      "device": "Opentrons OT-2",
+      "method": "Run Protocol w/ Custom Labware",
+      "params": {
+        "labware_file": "cytiva_96_filterwellplate_1ml.json"
+      }
+    },
+    {
+      "device": "UR5",
+      "method": "Grab",
+      "params": {
+        "object": "Filterplate",
+        "location": "OT2_Pos1"
+      }
+    },
+    {
+      "device": "UR5",
+      "method": "Place",
+      "params": {
+        "object": "Filterplate",
+        "location": "Pump_Pos2",
+        "rehome": false
+      }
+    },
+    {
+      "device": "VacuuPump",
+      "method": "Pump",
+      "params": {
+        "speed": "25",
+        "duration": "30"
+      }
+    },
+    {
+      "device": "Utility",
+      "method": "Wait",
+      "params": {
+        "duration": "300",
+        "message": "Venting"
+      }
+    },
+    {
+      "device": "UR5",
+      "method": "Grab",
+      "params": {
+        "object": "Filterplate",
+        "location": "Pump_Pos2"
+      }
+    },
+    {
+      "device": "UR5",
+      "method": "Place",
+      "params": {
+        "object": "Filterplate",
+        "location": "OT2_Pos1",
+        "rehome": true
+      }
+    },
+    {
+      "type": "loop_end",
+      "loop_id": "loop_1"
+    },
+    {
+      "device": "UR5",
+      "method": "Remove_Vacuum_Manifold",
+      "params": {
+        "rehome": false
+      }
+    },
+    {
+      "device": "UR5",
+      "method": "Grab",
+      "params": {
+        "object": "96DeepWP",
+        "location": "Pump_Pos1"
+      }
+    },
+    {
+      "device": "UR5",
+      "method": "Place",
+      "params": {
+        "object": "96DeepWP",
+        "location": "Storage2",
+        "rehome": true
+      }
+    },
+    {
+      "device": "Opentrons OT-2",
+      "method": "Run Protocol w/ Custom Labware",
+      "params": {
+        "labware_file": "cytiva_96_filterwellplate_1ml.json"
+      }
+    },
+    {
+      "device": "Utility",
+      "method": "Pause",
+      "params": {
+        "message": "Cover Filterplate with Foil. Remove all other labware. Fresh 300 uL tips in Slot 7. Empty Trash."
+      }
+    },
+    {
+      "device": "Opentrons OT-2",
+      "method": "Run Protocol w/ Custom Labware",
+      "params": {
+        "labware_file": "cytiva_96_filterwellplate_1ml.json"
+      }
+    },
+    {
+      "device": "Utility",
+      "method": "Pause",
+      "params": {
+        "message": "Remove Foil from Filterplate"
+      }
+    },
+    {
+      "device": "UR5",
+      "method": "Grab",
+      "params": {
+        "object": "96DeepWP",
+        "location": "Storage1"
+      }
+    },
+    {
+      "device": "UR5",
+      "method": "Place",
+      "params": {
+        "object": "96DeepWP",
+        "location": "Pump_Pos1",
+        "rehome": false
+      }
+    },
+    {
+      "device": "UR5",
+      "method": "Place_Vacuum_Manifold",
+      "params": {
+        "rehome": false
+      }
+    },
+    {
+      "device": "UR5",
+      "method": "Grab",
+      "params": {
+        "object": "Filterplate",
+        "location": "OT2_Pos1"
+      }
+    },
+    {
+      "device": "UR5",
+      "method": "Place",
+      "params": {
+        "object": "Filterplate",
+        "location": "Pump_Pos2",
+        "rehome": false
+      }
+    },
+    {
+      "device": "VacuuPump",
+      "method": "Pump",
+      "params": {
+        "speed": "25",
+        "duration": "30"
+      }
+    },
+    {
+      "device": "Utility",
+      "method": "Wait",
+      "params": {
+        "duration": "300",
+        "message": "Venting..."
+      }
+    },
+    {
+      "device": "UR5",
+      "method": "Grab",
+      "params": {
+        "object": "Filterplate",
+        "location": "Pump_Pos2"
+      }
+    },
+    {
+      "device": "UR5",
+      "method": "Place",
+      "params": {
+        "object": "Filterplate",
+        "location": "Storage3",
+        "rehome": false
+      }
+    },
+    {
+      "device": "UR5",
+      "method": "Remove_Vacuum_Manifold",
+      "params": {
+        "rehome": false
+      }
+    },
+    {
+      "device": "UR5",
+      "method": "Grab",
+      "params": {
+        "object": "96DeepWP",
+        "location": "Pump_Pos1"
+      }
+    },
+    {
+      "device": "UR5",
+      "method": "Place",
+      "params": {
+        "object": "96DeepWP",
+        "location": "OT2_Pos5",
+        "rehome": false
+      }
+    },
+    {
+      "device": "UR5",
+      "method": "Grab",
+      "params": {
+        "object": "WP1",
+        "location": "Storage4"
+      }
+    },
+    {
+      "device": "UR5",
+      "method": "Place",
+      "params": {
+        "object": "WP1",
+        "location": "OT2_Pos1",
+        "rehome": true
+      }
+    },
+    {
+      "device": "Opentrons OT-2",
+      "method": "Run Protocol",
+      "params": {}
+    },
+    {
+      "device": "UR5",
+      "method": "Grab",
+      "params": {
+        "object": "96DeepWP",
+        "location": "OT2_Pos5"
+      }
+    },
+    {
+      "device": "UR5",
+      "method": "Place",
+      "params": {
+        "object": "96DeepWP",
+        "location": "Storage1",
+        "rehome": false
+      }
+    },
+    {
+      "device": "UR5",
+      "method": "Grab",
+      "params": {
+        "object": "WP1",
+        "location": "OT2_Pos1"
+      }
+    },
+    {
+      "device": "Tecan Spark",
+      "method": "Open",
+      "params": {}
+    },
+    {
+      "device": "UR5",
+      "method": "Place",
+      "params": {
+        "object": "WP1",
+        "location": "Tecan",
+        "rehome": false
+      }
+    },
+    {
+      "device": "Tecan Spark",
+      "method": "Close",
+      "params": {}
+    },
+    {
+      "device": "Tecan Spark",
+      "method": "Run Measurement",
+      "params": {}
+    },
+    {
+      "device": "Tecan Spark",
+      "method": "Open",
+      "params": {}
+    },
+    {
+      "device": "UR5",
+      "method": "Grab",
+      "params": {
+        "object": "WP1",
+        "location": "Tecan"
+      }
+    },
+    {
+      "device": "Tecan Spark",
+      "method": "Close",
+      "params": {}
+    },
+    {
+      "device": "UR5",
+      "method": "Place",
+      "params": {
+        "object": "WP1",
+        "location": "Storage4",
+        "rehome": false
+      }
+    }
+  ]
+}
+
+USER REQUEST:
+Please create a report for loading isotherm determination of ligands to resin at different salt concentrations. Use the existing placeholders and the plots.
+Structure:
+Heading
+Start & End-Date
+Methods (Describe the automated workflow)
+Results (Plots)
+
+SELECTED PLOTS TO INCLUDE:
+1. Loading Isotherms {Id} (loading_isotherms_{ID}.png) - path_variable
+
+Please create specific sections in the HTML template for each selected plot. Use placeholders like [[PLOT_1]], [[PLOT_2]], etc. for the plot images. Include descriptive headings and proper styling for each plot section. IMPORTANT: The plots will be uploaded to eLabFTW and need proper download URLs.

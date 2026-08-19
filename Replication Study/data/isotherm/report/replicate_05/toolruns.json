@@ -1,0 +1,13 @@
+{
+  "node_runs": {
+    "Webhook": 1,
+    "Simple Memory": 2,
+    "OpenAI Chat Model1": 4,
+    "Validate_Script": 2,
+    "Save_Script": 1,
+    "Structured Output Parser": 2,
+    "AI Agent": 1,
+    "Respond to Webhook": 1
+  },
+  "source": "execution.raw.json"
+}

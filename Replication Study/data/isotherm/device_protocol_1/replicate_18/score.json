@@ -1,0 +1,11 @@
+{
+  "pass": false,
+  "codes": [
+    "SIM_FAILED"
+  ],
+  "systematic_multiples": null,
+  "destinations_matched": null,
+  "destinations_total": null,
+  "candidate_error": "ProtocolCommandFailedError [line 160]: Error 4000 GENERAL_ERROR (ProtocolCommandFailedError): InvalidAspirateVolumeError: Cannot aspirate 300.0 \u00b5L when only 0.0 is available in the tip.",
+  "comparator": "destinations"
+}

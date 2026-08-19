@@ -1,0 +1,23 @@
+{
+  "job_id": "15_opentrons_5_012_372784562",
+  "callback_url": "http://host.docker.internal:8765/api/protocol_callback",
+  "prompt": "\n\nUSER REQUIREMENTS:\nGenerate an Opentrons protocol using placeholder syntax instead of specific values. Make it templatable.\n\nAvailable placeholders:\n- [[REPLICATES]]\n- [[SALT_CONCENTRATIONS]]\n\nProtocol Requirements:\nDeck Layout:\nSlot 1: NEST 96 Deep-Well Plate 2 ml mounted directly on Heater Shaker Module V1 (no adapter - load the labware straight onto the module).\nSlot 5: 360 uL 96-well plate\nSlot 7: Opentrons 96 Tiprack 300 uL\n\nPipette Configuration:\nRight Mount: P300 Single-Channel GEN2\nLeft Mount: P300 8-Channel GEN2\n\nProtocol Steps:\n1.\tMultiply number of concentrations in [[SALT_CONCENTRATIONS]] with [[REPLICATES]]. This is the number of transfers ‘num_transfers’.\n2.\tFor each i in num_transfers transfer 200 uL each of wells in Column [i] of the Deep Well Plate into wells of column [i] of the 360 uL 96-well plate in Slot 5.\nUse the 8-channel pipette for these transfers.",
+  "device_type": "opentrons",
+  "process_id": 15,
+  "step_id": 5,
+  "step_method": "Run Protocol",
+  "process_name": "Loading Isotherm Resin",
+  "process_type": "automated",
+  "process_folder_path": "/app/data/replication/batches/<run>/replicate_012",
+  "protocols_folder": "/app/data/replication/batches/<run>/replicate_012/protocols",
+  "user_id": 1,
+  "username": "sebastianputz",
+  "timestamp": "2026-08-10T14:39:44.561487+00:00",
+  "autonomous_mode": false,
+  "lab_id": "167",
+  "metadata": {
+    "elab_api_base": "https://eln.example.org",
+    "template_id": "278",
+    "workflow_type": "steps"
+  }
+}

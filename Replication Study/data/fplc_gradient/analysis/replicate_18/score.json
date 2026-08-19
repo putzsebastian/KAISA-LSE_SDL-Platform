@@ -1,0 +1,35 @@
+{
+  "pass": true,
+  "codes": [
+    "PDF_NOT_PRODUCED"
+  ],
+  "fatal_codes": [],
+  "findings": [
+    {
+      "code": "PDF_NOT_PRODUCED",
+      "benign": true
+    }
+  ],
+  "n_findings": 0,
+  "peaks_found": 1,
+  "peaks_reference": 1,
+  "results_dir": [
+    "akta_peaks_5520.csv",
+    "akta_processed_5520.csv",
+    "akta_results_5520.json",
+    "analysis_results_5520.json",
+    "chromatogram_5520.png"
+  ],
+  "plots_produced": [
+    "chromatogram_5520.png"
+  ],
+  "csv_produced": [
+    "akta_peaks_5520.csv",
+    "akta_processed_5520.csv"
+  ],
+  "server_routes": [
+    "/api/akta/results/5520"
+  ],
+  "undefined_endpoints": [],
+  "results_carrier": "analysis_results_5520.json"
+}

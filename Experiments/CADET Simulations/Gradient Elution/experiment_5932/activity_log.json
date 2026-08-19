@@ -1,0 +1,30 @@
+{
+  "experiment_id": "5932",
+  "experiment_name": "3 Comp - Gradient Elution - CIP - MPM - 2026-08-17",
+  "process_id": "61",
+  "created_at": "2026-08-17T12:45:29.556373",
+  "user": "sebastianputz",
+  "status": "completed",
+  "activities": [
+    {
+      "timestamp": "2026-08-17T12:45:29.556438",
+      "action": "experiment_created",
+      "details": "Experiment created via Execution Wizard Step 6"
+    },
+    {
+      "timestamp": "2026-08-17T12:45:33.974043",
+      "action": "simulation_started",
+      "details": "Simulation started with timeout=300s"
+    },
+    {
+      "timestamp": "2026-08-17T12:45:43.445974",
+      "action": "simulation_completed",
+      "details": "Completed in 9.47s"
+    },
+    {
+      "timestamp": "2026-08-17T12:45:58.049212",
+      "action": "report_created",
+      "details": "Report generated using template script: report_5932.html"
+    }
+  ]
+}

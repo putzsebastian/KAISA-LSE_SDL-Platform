@@ -1,0 +1,15 @@
+Return code: 0
+STDOUT:
+INFO: Starting AKTA chromatogram analysis
+INFO: Loading experiment metadata for experiment 5523
+INFO: Fetching AKTA results for experiment 5523 from control server
+INFO: AKTA results fetched successfully from control server
+INFO: Validating AKTA chromatogram data
+INFO: Detecting UV peaks
+INFO: Exporting processed chromatogram data
+INFO: Generating chromatogram plots
+Saved analysis results JSON to: ../results/analysis_results_5523.json
+SUCCESS: Analysis successful!
+
+STDERR:
+

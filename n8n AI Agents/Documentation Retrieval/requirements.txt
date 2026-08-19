@@ -1,0 +1,4 @@
+# Ingestion + export tooling for the Opentrons-docs vector store
+openai>=1.0          # embeddings (query + ingest must use the SAME model)
+qdrant-client>=1.7   # target vector store
+pinecone>=5.0        # ONLY needed for export_pinecone_corpus.py

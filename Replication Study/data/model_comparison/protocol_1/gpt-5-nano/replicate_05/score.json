@@ -1,0 +1,11 @@
+{
+  "pass": false,
+  "codes": [
+    "SIM_FAILED"
+  ],
+  "systematic_multiples": null,
+  "destinations_matched": null,
+  "destinations_total": null,
+  "candidate_error": "MalformedPythonProtocolError: apiLevel not declared in /tmp/harness/runs/s5_<run>/replicate_005/instantiated/experiment_5016/protocols/Template_278_OT_Protocol_1.py. You must specify the ",
+  "comparator": "destinations"
+}

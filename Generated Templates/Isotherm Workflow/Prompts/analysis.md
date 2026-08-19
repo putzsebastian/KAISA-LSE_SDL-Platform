@@ -1,0 +1,15 @@
+# Analysis agent — loading-isotherm evaluation of Tecan absorbance data
+
+Please create script for data analysis of Tecan platereader data for loading isotherm determination. The file contains the raw absorbance data.
+Tested concentrations:
+[[NUMBER_OF_LIGAND_CONCENTRATIONS]] different initial ligand concentrations (up to 8) were tested with [[NUMBER_OF_SALT_CONCENTRATIONS]] different salt concentrations and each point was replicated [[REPLICATES]] times. The exact ligand and salt concentrations are given in [[LIGAND_CONCENTRATIONS]] and [[SALT_CONCENTRATIONS]] as strings separated by semicolons.
+Plate layout:
+In a column of wells, the initial ligand concentrations, c0, are ascending with increasing row number, e.g. from A1-H1 if [[NUMBER_OF_LIGAND_CONCENTRATIONS]]=8. The exact ligand concentrations are given in [[LIGAND_CONCENTRATIONS]] as strings separated by semicolons. The ligand concentration unit is given in [[LIGAND_CONCENTRATION_UNIT]]. The salt concentrations are ascending row-wise, but the replicates are grouped together. The exact salt concentrations are given in [[SALT_CONCENTRATIONS]] as strings separated by semicolons and replicates are given in [[REPLICATES]]. The salt concentration unit is given in [[SALT_CONCENTRATION_UNIT]]. For example if [[NUMBER_OF_SALT_CONCENTRATIONS]]=4, [[SALT_CONCENTRATIONS]]=’0;100;200;500’ and [[REPLICATES]]=3, the columns A1-A3 have a salt concentration of 0, A4-A6 have 100, A7-A9 have 200 and A10-A12 have 500. All columns have the same initial ligand concentrations c0, e.g. if [[NUMBER_OF_LIGAND_CONCENTRATIONS]]=8 and [[LIGAND_CONCENTRATIONS]]=’0;0.5;1;2;3;5;7;10’ the initial ligand concentrations during binding (c0) are ascending by row in each column from 0 in A to 10 in H. All 96 wells of the plate are measured, but not in every case each well contains a datapoint, e.g. if [[NUMBER_OF_LIGAND_CONCENTRATIONS]]=6, only rows A-F contain data for the evaluation.
+Analysis steps:
+1.	For each required well, calculate the equilibrium ligand concentration in the supernatant (cE). The slope of the calibration curve and the intercept are given in [[CALIBRATION_CURVE_SLOPE]] and [[CALIBRATION_CURVE_INTERCEPT]].
+2.	Calculate the Mean and Standard Deviation of the equilibrium ligand concentrations in the supernatant for all replicates of a parameter combination (wells with same ligand and salt concentration).
+3.	Calculate the loading q of the adsorbent material for each parameter combination. The mass of the adsorbent resin/particles in each well, m_resin is given in [[RESIN_MASS]] (in mg). The total volume, v_total, in each well is [[TOTAL_VOLUME]] (in uL). Therefore q=(c0-cE)*v_total/m_resin.
+4.	For each salt concentration make a Langmuir fit through the existing data points for that salt concentration.
+5.	Plot all isotherms (actual data points + fits) in one graph. Use different colors for the different salt concentrations. Include the fit parameters and the R² of the fit in the legend.
+Example data:
+The attached example file shows how the data would look like with [[NUMBER_OF_LIGAND_CONCENTRATIONS]]=8, [[NUMBER_OF_SALT_CONCENTRATIONS]]=4 and [[REPLICATES]]=3.

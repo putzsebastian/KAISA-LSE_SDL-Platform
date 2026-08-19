@@ -1,0 +1,32 @@
+{
+  "step": "orchestration",
+  "status": "completed",
+  "wall_clock_s": 72.3,
+  "job_id": null,
+  "artifact_chars": 20130,
+  "execution_id": "3458",
+  "execution_status": "success",
+  "tool_calls": 1,
+  "tokens_total": 51765,
+  "failure_class": null,
+  "failure_signature": null,
+  "finished_at": "2026-08-11T16:21:33.886019+00:00",
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": "completed",
+      "wall_clock_s": 72.3,
+      "tool_calls": 1,
+      "tokens_total": 51765,
+      "execution_id": "3458",
+      "failure_class": null,
+      "failure_signature": null
+    }
+  ],
+  "attempt_count": 1,
+  "first_attempt_status": "completed",
+  "converged_first_attempt": true,
+  "infrastructure_retries": 0,
+  "tokens_successful_attempt": 51765,
+  "wall_clock_successful_attempt_s": 72.3
+}

@@ -1,0 +1,326 @@
+{
+  "access_key": null,
+  "body": "",
+  "body_html": "",
+  "canread": "{\"base\": 10, \"teams\": [], \"users\": [], \"teamgroups\": []}",
+  "canread_is_immutable": 0,
+  "canwrite": "{\"base\": 10, \"teams\": [], \"users\": [], \"teamgroups\": []}",
+  "canwrite_is_immutable": 0,
+  "category": null,
+  "category_color": null,
+  "category_title": null,
+  "comments": [],
+  "compounds": [],
+  "containers": [],
+  "content_type": 1,
+  "created_at": "2026-03-27 13:32:17",
+  "custom_id": null,
+  "date": "2026-03-27",
+  "elabid": "20260327-7673b2b6347982b0f8622d1865c5f4c38b082867",
+  "events_start": null,
+  "events_start_itemid": null,
+  "exclusive_edit_mode": {
+    "locked_by": 219,
+    "locked_by_human": "Sebastian Putz",
+    "locked_at": "2026-03-27 13:33:15",
+    "is_stale": 0
+  },
+  "experiments_links": [],
+  "firstname": "Sebastian",
+  "fullname": "Sebastian Putz",
+  "id": 5020,
+  "is_pinned": 0,
+  "items_links": [],
+  "lastchangeby": 219,
+  "lastname": "Putz",
+  "locked": 0,
+  "locked_at": null,
+  "lockedby": null,
+  "metadata": "{\"elabftw\": {\"extra_fields_groups\": [{\"id\": 1, \"name\": \"Equilibration\"}, {\"id\": 2, \"name\": \"Filtration\"}, {\"id\": 3, \"name\": \"Isotherm\"}, {\"id\": 4, \"name\": \"Incubation\"}, {\"id\": 5, \"name\": \"Measurement\"}]}, \"extra_fields\": {\"Buffer\": {\"type\": \"text\", \"value\": \"20 mM NaAc\", \"group_id\": 3, \"position\": 11, \"description\": \"Name and concentration of the binding Buffer, e.g. 20 mM Tris\"}, \"Salt Name\": {\"type\": \"text\", \"value\": \"NaCl\", \"group_id\": 3, \"position\": 5, \"description\": \"Name of the additional salt in the binding buffer\"}, \"Process ID\": {\"type\": \"text\", \"value\": \"15\", \"group_id\": 2, \"readonly\": true, \"required\": true, \"description\": \"Linked Process ID (do not modify)\"}, \"Pump Speed\": {\"type\": \"number\", \"unit\": \"%\", \"units\": [\"%\"], \"value\": \"25\", \"group_id\": 2, \"description\": \"Percentage of max. pump speed for filtration\"}, \"Replicates\": {\"type\": \"number\", \"unit\": \"\", \"units\": [], \"value\": \"3\", \"group_id\": 3, \"position\": 10, \"description\": \"Number of replicates per tested combination\"}, \"Resin Mass\": {\"type\": \"number\", \"unit\": \"\u00b5L\", \"units\": [\"mg\", \"\u00b5L\"], \"value\": \"7.7\", \"group_id\": 3, \"description\": \"Mass/Volume of resin in each well\"}, \"Ligand Name\": {\"type\": \"text\", \"value\": \"Ovalbumin\", \"group_id\": 3, \"position\": 0, \"description\": \"Name of the ligand\"}, \"Total volume\": {\"type\": \"number\", \"unit\": \"\u00b5L\", \"units\": [\"\u00b5L\"], \"value\": \"300\", \"group_id\": 3, \"description\": \"Total volume of sample during incubation\"}, \"Venting time\": {\"type\": \"number\", \"unit\": \"s\", \"units\": [\"s\"], \"value\": \"300\", \"group_id\": 2, \"description\": \"Time to build pressure after filtration before plate can be lifted\"}, \"Pump Duration\": {\"type\": \"number\", \"unit\": \"s\", \"units\": [\"s\"], \"value\": \"30\", \"group_id\": 2, \"description\": \"Vacuum pumping duration for filtration\"}, \"Incubation Time\": {\"type\": \"number\", \"unit\": \"min\", \"units\": [\"min\"], \"value\": \"120\", \"group_id\": 4, \"description\": \"Incubation time for binding step\"}, \"Salt concentrations\": {\"type\": \"text\", \"value\": \"500\", \"group_id\": 3, \"position\": 8, \"description\": \"Specify the desired salt concentrations exactly, separated by semicolon. E.g., 0;100;200;500\"}, \"Equilibration Cycles\": {\"type\": \"number\", \"unit\": \"\", \"units\": [], \"value\": \"3\", \"group_id\": 1, \"description\": \"Number of equilibration cycles\"}, \"Equilibration Volume\": {\"type\": \"number\", \"unit\": \"\u00b5L\", \"units\": [\"\u00b5L\"], \"value\": \"300\", \"group_id\": 1, \"description\": \"Buffer volume for equilibration per well\"}, \"Ligand concentrations\": {\"type\": \"text\", \"value\": \"0.2;0.5;1.0;1.5;2;5;7\", \"group_id\": 3, \"position\": 3, \"description\": \"Specify the desired ligand concentrations exactly, separated by semicolon. E.g., 1.0;1.5;2.0;5.0;10.0\"}, \"Incubation Temperature\": {\"type\": \"number\", \"unit\": \"\u00b0C\", \"units\": [\"\u00b0C\"], \"value\": \"25\", \"group_id\": 4, \"description\": \"Temperature for binding step\"}, \"Measurement Wavelength\": {\"type\": \"number\", \"unit\": \"nm\", \"units\": [\"nm\"], \"value\": \"280\", \"group_id\": 5, \"description\": \"Absorption wavelength for platereader\"}, \"Calibration Curve Slope\": {\"type\": \"number\", \"unit\": \"\", \"units\": [], \"value\": \"0.2264\", \"group_id\": 5}, \"Salt concentration unit\": {\"type\": \"text\", \"value\": \"mM\", \"group_id\": 3, \"position\": 6}, \"Shaker Speed Incubation\": {\"type\": \"number\", \"unit\": \"RPM\", \"units\": [\"RPM\"], \"value\": \"1300\", \"group_id\": 4, \"description\": \"Shaking speed during incubation step (0-2000 RPM)\"}, \"Salt Stock Concentration\": {\"type\": \"number\", \"unit\": \"\", \"units\": [], \"value\": \"1000\", \"group_id\": 3, \"position\": 9, \"description\": \"Stock concentration of high salt buffer. Must be at least 2x the max concentration for binding\"}, \"Ligand concentration unit\": {\"type\": \"text\", \"value\": \"mg/mL\", \"group_id\": 3, \"position\": 2}, \"Ligand Stock Concentration\": {\"type\": \"number\", \"unit\": \"\", \"units\": [], \"value\": \"14\", \"group_id\": 3, \"position\": 4, \"description\": \"Stock concentration of ligand. Must be at least 2x the max concentration for binding\"}, \"Calibration Curve Intercept\": {\"type\": \"number\", \"unit\": \"\", \"units\": [], \"value\": \"0.054\", \"group_id\": 5}, \"Equilibration Cycle Duration\": {\"type\": \"number\", \"unit\": \"min\", \"units\": [\"min\"], \"value\": \"5\", \"group_id\": 1, \"description\": \"Duration per equilibration cycle\"}, \"Number of salt concentrations\": {\"type\": \"number\", \"unit\": \"\", \"units\": [], \"value\": \"1\", \"group_id\": 3, \"position\": 7, \"description\": \"Number of different salt concentrations to test. Number of salt concentrations x replicates may not exceed 12!\"}, \"Number of ligand concentrations\": {\"type\": \"number\", \"unit\": \"\", \"units\": [], \"value\": \"7\", \"group_id\": 3, \"position\": 1, \"description\": \"Number of different ligand concentrations for the isotherm (max. 8)\"}}}",
+  "metadata_decoded": {
+    "elabftw": {
+      "extra_fields_groups": [
+        {
+          "id": 1,
+          "name": "Equilibration"
+        },
+        {
+          "id": 2,
+          "name": "Filtration"
+        },
+        {
+          "id": 3,
+          "name": "Isotherm"
+        },
+        {
+          "id": 4,
+          "name": "Incubation"
+        },
+        {
+          "id": 5,
+          "name": "Measurement"
+        }
+      ]
+    },
+    "extra_fields": {
+      "Buffer": {
+        "type": "text",
+        "value": "20 mM NaAc",
+        "group_id": 3,
+        "position": 11,
+        "description": "Name and concentration of the binding Buffer, e.g. 20 mM Tris"
+      },
+      "Salt Name": {
+        "type": "text",
+        "value": "NaCl",
+        "group_id": 3,
+        "position": 5,
+        "description": "Name of the additional salt in the binding buffer"
+      },
+      "Process ID": {
+        "type": "text",
+        "value": "15",
+        "group_id": 2,
+        "readonly": true,
+        "required": true,
+        "description": "Linked Process ID (do not modify)"
+      },
+      "Pump Speed": {
+        "type": "number",
+        "unit": "%",
+        "units": [
+          "%"
+        ],
+        "value": "25",
+        "group_id": 2,
+        "description": "Percentage of max. pump speed for filtration"
+      },
+      "Replicates": {
+        "type": "number",
+        "unit": "",
+        "units": [],
+        "value": "3",
+        "group_id": 3,
+        "position": 10,
+        "description": "Number of replicates per tested combination"
+      },
+      "Resin Mass": {
+        "type": "number",
+        "unit": "\u00b5L",
+        "units": [
+          "mg",
+          "\u00b5L"
+        ],
+        "value": "7.7",
+        "group_id": 3,
+        "description": "Mass/Volume of resin in each well"
+      },
+      "Ligand Name": {
+        "type": "text",
+        "value": "Ovalbumin",
+        "group_id": 3,
+        "position": 0,
+        "description": "Name of the ligand"
+      },
+      "Total volume": {
+        "type": "number",
+        "unit": "\u00b5L",
+        "units": [
+          "\u00b5L"
+        ],
+        "value": "300",
+        "group_id": 3,
+        "description": "Total volume of sample during incubation"
+      },
+      "Venting time": {
+        "type": "number",
+        "unit": "s",
+        "units": [
+          "s"
+        ],
+        "value": "300",
+        "group_id": 2,
+        "description": "Time to build pressure after filtration before plate can be lifted"
+      },
+      "Pump Duration": {
+        "type": "number",
+        "unit": "s",
+        "units": [
+          "s"
+        ],
+        "value": "30",
+        "group_id": 2,
+        "description": "Vacuum pumping duration for filtration"
+      },
+      "Incubation Time": {
+        "type": "number",
+        "unit": "min",
+        "units": [
+          "min"
+        ],
+        "value": "120",
+        "group_id": 4,
+        "description": "Incubation time for binding step"
+      },
+      "Salt concentrations": {
+        "type": "text",
+        "value": "500",
+        "group_id": 3,
+        "position": 8,
+        "description": "Specify the desired salt concentrations exactly, separated by semicolon. E.g., 0;100;200;500"
+      },
+      "Equilibration Cycles": {
+        "type": "number",
+        "unit": "",
+        "units": [],
+        "value": "3",
+        "group_id": 1,
+        "description": "Number of equilibration cycles"
+      },
+      "Equilibration Volume": {
+        "type": "number",
+        "unit": "\u00b5L",
+        "units": [
+          "\u00b5L"
+        ],
+        "value": "300",
+        "group_id": 1,
+        "description": "Buffer volume for equilibration per well"
+      },
+      "Ligand concentrations": {
+        "type": "text",
+        "value": "0.2;0.5;1.0;1.5;2;5;7",
+        "group_id": 3,
+        "position": 3,
+        "description": "Specify the desired ligand concentrations exactly, separated by semicolon. E.g., 1.0;1.5;2.0;5.0;10.0"
+      },
+      "Incubation Temperature": {
+        "type": "number",
+        "unit": "\u00b0C",
+        "units": [
+          "\u00b0C"
+        ],
+        "value": "25",
+        "group_id": 4,
+        "description": "Temperature for binding step"
+      },
+      "Measurement Wavelength": {
+        "type": "number",
+        "unit": "nm",
+        "units": [
+          "nm"
+        ],
+        "value": "280",
+        "group_id": 5,
+        "description": "Absorption wavelength for platereader"
+      },
+      "Calibration Curve Slope": {
+        "type": "number",
+        "unit": "",
+        "units": [],
+        "value": "0.2264",
+        "group_id": 5
+      },
+      "Salt concentration unit": {
+        "type": "text",
+        "value": "mM",
+        "group_id": 3,
+        "position": 6
+      },
+      "Shaker Speed Incubation": {
+        "type": "number",
+        "unit": "RPM",
+        "units": [
+          "RPM"
+        ],
+        "value": "1300",
+        "group_id": 4,
+        "description": "Shaking speed during incubation step (0-2000 RPM)"
+      },
+      "Salt Stock Concentration": {
+        "type": "number",
+        "unit": "",
+        "units": [],
+        "value": "1000",
+        "group_id": 3,
+        "position": 9,
+        "description": "Stock concentration of high salt buffer. Must be at least 2x the max concentration for binding"
+      },
+      "Ligand concentration unit": {
+        "type": "text",
+        "value": "mg/mL",
+        "group_id": 3,
+        "position": 2
+      },
+      "Ligand Stock Concentration": {
+        "type": "number",
+        "unit": "",
+        "units": [],
+        "value": "14",
+        "group_id": 3,
+        "position": 4,
+        "description": "Stock concentration of ligand. Must be at least 2x the max concentration for binding"
+      },
+      "Calibration Curve Intercept": {
+        "type": "number",
+        "unit": "",
+        "units": [],
+        "value": "0.054",
+        "group_id": 5
+      },
+      "Equilibration Cycle Duration": {
+        "type": "number",
+        "unit": "min",
+        "units": [
+          "min"
+        ],
+        "value": "5",
+        "group_id": 1,
+        "description": "Duration per equilibration cycle"
+      },
+      "Number of salt concentrations": {
+        "type": "number",
+        "unit": "",
+        "units": [],
+        "value": "1",
+        "group_id": 3,
+        "position": 7,
+        "description": "Number of different salt concentrations to test. Number of salt concentrations x replicates may not exceed 12!"
+      },
+      "Number of ligand concentrations": {
+        "type": "number",
+        "unit": "",
+        "units": [],
+        "value": "7",
+        "group_id": 3,
+        "position": 1,
+        "description": "Number of different ligand concentrations for the isotherm (max. 8)"
+      }
+    }
+  },
+  "modified_at": "2026-03-27 13:33:21",
+  "next_step": null,
+  "orcid": null,
+  "page": "experiments",
+  "rating": 0,
+  "recent_comment": null,
+  "related_experiments_links": [],
+  "related_items_links": [],
+  "sharelink": "https://<ELAB_HOST>/experiments.php?mode=view&id=5020",
+  "state": 1,
+  "status": null,
+  "status_color": null,
+  "status_title": null,
+  "steps": [],
+  "tags": null,
+  "tags_id": null,
+  "team": 7,
+  "team_name": "IFG",
+  "timestamped": 0,
+  "timestamped_at": null,
+  "timestampedby": null,
+  "title": "Loading Isotherm Resin - Ovalbumin MXTRP650M - 500 mM  NaCl",
+  "type": "experiments",
+  "uploads": [],
+  "userid": 219
+}

@@ -1,0 +1,193 @@
+{
+  "name": "Save Script",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "script"
+            },
+            {
+              "name": "script_path"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -1296,
+        272
+      ],
+      "id": "75054ed9-9eea-4895-8fce-6c2e9566825c",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "operation": "toText",
+        "sourceProperty": "query",
+        "options": {
+          "encoding": "utf8",
+          "fileName": "=test_protocol.py"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        -688,
+        192
+      ],
+      "id": "a4fd7402-b550-412a-89c6-19ff52da12dd",
+      "name": "Convert to File"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://agent-tools:8100/save/upload",
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "data"
+            },
+            {
+              "name": "script_path",
+              "value": "={{ $('When Executed by Another Workflow').item.json.script_path }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -368,
+        304
+      ],
+      "id": "5b0c85af-6841-45c4-9c2e-3b665575d054",
+      "name": "Save Script"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "768e5468-6826-46ec-ba3c-e322204d8247",
+              "name": "query",
+              "value": "={{ $json.script.replace(/```python/g, '').replace(/```/g, '') }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -960,
+        224
+      ],
+      "id": "35b5e7ab-a702-48cf-9298-366d180d7b02",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3ef12e64-ce9f-4b01-8848-0d2307ef38ea",
+              "name": "script",
+              "value": "={{ $('Edit Fields').item.json.query }}",
+              "type": "string"
+            },
+            {
+              "id": "36a4bf2b-02f8-4ea1-bf1c-cd6ea1eba55f",
+              "name": "message",
+              "value": "={{ $json.message }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -144,
+        304
+      ],
+      "id": "bfe482be-4d16-4081-95b7-a18465bef169",
+      "name": "Edit Fields1"
+    }
+  ],
+  "pinData": {
+    "When Executed by Another Workflow": [
+      {
+        "json": {
+          "script": "#!/usr/bin/env python3\n\"\"\"\nAnalysis Script - Plate Reader Absorbance Calibration Curve Data Evaluation\nThis script processes absorbance data from a Tecan plate reader for calibration curve experiments.\nIt performs a linear fit, plots the average and standard deviation of absorbance over concentration,\nand reports fit parameters (slope, intercept, R-squared).\nCan be called externally with experiment ID as parameter.\n\"\"\"\n\nimport os\nimport sys\nimport json\nimport argparse\nimport shutil\nimport requests\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom pathlib import Path\nfrom scipy.optimize import curve_fit\nfrom sklearn.metrics import r2_score\n\n# Device control server configuration\nDEVICE_CONTROL_SERVER = os.getenv('DEVICE_CONTROL_SERVER', 'http://localhost:8000')\nDEVICE_API_KEY = os.getenv('DEVICE_API_KEY', 'your-secure-api-key-here')\n\ndef fetch_tecan_data_file(experiment_id: str, save_to_folder: str) -> str:\n    \"\"\"Fetch Tecan Excel data file from device control server for given experiment ID.\"\"\"\n    url = f\"{DEVICE_CONTROL_SERVER}/api/tecan/data/{experiment_id}\"\n    headers = {'X-API-Key': DEVICE_API_KEY}\n\n    try:\n        # First check if the file exists\n        info_url = f\"{DEVICE_CONTROL_SERVER}/api/tecan/data/{experiment_id}/info\"\n        info_response = requests.get(info_url, headers=headers, timeout=10)\n\n        if info_response.status_code == 404:\n            raise FileNotFoundError(f\"No Tecan data found for experiment {experiment_id}\")\n        elif info_response.status_code != 200:\n            raise Exception(f\"Failed to check data availability: {info_response.status_code} - {info_response.text}\")\n\n        # Download the file\n        response = requests.get(url, headers=headers, timeout=30)\n        response.raise_for_status()\n\n        # Ensure save folder exists\n        save_folder = Path(save_to_folder)\n        save_folder.mkdir(parents=True, exist_ok=True)\n\n        # Save the file\n        filename = f\"tecan_data_{experiment_id}.xlsx\"\n        file_path = save_folder / filename\n\n        with open(file_path, 'wb') as f:\n            f.write(response.content)\n\n        print(f\"INFO: Successfully downloaded Tecan data to: {file_path}\")\n        return str(file_path)\n\n    except requests.exceptions.ConnectionError:\n        raise Exception(f\"Cannot connect to device control server at {DEVICE_CONTROL_SERVER}\")\n    except requests.exceptions.Timeout:\n        raise Exception(\"Timeout while fetching Tecan data from device control server\")\n    except Exception as e:\n        raise Exception(f\"Failed to fetch Tecan data for experiment {experiment_id}: {str(e)}\")\n\ndef check_tecan_data_availability(experiment_id: str) -> dict:\n    \"\"\"Check if Tecan data is available for the given experiment ID.\"\"\"\n    url = f\"{DEVICE_CONTROL_SERVER}/api/tecan/data/{experiment_id}/info\"\n    headers = {'X-API-Key': DEVICE_API_KEY}\n\n    try:\n        response = requests.get(url, headers=headers, timeout=10)\n\n        if response.status_code == 200:\n            return response.json()\n        elif response.status_code == 404:\n            return {\"available\": False, \"error\": \"No data found\"}\n        else:\n            return {\"available\": False, \"error\": f\"Server error: {response.status_code}\"}\n\n    except Exception as e:\n        return {\"available\": False, \"error\": str(e)}\n\ndef get_most_recent_folder(directory, n=0):\n    \"\"\"Finds the n-th most recent subfolder in a given directory.\"\"\"\n    try:\n        folders = [f for f in os.listdir(directory) if os.path.isdir(os.path.join(directory, f))]\n        if not folders:\n            return None\n        sorted_folders = sorted(folders, key=lambda f: os.path.getctime(os.path.join(directory, f)), reverse=True)\n        return os.path.join(directory, sorted_folders[n]) if len(sorted_folders) > n else None\n    except Exception as e:\n        print(f\"WARNING: Could not list directory {directory}: {e}\")\n        return None\n\ndef get_most_recent_excel_file(directory, n=0):\n    \"\"\"Finds the most recent Excel file within the 'Export/xlsx/' subfolder.\"\"\"\n    most_recent_folder = get_most_recent_folder(directory, n)\n    if not most_recent_folder:\n        return None\n\n    excel_export_path = Path(most_recent_folder) / \"Export\" / \"xlsx\"\n    if not excel_export_path.exists() or not excel_export_path.is_dir():\n        return None\n\n    try:\n        files_in_folder = os.listdir(excel_export_path)\n        excel_files = [f for f in files_in_folder if f.lower().endswith('.xlsx')]\n        if not excel_files:\n            return None\n        # Sort files by creation time to get the most recent one\n        excel_files.sort(key=lambda f: os.path.getctime(Path(excel_export_path) / f), reverse=True)\n        return str(Path(excel_export_path) / excel_files[0])\n    except Exception as e:\n        print(f\"WARNING: Could not find recent Excel file in {excel_export_path}: {e}\")\n        return None\n\ndef linear_function(x, m, c):\n    \"\"\"Linear function for curve fitting: y = mx + c\"\"\"\n    return m * x + c\n\ndef analyze_experiment(experiment_id=None, data_folder='../data', results_folder='../results'):\n    \"\"\"\n    Main analysis function for Plate Reader Absorbance Calibration Curve.\n    \n    Args:\n        experiment_id (str): Experiment ID for data linking. If None, tries to auto-detect.\n        data_folder (str): Path to the folder containing experiment_ID.json files.\n        results_folder (str): Path to the folder where all analysis outputs will be saved.\n    \n    Returns:\n        dict: Analysis results with all key metrics and paths to generated files.\n    \"\"\"\n    results_folder_path = Path(results_folder)\n    results_folder_path.mkdir(parents=True, exist_ok=True)\n    \n    analysis_results = {\n        \"experiment_id\": experiment_id,\n        \"status\": \"failed\",\n        \"message\": \"\",\n        \"plots\": {},\n        \"data_outputs\": {},\n        \"metadata\": {}\n    }\n    \n    # Auto-detect experiment ID if not provided\n    if experiment_id is None:\n        print(\"INFO: Experiment ID not provided. Attempting to auto-detect the most recent experiment JSON.\")\n        potential_data_paths = [Path('../'), Path(data_folder)]\n        found_experiment_id = None\n        for base_path in potential_data_paths:\n            try:\n                json_files = sorted(base_path.glob('experiment_*.json'), key=os.path.getmtime, reverse=True)\n                if json_files:\n                    found_experiment_id = json_files[0].stem.replace('experiment_', '')\n                    print(f\"INFO: Auto-detected experiment ID: {found_experiment_id} from {json_files[0]}\")\n                    break\n            except Exception as e:\n                print(f\"WARNING: Could not auto-detect experiment ID in {base_path}: {e}\")\n        \n        if found_experiment_id:\n            experiment_id = found_experiment_id\n            analysis_results[\"experiment_id\"] = experiment_id\n        else:\n            analysis_results[\"message\"] = \"ERROR: No experiment ID provided and no experiment JSON found for auto-detection.\"\n            print(analysis_results[\"message\"])\n            return analysis_results\n\n    # Load experiment data (JSON) - check both root and data folder\n    data_file_path = Path('../' + f'experiment_{experiment_id}.json')  # Root folder first\n    if not data_file_path.exists():\n        data_file_path = Path(data_folder) / f'experiment_{experiment_id}.json'  # Fallback to data folder\n\n    experiment_data = {}\n    try:\n        with open(data_file_path, 'r') as f:\n            experiment_data = json.load(f)\n        print(f\"INFO: Successfully loaded experiment data from {data_file_path}\")\n    except FileNotFoundError:\n        analysis_results[\"message\"] = f\"ERROR: Experiment data file not found: {data_file_path}\"\n        print(analysis_results[\"message\"])\n        return analysis_results\n    except json.JSONDecodeError as e:\n        analysis_results[\"message\"] = f\"ERROR: Invalid JSON format in {data_file_path}: {e}\"\n        print(analysis_results[\"message\"])\n        return analysis_results\n    except Exception as e:\n        analysis_results[\"message\"] = f\"ERROR: An unexpected error occurred while loading experiment data: {e}\"\n        print(analysis_results[\"message\"])\n        return analysis_results\n\n    # Access eLabFTW extra fields with error handling\n    metadata = {}\n    try:\n        metadata = experiment_data.get('metadata_decoded', {}).get('extra_fields', {})\n        analysis_results[\"metadata\"] = {\n            \"temperature_celsius\": float(metadata['Temperature']['value']),\n            \"number_of_points\": int(metadata['Number of points']['value']),\n            \"replicates\": int(metadata['Replicates']['value']),\n            \"stock_concentration\": float(metadata['Stock Concentration']['value']),\n            \"measurement_wavelength_nm\": int(metadata['Measurement Wavelength']['value']),\n            \"concentration_lower_limit\": float(metadata['Concentration Lower Limit']['value']),\n            \"concentration_upper_limit\": float(metadata['Concentration Upper Limit']['value'])\n        }\n        print(\"INFO: Successfully extracted metadata from experiment data.\")\n    except KeyError as e:\n        analysis_results[\"message\"] = f\"ERROR: Missing expected metadata field: {e}. Please check eLabFTW template.\"\n        print(analysis_results[\"message\"])\n        return analysis_results\n    except ValueError as e:\n        analysis_results[\"message\"] = f\"ERROR: Invalid data type in metadata field: {e}. Please check eLabFTW template values.\"\n        print(analysis_results[\"message\"])\n        return analysis_results\n    except Exception as e:\n        analysis_results[\"message\"] = f\"ERROR: An unexpected error occurred while processing metadata: {e}\"\n        print(analysis_results[\"message\"])\n        return analysis_results\n\n    # Assign metadata to local variables for easier access\n    num_points = analysis_results[\"metadata\"][\"number_of_points\"]\n    replicates = analysis_results[\"metadata\"][\"replicates\"]\n    conc_lower_limit = analysis_results[\"metadata\"][\"concentration_lower_limit\"]\n    conc_upper_limit = analysis_results[\"metadata\"][\"concentration_upper_limit\"]\n\n    # Generate concentrations\n    concentrations = np.linspace(conc_lower_limit, conc_upper_limit, num_points)\n\n    # Fetch Tecan data with device server first, fallback to local\n    tecan_data_path = None\n    print(f\"INFO: Fetching Tecan data for experiment {experiment_id} from device control server...\")\n\n    try:\n        # Check if data is available first\n        data_info = check_tecan_data_availability(experiment_id)\n        if not data_info.get(\"available\", False):\n            raise FileNotFoundError(f\"No Tecan data available for experiment {experiment_id}: {data_info.get('error', 'Unknown error')}\")\n\n        print(f\"INFO: Tecan data found on server: {data_info.get('filename', 'tecan_data.xlsx')}\")\n\n        # Fetch the data file\n        tecan_data_path = fetch_tecan_data_file(experiment_id, str(results_folder_path))\n\n    except Exception as device_server_error:\n        # Fallback to local path if device server not available or file not found on server\n        print(f\"WARNING: Device control server access failed or file not found: {device_server_error}. Falling back to local file search...\")\n        tecan_raw_path = \"C:/Users/Public/Documents/Tecan/SparkControl/Workspaces\"\n        if not Path(tecan_raw_path).exists():\n            analysis_results[\"message\"] = \"INFO: Tecan data not available - analysis skipped. This is expected for test runs.\"\n            analysis_results[\"status\"] = \"success\"  # Don't fail the whole process\n            analysis_results[\"note\"] = \"No Tecan data found on server or local system. Analysis requires actual measurement data.\"\n            print(f\"INFO: {analysis_results['message']}\")\n            print(f\"NOTE: {analysis_results['note']}\")\n            return analysis_results\n\n        print(f\"INFO: Searching for most recent Tecan Excel file in: {tecan_raw_path}\")\n        most_recent_excel_source = get_most_recent_excel_file(tecan_raw_path)\n\n        if not most_recent_excel_source:\n            analysis_results[\"message\"] = \"INFO: No recent Tecan Excel file found - analysis skipped.\"\n            analysis_results[\"status\"] = \"success\"  # Don't fail the whole process\n            analysis_results[\"note\"] = \"Analysis requires actual measurement data from Tecan device.\"\n            print(f\"INFO: {analysis_results['message']}\")\n            print(f\"NOTE: {analysis_results['note']}\")\n            return analysis_results\n\n        # Define target path for the copied raw data\n        tecan_data_path = results_folder_path / f'tecan_data_{experiment_id}.xlsx'\n\n        try:\n            shutil.copy(most_recent_excel_source, tecan_data_path)\n            print(f\"INFO: Raw data copied from '{most_recent_excel_source}' to '{tecan_data_path}'\")\n        except Exception as e:\n            analysis_results[\"message\"] = f\"ERROR: Failed to copy raw Excel data from local path: {e}\"\n            print(f\"ERROR: {analysis_results['message']}\")\n            return analysis_results\n\n    # Check if we have valid Tecan data before proceeding\n    if not tecan_data_path or not Path(tecan_data_path).exists():\n        analysis_results[\"message\"] = \"INFO: Tecan data not available - analysis skipped. This is expected for test runs.\"\n        analysis_results[\"status\"] = \"success\"  # Don't fail the whole process\n        analysis_results[\"note\"] = \"No Tecan data found on server or local system. Analysis requires actual measurement data.\"\n        print(f\"INFO: {analysis_results['message']}\")\n        print(f\"NOTE: {analysis_results['note']}\")\n        return analysis_results\n\n    # Read Tecan Excel data\n    try:\n        # Absorbance data starts at row 34, column B (well A1)\n        # Replicates are in separate columns (A1, B1, C1 for triplicates of first point)\n        # So we need to read 'replicates' columns for 'num_points' rows.\n        # Column B is 0-indexed 1. If replicates=3, we read columns 1, 2, 3.\n        # This corresponds to A1, B1, C1 in a plate for first point.\n        # The data provided in the example shows replicates in columns, NOT rows for a given concentration.\n        # A1, B1, C1 are 3 wells for the *first* concentration. A2, B2, C2 are for the *second*.\n        # So, it's A1-C1 for first point, A2-C2 for second point, etc.\n        # The Excel raw data shows concentrations across columns, and replicates across rows (A,B,C).\n        # A,B,C rows correspond to the replicates for each concentration that is in columns 1,2,3...\n        # So if num_points = 8, replicates = 3, we need to read 3 rows (A, B, C) and 8 columns (1-8).\n        # Data starts at row 34.\n        \n        # Read the relevant data block\n        # skiprows=33 (for row 34), nrows=replicates (e.g., 3 for A,B,C rows)\n        # usecols=list(range(1, 1 + num_points)) (for columns B to (B+num_points-1) which are 1-indexed for pandas)\n        raw_df = pd.read_excel(\n            tecan_data_path,\n            header=None,\n            skiprows=33,  # Row 34 is 0-indexed 33\n            usecols=list(range(1, 1 + num_points)),  # Column B (index 1) to (B + num_points - 1)\n            nrows=replicates\n        )\n        print(\"INFO: Successfully loaded raw Tecan data into DataFrame.\")\n\n        # Transpose to have concentrations as rows, replicates as columns\n        # Then flatten to get all absorption values, and reshape for analysis\n        raw_absorption_values = raw_df.values.T.flatten()\n        \n        # Create concentration array repeated for replicates\n        repeated_concentrations = np.repeat(concentrations, replicates)\n        \n        # Create a DataFrame for individual data points\n        df_raw_points = pd.DataFrame({\n            'Concentration': repeated_concentrations,\n            'Absorbance': raw_absorption_values\n        })\n\n        # Calculate mean and standard deviation for each concentration\n        grouped_data = df_raw_points.groupby('Concentration')['Absorbance'].agg(['mean', 'std']).reset_index()\n        mean_absorption = grouped_data['mean'].values\n        std_absorption = grouped_data['std'].values\n        \n        # Handle cases where std is NaN (e.g., only 1 replicate or all values are same)\n        std_absorption = np.nan_to_num(std_absorption, nan=0.0)\n\n    except pd.errors.EmptyDataError:\n        analysis_results[\"message\"] = f\"ERROR: Tecan data file {tecan_data_path} is empty or has no data.\"\n        print(analysis_results[\"message\"])\n        return analysis_results\n    except pd.errors.ParserError as e:\n        analysis_results[\"message\"] = f\"ERROR: Could not parse Tecan data file {tecan_data_path}. Check format: {e}\"\n        print(analysis_results[\"message\"])\n        return analysis_results\n    except Exception as e:\n        analysis_results[\"message\"] = f\"ERROR: Failed to read or process Tecan Excel data: {e}\"\n        print(analysis_results[\"message\"])\n        return analysis_results\n\n    # Perform linear regression\n    try:\n        # Filter out NaN or infinite values before fitting\n        valid_indices = np.isfinite(concentrations) & np.isfinite(mean_absorption)\n        if not np.any(valid_indices):\n            analysis_results[\"message\"] = \"ERROR: No valid data points found for linear regression.\"\n            print(analysis_results[\"message\"])\n            return analysis_results\n\n        popt, pcov = curve_fit(linear_function, concentrations[valid_indices], mean_absorption[valid_indices])\n        slope, intercept = popt\n        \n        # Calculate R-squared\n        y_predicted = linear_function(concentrations, slope, intercept)\n        r_squared = r2_score(mean_absorption[valid_indices], y_predicted[valid_indices])\n\n        analysis_results[\"linear_fit\"] = {\n            \"slope\": float(slope),\n            \"intercept\": float(intercept),\n            \"r_squared\": float(r_squared)\n        }\n        print(f\"INFO: Linear fit performed. Slope: {slope:.4f}, Intercept: {intercept:.4f}, R-squared: {r_squared:.4f}\")\n\n    except Exception as e:\n        analysis_results[\"message\"] = f\"ERROR: Failed to perform linear regression: {e}\"\n        print(analysis_results[\"message\"])\n        return analysis_results\n\n    # Generate plot\n    try:\n        plt.figure(figsize=(10, 6))\n        plt.errorbar(concentrations, mean_absorption, yerr=std_absorption, fmt='o', capsize=5, label='Mean Absorbance with Std Dev')\n        plt.plot(concentrations, y_predicted, color='red', linestyle='--', \n                 label=f'Linear Fit: y = {slope:.4f}x + {intercept:.4f}\nR^2 = {r_squared:.4f}')\n        \n        plt.title(f'Absorbance Calibration Curve - Experiment {experiment_id}')\n        plt.xlabel('Concentration')\n        plt.ylabel('Absorbance')\n        plt.grid(True)\n        plt.legend()\n        plt.tight_layout()\n        \n        plot_filename = f'calibration_curve_abs_{experiment_id}.png'\n        plot_path = results_folder_path / plot_filename\n        plt.savefig(plot_path)\n        plt.close()\n        analysis_results[\"plots\"][\"calibration_curve\"] = str(plot_path)\n        print(f\"INFO: Plot saved to {plot_path}\")\n\n    except Exception as e:\n        analysis_results[\"message\"] = f\"ERROR: Failed to generate plot: {e}\"\n        print(analysis_results[\"message\"])\n        return analysis_results\n\n    # Export processed data\n    try:\n        processed_data = pd.DataFrame({\n            'Concentration': concentrations,\n            'Mean_Absorbance': mean_absorption,\n            'Std_Absorbance': std_absorption,\n            'Fitted_Absorbance': y_predicted\n        })\n        processed_data_filename = f'processed_calibration_data_{experiment_id}.csv'\n        processed_data_path = results_folder_path / processed_data_filename\n        processed_data.to_csv(processed_data_path, index=False)\n        analysis_results[\"data_outputs\"][\"processed_calibration_data\"] = str(processed_data_path)\n        print(f\"INFO: Processed data saved to {processed_data_path}\")\n\n    except Exception as e:\n        analysis_results[\"message\"] = f\"ERROR: Failed to export processed data: {e}\"\n        print(analysis_results[\"message\"])\n        return analysis_results\n\n    analysis_results[\"status\"] = \"success\"\n    analysis_results[\"message\"] = \"SUCCESS: Absorbance calibration curve analysis completed.\"\n    print(analysis_results[\"message\"])\n    return analysis_results\n\ndef main():\n    \"\"\"Command line interface\"\"\"\n    parser = argparse.ArgumentParser(description='Analyze plate reader absorbance calibration curve data.')\n    parser.add_argument('experiment_id', nargs='?', help='Experiment ID. If not provided, attempts to auto-detect the most recent.')\n    parser.add_argument('--data-folder', default='../data', help='Path to the folder containing experiment_ID.json files. Default: ../data')\n    parser.add_argument('--results-folder', default='../results', help='Path to the folder where all analysis outputs will be saved. Default: ../results')\n    \n    args = parser.parse_args()\n    \n    try:\n        results = analyze_experiment(\n            experiment_id=args.experiment_id,\n            data_folder=args.data_folder,\n            results_folder=args.results_folder\n        )\n        if results[\"status\"] == \"success\":\n            print(\"SUCCESS: Analysis successful!\")\n            sys.exit(0)\n        else:\n            print(f\"ERROR: Analysis failed: {results.get('message', 'Unknown error.')}\")\n            sys.exit(1)\n    except Exception as e:\n        print(f\"ERROR: An unhandled error occurred during analysis: {e}\")\n        sys.exit(1)\n\nif __name__ == \"__main__\":\n    main()\n",
+          "script_path": "<PROCESS_ROOT>/processes/automated/test123_20250819_142244_6/analysis/analysis_script_6.py"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "Save Script",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Script": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "96d00e21-48c9-4c57-a8b3-ee68aee0742d",
+  "meta": {
+    "instanceId": "9de26e042b6a3bb3f3fb559beb9c4cda97cf0b09a34ed131ddcd1aa5eb2ec1f3"
+  },
+  "id": "Hr4khHeFURDeYpMH",
+  "tags": []
+}

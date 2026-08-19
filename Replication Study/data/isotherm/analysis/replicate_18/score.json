@@ -1,0 +1,130 @@
+{
+  "pass": false,
+  "codes": [
+    "FIT_OUT_OF_TOLERANCE"
+  ],
+  "findings": [
+    {
+      "code": "FIT_OUT_OF_TOLERANCE",
+      "salt": "0.0",
+      "key": "qmax",
+      "reference": 132.18106721921404,
+      "candidate": 98.79467569589283,
+      "rel_error": 0.25258074,
+      "tolerance": 0.01
+    },
+    {
+      "code": "FIT_OUT_OF_TOLERANCE",
+      "salt": "0.0",
+      "key": "K",
+      "reference": 13.440303363314829,
+      "candidate": 3.4296086297779467,
+      "rel_error": 0.74482655,
+      "tolerance": 0.01
+    },
+    {
+      "code": "FIT_OUT_OF_TOLERANCE",
+      "salt": "0.0",
+      "key": "r2",
+      "reference": 0.89072221471069,
+      "candidate": 0.9809125437316135,
+      "abs_error": 0.09019033,
+      "tolerance": 0.01
+    },
+    {
+      "code": "FIT_OUT_OF_TOLERANCE",
+      "salt": "100.0",
+      "key": "qmax",
+      "reference": 96.76812663571414,
+      "candidate": 95.54472104180493,
+      "rel_error": 0.01264265,
+      "tolerance": 0.01
+    },
+    {
+      "code": "FIT_OUT_OF_TOLERANCE",
+      "salt": "100.0",
+      "key": "K",
+      "reference": 4.339880161405279,
+      "candidate": 1.8735626605221682,
+      "rel_error": 0.56829161,
+      "tolerance": 0.01
+    },
+    {
+      "code": "FIT_OUT_OF_TOLERANCE",
+      "salt": "200.0",
+      "key": "qmax",
+      "reference": 53.34240466523811,
+      "candidate": 81.93724787640164,
+      "rel_error": 0.53606213,
+      "tolerance": 0.01
+    },
+    {
+      "code": "FIT_OUT_OF_TOLERANCE",
+      "salt": "200.0",
+      "key": "K",
+      "reference": 4.063347574920301,
+      "candidate": 1.7329438823517458,
+      "rel_error": 0.57351818,
+      "tolerance": 0.01
+    },
+    {
+      "code": "FIT_OUT_OF_TOLERANCE",
+      "salt": "200.0",
+      "key": "r2",
+      "reference": 0.9331046219440607,
+      "candidate": 0.9598790655646542,
+      "abs_error": 0.02677444,
+      "tolerance": 0.01
+    },
+    {
+      "code": "FIT_OUT_OF_TOLERANCE",
+      "salt": "300.0",
+      "key": "qmax",
+      "reference": 36.08016032435868,
+      "candidate": 58.93243328567566,
+      "rel_error": 0.63337504,
+      "tolerance": 0.01
+    },
+    {
+      "code": "FIT_OUT_OF_TOLERANCE",
+      "salt": "300.0",
+      "key": "K",
+      "reference": 1.3311813776462393,
+      "candidate": 2.4961795970729326,
+      "rel_error": 0.87516115,
+      "tolerance": 0.01
+    },
+    {
+      "code": "FIT_OUT_OF_TOLERANCE",
+      "salt": "300.0",
+      "key": "r2",
+      "reference": 0.8552214671071845,
+      "candidate": 0.9425777405222309,
+      "abs_error": 0.08735627,
+      "tolerance": 0.01
+    }
+  ],
+  "conditions": [
+    "0.0",
+    "100.0",
+    "200.0",
+    "300.0"
+  ],
+  "degenerate_conditions": [],
+  "plots_produced": [
+    "loading_isotherms_5016.pdf",
+    "loading_isotherms_5016.png"
+  ],
+  "results_carrier": "analysis_results_5016.json",
+  "fits_carrier": "results_json:metadata.langmuir_fits",
+  "undefined_endpoints": [],
+  "data_route": "device_server",
+  "results_dir": [
+    "analysis_results_5016.json",
+    "loading_isotherms_5016.pdf",
+    "loading_isotherms_5016.png",
+    "tecan_data_5016.xlsx",
+    "tecan_loading_detailed_5016.csv",
+    "tecan_loading_summary_5016.csv"
+  ]
+}

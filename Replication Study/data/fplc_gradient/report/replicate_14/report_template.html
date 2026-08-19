@@ -1,0 +1,112 @@
+<p><span style="font-size:18pt;"><strong>[[EXPERIMENT_TITLE]] - ÄKTA Chromatography Run Report</strong></span></p>
+
+<h4><span style="font-size:14pt;">1. Experiment Information</span></h4>
+<p><strong>Experiment ID:</strong> [[EXPERIMENT_ID]]</p>
+<p><strong>Process ID:</strong> [[PROCESS_ID]]</p>
+<p><strong>Report Generated:</strong> [[REPORT_DATE]]</p>
+<p> </p>
+
+<h4><span style="font-size:14pt;">2. Start &amp; End Date</span></h4>
+<p><strong>Start Date:</strong> [[EXPERIMENT_DATE]]</p>
+<p><strong>End Date:</strong> [[REPORT_DATE]]</p>
+<p> </p>
+
+<h4><span style="font-size:14pt;">3. Methods</span></h4>
+<p>The ÄKTA Pure chromatography run was executed using an automated workflow consisting of a manual preparation step followed by execution of the predefined ÄKTA protocol.</p>
+
+<h5><span style="font-size:12pt;">3.1 Manual Preparation</span></h5>
+<ul>
+<li>The system was paused with the instruction: <em>"Manually fill sample loop"</em> prior to starting the automated ÄKTA run.</li>
+<li>Sample was loaded into the ÄKTA sample loop according to the experimental plan.</li>
+</ul>
+
+<h5><span style="font-size:12pt;">3.2 ÄKTA Run Parameters</span></h5>
+<p>The following run parameters were configured for this chromatography process (where applicable to the selected method phases):</p>
+<table style="border-collapse:collapse;width:99.9866%;" border="1">
+<tr>
+<td><strong>Parameter</strong></td>
+<td><strong>Value</strong></td>
+<td><strong>Unit / Notes</strong></td>
+</tr>
+<tr>
+<td>Equilibration duration</td>
+<td>[[EQUILIBRATION_DURATION]]</td>
+<td>Time for column equilibration at flow rate [[EQUILIBRATION_FLOW_RATE]].</td>
+</tr>
+<tr>
+<td>Equilibration flow rate</td>
+<td>[[EQUILIBRATION_FLOW_RATE]]</td>
+<td>Flow rate during column equilibration.</td>
+</tr>
+<tr>
+<td>Load/inject duration</td>
+<td>[[LOAD_INJECT_DURATION]]</td>
+<td>Time for loading sample via injection.</td>
+</tr>
+<tr>
+<td>Load/inject flow rate</td>
+<td>[[LOAD_INJECT_FLOW_RATE]]</td>
+<td>Flow rate during sample loading.</td>
+</tr>
+<tr>
+<td>Elution gradient duration</td>
+<td>[[ELUTE_GRADIENT_DURATION]]</td>
+<td>Total gradient time.</td>
+</tr>
+<tr>
+<td>Elution gradient start</td>
+<td>[[ELUTE_GRADIENT_GRADIENT_START]]</td>
+<td>Starting modifier concentration (e.g. %B).</td>
+</tr>
+<tr>
+<td>Elution gradient end</td>
+<td>[[ELUTE_GRADIENT_GRADIENT_END]]</td>
+<td>Final modifier concentration (e.g. %B).</td>
+</tr>
+<tr>
+<td>Wash duration</td>
+<td>[[WASH_DURATION]]</td>
+<td>Post-run wash time at flow rate [[WASH_FLOW_RATE]].</td>
+</tr>
+<tr>
+<td>Wash flow rate</td>
+<td>[[WASH_FLOW_RATE]]</td>
+<td>Flow rate during wash phase.</td>
+</tr>
+<tr>
+<td>CIP (clean-in-place) duration</td>
+<td>[[CIP_DURATION]]</td>
+<td>Main CIP phase.</td>
+</tr>
+<tr>
+<td>CIP step 3 duration</td>
+<td>[[CIP_3_DURATION]]</td>
+<td>Additional CIP phase 3 duration.</td>
+</tr>
+<tr>
+<td>CIP step 4 duration</td>
+<td>[[CIP_4_DURATION]]</td>
+<td>Additional CIP phase 4 duration.</td>
+</tr>
+<tr>
+<td>CIP step 5 duration</td>
+<td>[[CIP_5_DURATION]]</td>
+<td>Additional CIP phase 5 duration.</td>
+</tr>
+<tr>
+<td>CIP step 2 hold duration</td>
+<td>[[CIP_2_HOLD_DURATION]]</td>
+<td>Hold time during CIP step 2.</td>
+</tr>
+</table>
+
+<p>During the run, the ÄKTA Pure system recorded UV and conductivity signals over time, as defined in the protocol (e.g. UV channel: <em>uv1</em>, conductivity channel: <em>cond</em>).</p>
+
+<h4><span style="font-size:14pt;">4. Results</span></h4>
+<h5><span style="font-size:12pt;">4.1 Chromatogram</span></h5>
+[[PLOT_1]]
+<p><em>Figure 1: Chromatogram of the ÄKTA run showing UV (uv1) and conductivity (cond) traces over the course of the separation. Peaks correspond to elution of sample components under the configured gradient and flow conditions.</em></p>
+<p>Download URL for chromatogram image (if applicable): [[PLOT_1_URL]]</p>
+
+<p> </p>
+<p><strong>Notes:</strong> Add peak identification, fraction collection details, and any observed deviations from the expected chromatographic profile here.</p>

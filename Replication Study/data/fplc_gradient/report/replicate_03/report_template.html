@@ -1,0 +1,123 @@
+<p><span style="font-size:18pt;"><strong>[[EXPERIMENT_TITLE]] - ÄKTA Chromatography Run Report</strong></span></p>
+<p> </p>
+
+<h4><span style="font-size:14pt;">1. Experiment Information</span></h4>
+<p><strong>Experiment ID:</strong> [[EXPERIMENT_ID]]</p>
+<p><strong>Process ID:</strong> [[PROCESS_ID]]</p>
+<p> </p>
+
+<h4><span style="font-size:14pt;">2. Start &amp; End Date</span></h4>
+<p><strong>Start Date:</strong> [[EXPERIMENT_DATE]]</p>
+<p><strong>End / Report Date:</strong> [[REPORT_DATE]]</p>
+<p> </p>
+
+<h4><span style="font-size:14pt;">3. Methods</span></h4>
+<p>The ÄKTA Pure chromatography run was executed using an automated workflow consisting of a manual loading step followed by an instrument-controlled protocol.</p>
+
+<h5><span style="font-size:12pt;">3.1 Workflow Overview</span></h5>
+<ol>
+<li><strong>Manual Sample Loading</strong>
+<ul>
+<li>The system was paused with the instruction: "Manually fill sample loop".</li>
+<li>The operator manually filled the ÄKTA sample loop with the prepared sample.</li>
+</ul>
+</li>
+<li><strong>ÄKTA Pure Protocol Execution</strong>
+<ul>
+<li>The ÄKTA Pure system was started in automated mode to execute the predefined protocol.</li>
+<li>Sample signals recorded included UV absorbance (uv1) and conductivity (cond) with a sampling time of 1 second.</li>
+</ul>
+</li>
+</ol>
+
+<h5><span style="font-size:12pt;">3.2 Run Parameters</span></h5>
+<p>The following parameters were used for the chromatography run (where applicable to the selected method):</p>
+<table style="border-collapse:collapse;width:99.9866%;" border="1">
+<tr>
+<th>Parameter</th>
+<th>Placeholder</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Process ID</td>
+<td>[[PROCESS_ID]]</td>
+<td>Unique identifier of the automated process/workflow.</td>
+</tr>
+<tr>
+<td>Equilibration Duration</td>
+<td>[[EQUILIBRATION_DURATION]]</td>
+<td>Duration of column equilibration before loading.</td>
+</tr>
+<tr>
+<td>Equilibration Flow Rate</td>
+<td>[[EQUILIBRATION_FLOW_RATE]]</td>
+<td>Flow rate during column equilibration.</td>
+</tr>
+<tr>
+<td>Load/Inject Duration</td>
+<td>[[LOAD_INJECT_DURATION]]</td>
+<td>Total time used for sample loading/injection onto the column.</td>
+</tr>
+<tr>
+<td>Load/Inject Flow Rate</td>
+<td>[[LOAD_INJECT_FLOW_RATE]]</td>
+<td>Flow rate applied during sample loading/injection.</td>
+</tr>
+<tr>
+<td>Elution Gradient Duration</td>
+<td>[[ELUTE_GRADIENT_DURATION]]</td>
+<td>Total duration of the elution gradient.</td>
+</tr>
+<tr>
+<td>Elution Gradient Start</td>
+<td>[[ELUTE_GRADIENT_GRADIENT_START]]</td>
+<td>Starting percentage of the strong eluent (e.g. buffer B) in the gradient.</td>
+</tr>
+<tr>
+<td>Elution Gradient End</td>
+<td>[[ELUTE_GRADIENT_GRADIENT_END]]</td>
+<td>Final percentage of the strong eluent (e.g. buffer B) in the gradient.</td>
+</tr>
+<tr>
+<td>Wash Duration</td>
+<td>[[WASH_DURATION]]</td>
+<td>Duration of the post-elution wash step.</td>
+</tr>
+<tr>
+<td>Wash Flow Rate</td>
+<td>[[WASH_FLOW_RATE]]</td>
+<td>Flow rate during the wash step.</td>
+</tr>
+<tr>
+<td>CIP Duration</td>
+<td>[[CIP_DURATION]]</td>
+<td>Total duration of the column cleaning-in-place (CIP) step.</td>
+</tr>
+<tr>
+<td>CIP Step 2 Hold Duration</td>
+<td>[[CIP_2_HOLD_DURATION]]</td>
+<td>Hold time during the second CIP step.</td>
+</tr>
+<tr>
+<td>CIP Step 3 Duration</td>
+<td>[[CIP_3_DURATION]]</td>
+<td>Duration of the third CIP step.</td>
+</tr>
+<tr>
+<td>CIP Step 4 Duration</td>
+<td>[[CIP_4_DURATION]]</td>
+<td>Duration of the fourth CIP step.</td>
+</tr>
+<tr>
+<td>CIP Step 5 Duration</td>
+<td>[[CIP_5_DURATION]]</td>
+<td>Duration of the fifth CIP step.</td>
+</tr>
+</table>
+<p> </p>
+
+<h4><span style="font-size:14pt;">4. Results</span></h4>
+
+<h5><span style="font-size:12pt;">4.1 Chromatogram</span></h5>
+[[PLOT_1]]
+<p><em>Figure 1: ÄKTA chromatogram showing UV (uv1) and conductivity (cond) traces for the chromatography run. The chromatogram file is provided via the eLabFTW attachment URL (path variable) corresponding to the selected plot.</em></p>

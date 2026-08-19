@@ -1,0 +1,28 @@
+{
+  "pass": true,
+  "codes": [],
+  "findings": [],
+  "conditions": [
+    "0.0",
+    "100.0",
+    "200.0",
+    "300.0"
+  ],
+  "degenerate_conditions": [],
+  "plots_produced": [
+    "loading_isotherms_5016.pdf",
+    "loading_isotherms_5016.png"
+  ],
+  "results_carrier": "analysis_results_5016.json",
+  "fits_carrier": "results_json:metadata.fit_results",
+  "undefined_endpoints": [],
+  "data_route": "device_server",
+  "results_dir": [
+    "aggregated_isotherm_5016.csv",
+    "analysis_results_5016.json",
+    "detailed_well_data_5016.csv",
+    "loading_isotherms_5016.pdf",
+    "loading_isotherms_5016.png",
+    "tecan_data_5016.xlsx"
+  ]
+}

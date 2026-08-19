@@ -1,0 +1,122 @@
+<p><span style="font-size:18pt;"><strong>[[EXPERIMENT_TITLE]] - Loading Isotherm Determination Report</strong></span></p>
+<h4><span style="font-size:14pt;">Experiment Information</span></h4>
+<p><strong>Experiment ID:</strong> [[EXPERIMENT_ID]]</p>
+<p><strong>Process ID:</strong> [[PROCESS_ID]]</p>
+<p><strong>Start Date:</strong> [[EXPERIMENT_DATE]]</p>
+<p><strong>End Date / Report Date:</strong> [[REPORT_DATE]]</p>
+<p> </p>
+<h4><span style="font-size:14pt;">Objective</span></h4>
+<p>Determination of loading isotherms for <strong>[[LIGAND_NAME]]</strong> binding to the chromatography resin at different salt concentrations <strong>([[SALT_CONCENTRATIONS]] [[SALT_CONCENTRATION_UNIT]])</strong> using an automated, robot-assisted workflow. The goal is to quantify ligand binding capacity as a function of both ligand and salt concentration to support resin characterization and process development.</p>
+<p> </p>
+<h4><span style="font-size:14pt;">Methods</span></h4>
+<h5><span style="font-size:12pt;">Overview of Automated Workflow</span></h5>
+<ul>
+<li>Automated liquid handling on an Opentrons OT-2 using custom labware definition for a 96-well filter plate (Cytiva 1 mL filter well plate).</li>
+<li>Robotic plate and manifold handling using a UR5 robot for transport between storage positions, vacuum manifold, Opentrons deck, and Tecan Spark platereader.</li>
+<li>Vacuum-assisted filtration using a VacuuPump with controlled pump speed [[PUMP_SPEED]] and pump duration [[PUMP_DURATION]] s, followed by venting steps of [[VENTING_TIME]] s.</li>
+<li>Online absorbance measurement of filtrates or supernatants using a Tecan Spark platereader at [[MEASUREMENT_WAVELENGTH]] nm.</li>
+</ul>
+<h5><span style="font-size:12pt;">Buffers, Resin and Ligand</span></h5>
+<ul>
+<li><strong>Buffer:</strong> [[BUFFER]]</li>
+<li><strong>Salt:</strong> [[SALT_NAME]] with stock concentration [[SALT_STOCK_CONCENTRATION]] [[SALT_CONCENTRATION_UNIT]]; working salt concentrations: [[NUMBER_OF_SALT_CONCENTRATIONS]] levels (values: [[SALT_CONCENTRATIONS]] [[SALT_CONCENTRATION_UNIT]]).</li>
+<li><strong>Resin mass per well:</strong> [[RESIN_MASS]]</li>
+<li><strong>Ligand:</strong> [[LIGAND_NAME]] with stock concentration [[LIGAND_STOCK_CONCENTRATION]] [[LIGAND_CONCENTRATION_UNIT]]; working ligand concentrations: [[NUMBER_OF_LIGAND_CONCENTRATIONS]] levels (values: [[LIGAND_CONCENTRATIONS]] [[LIGAND_CONCENTRATION_UNIT]]).</li>
+<li><strong>Replicates:</strong> [[REPLICATES]] per condition.</li>
+</ul>
+<h5><span style="font-size:12pt;">Equilibration of Resin</span></h5>
+<ul>
+<li>Resin-containing 96-well deep-well plate positioned by UR5 at the vacuum manifold (Pump_Pos1).</li>
+<li>Vacuum manifold placed and removed by UR5 as required for equilibration and processing steps.</li>
+<li>Opentrons OT-2 performs automated equilibration cycles using the Cytiva 96-well filter plate labware definition.</li>
+<li>A total of [[EQUILIBRATION_CYCLES]] equilibration cycles are run, each with an equilibration volume of [[EQUILIBRATION_VOLUME]] per well and cycle duration [[EQUILIBRATION_CYCLE_DURATION]] s.</li>
+<li>Between each equilibration cycle:
+<ul>
+<li>UR5 transfers the filter plate between OT-2 and the vacuum manifold (Pump_Pos2).</li>
+<li>VacuuPump applies vacuum at speed [[PUMP_SPEED]] for [[PUMP_DURATION]] s.</li>
+<li>Utility wait step of [[VENTING_TIME]] s for venting before plate transfer back to OT-2.</li>
+</ul>
+</li>
+</ul>
+<h5><span style="font-size:12pt;">Ligand Loading and Incubation</span></h5>
+<ul>
+<li>After equilibration, the UR5 removes the vacuum manifold and returns plates to storage and OT-2 positions as required.</li>
+<li>Opentrons OT-2 dispenses ligand solutions at different concentrations [[LIGAND_CONCENTRATIONS]] [[LIGAND_CONCENTRATION_UNIT]] into the equilibrated resin-containing wells according to the loading isotherm design.</li>
+<li>Total liquid volume per well during loading: [[TOTAL_VOLUME]] per condition.</li>
+<li>Incubation is performed at [[INCUBATION_TEMPERATURE]] with orbital shaking at [[SHAKER_SPEED_INCUBATION]] for [[INCUBATION_TIME]] to reach binding equilibrium.</li>
+</ul>
+<h5><span style="font-size:12pt;">Filtration and Collection of Supernatant</span></h5>
+<ul>
+<li>Following incubation, UR5 transports the deep-well plate and filter plate back to the vacuum manifold positions.</li>
+<li>VacuuPump applies vacuum at speed [[PUMP_SPEED]] for [[PUMP_DURATION]] s to separate liquid from resin.</li>
+<li>Utility wait step of [[VENTING_TIME]] s for venting prior to plate removal.</li>
+<li>The filter plate is then transferred by UR5 to a storage position or Opentrons deck as specified by the workflow.</li>
+</ul>
+<h5><span style="font-size:12pt;">Measurement of Ligand Concentration</span></h5>
+<ul>
+<li>UR5 places a measurement plate (WP1) onto the Opentrons deck and subsequently into the Tecan Spark platereader.</li>
+<li>Tecan Spark is controlled to open and close the drawer and to run the measurement method.</li>
+<li>Absorbance of supernatant samples is measured at [[MEASUREMENT_WAVELENGTH]] nm.</li>
+<li>Ligand concentrations are calculated using a calibration curve with slope [[CALIBRATION_CURVE_SLOPE]] and intercept [[CALIBRATION_CURVE_INTERCEPT]].</li>
+<li>Loaded amount per mass of resin is determined from the difference between initial and equilibrium ligand concentrations, normalized by [[RESIN_MASS]].</li>
+</ul>
+<p> </p>
+<h4><span style="font-size:14pt;">Results</span></h4>
+<h5><span style="font-size:12pt;">Loading Isotherms for [[LIGAND_NAME]] on Resin</span></h5>
+[[PLOT_1]]
+<p><em>Figure 1: Loading isotherms of [[LIGAND_NAME]] on the resin at different salt concentrations ([[SALT_CONCENTRATIONS]] [[SALT_CONCENTRATION_UNIT]]). Each curve represents the equilibrium binding isotherm at a given salt concentration, obtained from automated incubation at [[INCUBATION_TEMPERATURE]] and measurement at [[MEASUREMENT_WAVELENGTH]] nm. Error bars (if shown) correspond to [[REPLICATES]] technical/biological replicates.</em></p>
+<p> </p>
+<h5><span style="font-size:12pt;">Summary of Experimental Parameters</span></h5>
+<table style="border-collapse:collapse;width:99.9866%;" border="1">
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+<tr>
+<td style="height:22.3828px;">Number of salt concentrations</td>
+<td style="height:22.3828px;">[[NUMBER_OF_SALT_CONCENTRATIONS]] (values: [[SALT_CONCENTRATIONS]] [[SALT_CONCENTRATION_UNIT]])</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Number of ligand concentrations</td>
+<td style="height:22.3828px;">[[NUMBER_OF_LIGAND_CONCENTRATIONS]] (values: [[LIGAND_CONCENTRATIONS]] [[LIGAND_CONCENTRATION_UNIT]])</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Replicates per condition</td>
+<td style="height:22.3828px;">[[REPLICATES]]</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Resin mass per well</td>
+<td style="height:22.3828px;">[[RESIN_MASS]]</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Total volume per well</td>
+<td style="height:22.3828px;">[[TOTAL_VOLUME]]</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Equilibration cycles</td>
+<td style="height:22.3828px;">[[EQUILIBRATION_CYCLES]] (volume per cycle: [[EQUILIBRATION_VOLUME]]; cycle duration: [[EQUILIBRATION_CYCLE_DURATION]] s)</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Pump speed and duration</td>
+<td style="height:22.3828px;">Speed: [[PUMP_SPEED]], Duration: [[PUMP_DURATION]] s</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Venting time</td>
+<td style="height:22.3828px;">[[VENTING_TIME]] s</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Incubation conditions</td>
+<td style="height:22.3828px;">[[INCUBATION_TIME]] at [[INCUBATION_TEMPERATURE]] with shaking at [[SHAKER_SPEED_INCUBATION]]</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Measurement wavelength</td>
+<td style="height:22.3828px;">[[MEASUREMENT_WAVELENGTH]] nm</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Calibration curve</td>
+<td style="height:22.3828px;">Slope: [[CALIBRATION_CURVE_SLOPE]], Intercept: [[CALIBRATION_CURVE_INTERCEPT]]</td>
+</tr>
+</table>
+<p> </p>
+<h4><span style="font-size:14pt;">Notes / Interpretation</span></h4>
+<p>Use this section to summarize key trends from the loading isotherms, such as the effect of increasing salt concentration on maximum binding capacity and affinity, deviations from ideal Langmuir behavior, or comparison to previous experiments or resin lots.</p>

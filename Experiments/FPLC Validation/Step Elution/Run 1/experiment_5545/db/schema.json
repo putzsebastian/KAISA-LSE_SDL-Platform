@@ -1,0 +1,206 @@
+{
+  "parameters_schema": {
+    "properties": {
+      "cip_2_hold_duration": {
+        "description": "Hold duration during CIP step 2",
+        "type": "number",
+        "unit": "s"
+      },
+      "cip_3_duration": {
+        "description": "Duration of CIP step 3",
+        "type": "number",
+        "unit": "s"
+      },
+      "cip_4_duration": {
+        "description": "Duration of CIP step 4",
+        "type": "number",
+        "unit": "s"
+      },
+      "cip_5_duration": {
+        "description": "Duration of CIP step 5",
+        "type": "number",
+        "unit": "s"
+      },
+      "cip_duration": {
+        "description": "Duration of the main CIP step",
+        "type": "number",
+        "unit": "s"
+      },
+      "elute_isocratic_2_duration": {
+        "description": "Duration of the second isocratic elution step",
+        "type": "number",
+        "unit": "s"
+      },
+      "elute_isocratic_2_percent_b": {
+        "description": "Percent buffer B during the second isocratic elution step",
+        "type": "number",
+        "unit": "%"
+      },
+      "elute_isocratic_duration": {
+        "description": "Duration of the first isocratic elution step",
+        "type": "number",
+        "unit": "s"
+      },
+      "elute_isocratic_percent_b": {
+        "description": "Percent buffer B during the first isocratic elution step",
+        "type": "number",
+        "unit": "%"
+      },
+      "equilibration_duration": {
+        "description": "Duration of the equilibration step",
+        "type": "number",
+        "unit": "s"
+      },
+      "equilibration_flow_rate": {
+        "description": "Flow rate during equilibration",
+        "type": "number",
+        "unit": "mL/min"
+      },
+      "load_inject_duration": {
+        "description": "Duration of the load injection step",
+        "type": "number",
+        "unit": "s"
+      },
+      "load_inject_flow_rate": {
+        "description": "Flow rate during sample loading/injection",
+        "type": "number",
+        "unit": "mL/min"
+      },
+      "process_id": {
+        "description": "Process identifier from eLabFTW metadata",
+        "type": "integer"
+      },
+      "wash_duration": {
+        "description": "Duration of the wash step",
+        "type": "number",
+        "unit": "s"
+      },
+      "wash_flow_rate": {
+        "description": "Flow rate during the wash step",
+        "type": "number",
+        "unit": "mL/min"
+      }
+    },
+    "type": "object"
+  },
+  "results_schema": {
+    "properties": {
+      "analysis_status": {
+        "description": "Overall status of the analysis and result collection",
+        "enum": [
+          "pending",
+          "completed",
+          "failed",
+          "success"
+        ],
+        "type": "string"
+      },
+      "data_files": {
+        "description": "Produced data output files",
+        "type": "object"
+      },
+      "files_processed": {
+        "description": "Number of AKTA data files processed",
+        "type": "integer"
+      },
+      "message": {
+        "description": "Analysis summary or error message",
+        "type": "string"
+      },
+      "peak_analysis": {
+        "description": "Detailed detected peak information",
+        "properties": {
+          "num_peaks": {
+            "description": "Number of peaks detected",
+            "type": "integer"
+          },
+          "peaks": {
+            "description": "List of detected chromatogram peaks",
+            "items": {
+              "properties": {
+                "peak_height_mAU": {
+                  "description": "Peak height in the UV280 trace",
+                  "type": "number",
+                  "unit": "mAU"
+                },
+                "peak_index": {
+                  "description": "Index of the peak in the valid signal array",
+                  "type": "integer"
+                },
+                "prominence_mAU": {
+                  "description": "Peak prominence in the UV280 trace",
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "unit": "mAU"
+                },
+                "retention_time_min": {
+                  "description": "Peak retention time",
+                  "type": "number",
+                  "unit": "min"
+                },
+                "retention_time_s": {
+                  "description": "Peak retention time",
+                  "type": "number",
+                  "unit": "s"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "plots": {
+        "description": "Produced plot files",
+        "type": "object"
+      },
+      "summary": {
+        "description": "Key AKTA chromatogram analysis metrics",
+        "properties": {
+          "first_peak_retention_time_min": {
+            "description": "Retention time of the first detected peak",
+            "type": [
+              "number",
+              "null"
+            ],
+            "unit": "min"
+          },
+          "has_conductivity": {
+            "description": "Whether conductivity data was available",
+            "type": "boolean"
+          },
+          "max_peak_height_mau": {
+            "description": "Maximum detected UV peak height",
+            "type": [
+              "number",
+              "null"
+            ],
+            "unit": "mAU"
+          },
+          "num_peaks": {
+            "description": "Number of UV peaks detected",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "timestamp": {
+        "description": "Timestamp when results were collected",
+        "type": "string"
+      }
+    },
+    "type": "object"
+  },
+  "expected_data_files": [
+    "analysis_results_{elab_id}.json",
+    "akta_results_{elab_id}.json",
+    "processed_chromatogram_{elab_id}.csv"
+  ],
+  "expected_plot_files": [
+    "chromatogram_{elab_id}.png",
+    "chromatogram_{elab_id}.pdf"
+  ]
+}

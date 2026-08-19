@@ -1,0 +1,407 @@
+{
+  "name": "Template Editor",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "template-editor-agent",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -624,
+        -144
+      ],
+      "id": "f422e4e1-3a50-488d-96b1-ed6979000a7b",
+      "name": "Webhook",
+      "webhookId": "21982834-2549-4912-a1a6-4f59ea68d1dc"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=User request: {{ $json.body.message }}\n\nTemplate {{ $json.body.template_name }} (kind={{ $json.body.template_kind }}, id={{ $json.body.template_id }}).\n\nFiles in this template (call the read_file tool to fetch a file's contents before editing it):\n  {{ JSON.stringify($json.body.files) }}\n",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "  You are a careful lab-automation code editor working on a Self-Driving Laboratory (SDL) experiment template. You are given\n  the list of files in the template. Before proposing an edit to any file, ALWAYS call the read_file tool to fetch its\n  current contents first - never guess. Return the COMPLETE new contents for each file you edit (not a diff). Only edit\n  files that must change; you may also create new files. Do not invent device APIs and do not change behaviour unrelated to\n  the user's request - these scripts run on real lab hardware. Respond with a short conversational 'reply', an optional\n  'explanation', and 'proposed_edits' (an array that may be empty when you are only answering a question). The user reviews\n  every proposed change as a diff before it is applied."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        -416,
+        -144
+      ],
+      "id": "443314b4-977d-4abe-acea-31d43b22df02",
+      "name": "AI Agent",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-5.5",
+          "mode": "list",
+          "cachedResultName": "gpt-5.5"
+        },
+        "options": {
+          "timeout": 600000000,
+          "maxRetries": 5
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -688,
+        64
+      ],
+      "id": "0713b475-0f90-44fe-81d6-7ca22efeb6f6",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "<CREDENTIAL_ID>",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Webhook').item.json.body.session_id }}",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        -432,
+        144
+      ],
+      "id": "572f04d5-72c4-4c6d-8b77-2a15254103ff",
+      "name": "Postgres Chat Memory",
+      "credentials": {
+        "postgres": {
+          "id": "<CREDENTIAL_ID>",
+          "name": "n8n chat db"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"reply\": \"ok\", \n   \"explanation\": \"what changed\",\n   \"proposed_edits\": [ { \"path\": \"analysis/evaluate.py\", \"content\": \"<full new file>\" } ] \n}",
+        "autoFix": true
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        0,
+        96
+      ],
+      "id": "f51afa52-bfe7-4ae0-bebe-725ad09b9588",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Read the full text contents of a single file in this template. ALWAYS call this before proposing an edit to a file. Input: the file's relative path.",
+        "url": "=http://sdl-app:5001/api/agent/template/{{ $('Webhook').item.json.body.template_kind }}/{{ $('Webhook').item.json.body.template_id }}/read-file",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "path",
+              "value": "={{ $fromAI('path', 'relative path of the file to read', 'string') }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-API-Key",
+              "value": "j5WLFVsVhIUKz7NTKlyfxHF5bah2mRof"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        -256,
+        144
+      ],
+      "id": "7032d43f-0d9e-4eed-a87a-018d1665d2b2",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-5.4-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-5.4-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -80,
+        304
+      ],
+      "id": "24fe82e2-dea5-401b-8843-dc29a50dab92",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "<CREDENTIAL_ID>",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json.output }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        -64,
+        -144
+      ],
+      "id": "2c2197ad-4590-43ab-a9ed-41c4ccfd5a63",
+      "name": "Respond to Webhook"
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "sdl-n8n:5678",
+            "user-agent": "python-requests/2.32.4",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "accept": "*/*",
+            "connection": "keep-alive",
+            "content-length": "1882",
+            "content-type": "application/json"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "session_id": "c649bed1-d496-440b-9275-b81127449f4f",
+            "template_kind": "process",
+            "template_id": 2,
+            "template_name": "Loading Isotherm Resin",
+            "message": "In the analysis script, increase font size in the plot and change color palette to different shades of blue",
+            "files": [
+              {
+                "path": "activity_log.json",
+                "size": 2945,
+                "ext": ".json",
+                "editable": true
+              },
+              {
+                "path": "elab_template.json",
+                "size": 13494,
+                "ext": ".json",
+                "editable": true
+              },
+              {
+                "path": "main.py",
+                "size": 26145,
+                "ext": ".py",
+                "editable": true
+              },
+              {
+                "path": "tecan_field_mappings.json",
+                "size": 59,
+                "ext": ".json",
+                "editable": true
+              },
+              {
+                "path": "workflow.json",
+                "size": 2581,
+                "ext": ".json",
+                "editable": true
+              },
+              {
+                "path": "analysis/analysis_script_2.py",
+                "size": 34216,
+                "ext": ".py",
+                "editable": true
+              },
+              {
+                "path": "db/commit_to_db.py",
+                "size": 24548,
+                "ext": ".py",
+                "editable": true
+              },
+              {
+                "path": "db/field_mapping.json",
+                "size": 1304,
+                "ext": ".json",
+                "editable": true
+              },
+              {
+                "path": "db/schema.json",
+                "size": 8526,
+                "ext": ".json",
+                "editable": true
+              },
+              {
+                "path": "protocols/Template_500_OT_Protocol_1.py",
+                "size": 17313,
+                "ext": ".py",
+                "editable": true
+              },
+              {
+                "path": "protocols/Template_500_OT_Protocol_2.py",
+                "size": 5431,
+                "ext": ".py",
+                "editable": true
+              },
+              {
+                "path": "protocols/Template_500_OT_Protocol_3.py",
+                "size": 6243,
+                "ext": ".py",
+                "editable": true
+              },
+              {
+                "path": "protocols/Template_500_OT_Protocol_4.py",
+                "size": 3159,
+                "ext": ".py",
+                "editable": true
+              },
+              {
+                "path": "protocols/Template_500_OT_Protocol_5.py",
+                "size": 2918,
+                "ext": ".py",
+                "editable": true
+              },
+              {
+                "path": "protocols/Template_500_Script_Generator.py",
+                "size": 26303,
+                "ext": ".py",
+                "editable": true
+              },
+              {
+                "path": "protocols/Template_500_TECAN_Protocol_1.xml",
+                "size": 34669,
+                "ext": ".xml",
+                "editable": true
+              },
+              {
+                "path": "reports/report_generator_500.py",
+                "size": 27541,
+                "ext": ".py",
+                "editable": true
+              },
+              {
+                "path": "reports/report_template_500.html",
+                "size": 6066,
+                "ext": ".html",
+                "editable": true
+              }
+            ]
+          },
+          "webhookUrl": "http://localhost:5678/webhook/template-editor-agent",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Structured Output Parser",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "3b98af63-cc80-4494-b849-68de09b0fb03",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "7f8e084edd79836748d964ed73fbf393e62148166b1b6312b54efe5cbf8f7e25"
+  },
+  "id": "tsFXKVVtKF2ze3Ua",
+  "tags": []
+}

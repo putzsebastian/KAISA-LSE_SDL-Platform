@@ -1,0 +1,28 @@
+{
+  "pass": false,
+  "codes": [
+    "MISSING_OUTPUT"
+  ],
+  "findings": [
+    {
+      "code": "MISSING_OUTPUT",
+      "detail": "candidate produced no Langmuir fits, in the results JSON or any results-folder table",
+      "candidate_status": "success",
+      "candidate_message": "Tecan loading isotherm analysis completed successfully."
+    }
+  ],
+  "plots_produced": [
+    "isotherms_5016.png"
+  ],
+  "results_carrier": "analysis_results_5016.json",
+  "fits_carrier": null,
+  "undefined_endpoints": [],
+  "data_route": "device_server",
+  "results_dir": [
+    "aggregated_data_5016.csv",
+    "analysis_results_5016.json",
+    "isotherms_5016.png",
+    "per_well_data_5016.csv",
+    "tecan_data_5016.xlsx"
+  ]
+}

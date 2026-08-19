@@ -1,0 +1,23 @@
+{
+  "job_id": "15_opentrons_4_015_541717350",
+  "callback_url": "http://host.docker.internal:8765/api/protocol_callback",
+  "prompt": "\n\nUSER REQUIREMENTS:\nGenerate an Opentrons protocol using placeholder syntax instead of specific values. Make it templatable.\n\nAvailable placeholders:\n- [[INCUBATION_TIME]]\n- [[INCUBATION_TEMPERATURE]]\n- [[SHAKER_SPEED_INCUBATION]]\n\nProtocol Requirements:\nDeck Layout:\nSlot 1: Custom labware: 'cytiva_96_filterwellplate_1ml' mounted directly on Heater Shaker Module V1 (no adapter - load the labware straight onto the module).\nSlot 7: Opentrons 96 Tiprack 300 uL\n\nPipette Configuration:\nRight Mount: P300 Single-Channel GEN2\nLeft Mount: P300 8-Channel GEN2\n\nProtocol Steps:\n1.\tClose labware latch of heater shaker module and set temperature to [[INCUBATION_TEMPERATURE]] if [[INCUBATION_TEMPERATURE]]>=37. Else skip this step.\n2.\tShake the Heater Shaker Module for [[INCUBATION_TIME]] minutes at a speed of [[SHAKER_SPEED_INCUBATION]] minutes.\n3.\tIn the end stop heating and shaking and open labware latch.",
+  "device_type": "opentrons",
+  "process_id": 15,
+  "step_id": 4,
+  "step_method": "Run Protocol w/ Custom Labware",
+  "process_name": "Loading Isotherm Resin",
+  "process_type": "automated",
+  "process_folder_path": "/app/data/replication/batches/<run>/replicate_015",
+  "protocols_folder": "/app/data/replication/batches/<run>/replicate_015/protocols",
+  "user_id": 1,
+  "username": "sebastianputz",
+  "timestamp": "2026-08-12T13:35:17.349695+00:00",
+  "autonomous_mode": false,
+  "lab_id": "167",
+  "metadata": {
+    "elab_api_base": "https://eln.example.org",
+    "template_id": "278",
+    "workflow_type": "steps"
+  }
+}

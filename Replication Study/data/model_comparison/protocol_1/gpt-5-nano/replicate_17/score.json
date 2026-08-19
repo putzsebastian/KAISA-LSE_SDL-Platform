@@ -1,0 +1,11 @@
+{
+  "pass": false,
+  "codes": [
+    "SIM_FAILED"
+  ],
+  "systematic_multiples": null,
+  "destinations_matched": null,
+  "destinations_total": null,
+  "candidate_error": "MalformedPythonProtocolError: unexpected character after line continuation character (Template_278_OT_Protocol_1.py, line 1)\n\n  File \"/tmp/harness/runs/s5_<run>/replicate_017/instantiated",
+  "comparator": "destinations"
+}

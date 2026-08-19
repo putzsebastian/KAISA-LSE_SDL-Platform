@@ -1,0 +1,10 @@
+{
+  "experiment": "fplc_gradient",
+  "artifact": "database",
+  "comparator": "database",
+  "replicates": 20,
+  "passed": 18,
+  "upstream_gate": "analysis",
+  "excluded_bad_upstream": 1,
+  "gating": "replicates whose analysis step failed are excluded rather than counted as failures of this agent"
+}

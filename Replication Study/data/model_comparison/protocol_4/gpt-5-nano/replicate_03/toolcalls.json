@@ -1,0 +1,40 @@
+{
+  "calls": [
+    {
+      "node": "Get_Opentrons_API_Info",
+      "run_index": 0,
+      "start_ms": 1786535960053,
+      "duration_ms": 30007,
+      "status": "success"
+    },
+    {
+      "node": "Get_Opentrons_API_Info",
+      "run_index": 1,
+      "start_ms": 1786536004868,
+      "duration_ms": 24810,
+      "status": "success"
+    },
+    {
+      "node": "Get_Opentrons_API_Info",
+      "run_index": 2,
+      "start_ms": 1786536071589,
+      "duration_ms": 47302,
+      "status": "success"
+    },
+    {
+      "node": "OT_Script_Simulation",
+      "run_index": 0,
+      "start_ms": 1786536173797,
+      "duration_ms": 112,
+      "status": "success"
+    },
+    {
+      "node": "OT_Script_Simulation",
+      "run_index": 1,
+      "start_ms": 1786536221032,
+      "duration_ms": 141,
+      "status": "success"
+    }
+  ],
+  "count": 5
+}

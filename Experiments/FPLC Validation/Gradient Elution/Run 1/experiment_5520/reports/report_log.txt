@@ -1,0 +1,104 @@
+Return code: 0
+STDOUT:
+Generating report for experiment 5520
+Template fields configured: 15
+Selected plots: 1
+SUCCESS: Loaded template: /app/experiments/experiment_5520/reports/report_template_387.html
+Loading experiment data from eLabFTW...
+INFO: Getting experiment data from: https://<ELAB_HOST>/api/v2/experiments/5520
+INFO: Using API token: 4-609da19a3a54e6518c...
+INFO: Response status: 200
+SUCCESS: Successfully retrieved experiment data (title: ÄKTA - Gradient Elution 20 CV 0 to 2000 mM NaCl - 1 g/L Ovalbumin and Transferrin - 500 µL Loop I)
+Extracting field values...
+Extracted 19 field values from eLabFTW
+  CIP_2_HOLD_DURATION: 600
+  CIP_3_DURATION: 462
+  CIP_4_DURATION: 577
+  CIP_5_DURATION: 462
+  CIP_DURATION: 346
+  ELUTE_GRADIENT_DURATION: 2309
+  ELUTE_GRADIENT_GRADIENT_END: 100
+  ELUTE_GRADIENT_GRADIENT_START: 0
+  EQUILIBRATION_DURATION: 346
+  EQUILIBRATION_FLOW_RATE: 0.5
+  LOAD_INJECT_DURATION: 150
+  LOAD_INJECT_FLOW_RATE: 0.2
+  PROCESS_ID: 36
+  WASH_DURATION: 346
+  WASH_FLOW_RATE: 0.5
+  EXPERIMENT_ID: 5520
+  EXPERIMENT_TITLE: ÄKTA - Gradient Elution 20 CV 0 to 2000 mM NaCl - 1 g/L Ovalbumin and Transferrin - 500 µL Loop I
+  EXPERIMENT_DATE: 2026-05-19
+  REPORT_DATE: 2026-05-19 11:07:20
+Loading analysis results...
+Loaded analysis results from: ../results/analysis_results_5520.json
+Finding selected plot files...
+Looking for 1 selected plots in ../results
+  Searching for plot 1: chromatogram_{ID}.png
+    Found with pattern 'chromatogram_5520.png': ../results/chromatogram_5520.png
+Found 1/1 selected plots
+Creating plots section with eLabFTW longnames...
+Uploaded chromatogram_5520.png to eLabFTW
+Retrieved longname for chromatogram_5520.png: 2d/2d8d4a444dcf82a20150fde78c99d6ed270ceaff6ce04d7c2b1254a4f2afd5ba4de040a1fc94dfe9c1e4c659700c9c0dc04f72d3f56a0c3fa1e3377be0c005c8.png
+Uploaded chromatogram_5520.png to eLabFTW
+Retrieved longname for chromatogram_5520.png: 34/34fa07c4cc884d4d9ec73d0220f4ecad5ad75bc01609a1f53369d803be38caa209f25ff167cd8555da58f8c2197b27be9b310e0f0a4902de14da51a4fea8636d.png
+Including analysis results: ['experiment_id', 'status', 'message', 'plots', 'data_outputs', 'metadata', 'files_processed', 'peak_analysis']
+Replacing 29 placeholders...
+  CIP_2_HOLD_DURATION -> 600
+  CIP_3_DURATION -> 462
+  CIP_4_DURATION -> 577
+  CIP_5_DURATION -> 462
+  CIP_DURATION -> 346
+  ELUTE_GRADIENT_DURATION -> 2309
+  ELUTE_GRADIENT_GRADIENT_END -> 100
+  ELUTE_GRADIENT_GRADIENT_START -> 0
+  EQUILIBRATION_DURATION -> 346
+  EQUILIBRATION_FLOW_RATE -> 0.5
+  LOAD_INJECT_DURATION -> 150
+  LOAD_INJECT_FLOW_RATE -> 0.2
+  PROCESS_ID -> 36
+  WASH_DURATION -> 346
+  WASH_FLOW_RATE -> 0.5
+  EXPERIMENT_ID -> 5520
+  EXPERIMENT_TITLE -> ÄKTA - Gradient Elution 20 CV 0 to 2000 mM NaCl - ...
+  EXPERIMENT_DATE -> 2026-05-19
+  REPORT_DATE -> 2026-05-19 11:07:20
+  PLOTS_SECTION -> 
+                <div class="plot-container" id="p...
+  PLOT_1 -> <img src="app/download.php?name=chromatogram_5520....
+Made 21 placeholder replacements
+Uploading additional files to eLabFTW...
+Uploaded additional file: akta_results_5520.json
+Uploaded additional file: Experiment_5520_Results.json
+Uploaded additional file: analysis_results_5520.json
+Uploaded additional file: processed_chromatogram_5520.csv
+Uploaded additional file: chromatogram_5520.pdf
+Updating experiment body in eLabFTW...
+INFO: Testing eLabFTW connection to: https://<ELAB_HOST>
+INFO: API token starts with: 4-609da19a3a54e6518c...
+INFO: Experiment ID: 5520
+INFO: GET test status: 200
+INFO: Updating experiment body (length: 5847 characters)
+INFO: PATCH response status: 200
+SUCCESS: Updated experiment 5520 with report
+
+Report generation complete!
+   Local report: ../results/report_5520.html
+   Template fields: 15
+   Selected plots: 1 (1 found)
+   Plot files uploaded: 1
+   Additional files uploaded: 5
+   Placeholders replaced: 21
+   eLabFTW: https://<ELAB_HOST>/experiments/view/5520
+
+Success!
+   Experiment: 5520
+   Template fields: 15
+   Selected plots: 1 (1 found)
+   Plot files uploaded: 1
+   Additional files uploaded: 5
+   Total files uploaded: 6
+   Placeholders replaced: 21
+
+STDERR:
+

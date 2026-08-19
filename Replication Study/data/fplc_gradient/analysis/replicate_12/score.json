@@ -1,0 +1,46 @@
+{
+  "pass": false,
+  "codes": [
+    "PEAK_COUNT_MISMATCH",
+    "PEAK_HEIGHT_MISMATCH"
+  ],
+  "fatal_codes": [
+    "PEAK_HEIGHT_MISMATCH"
+  ],
+  "findings": [
+    {
+      "code": "PEAK_COUNT_MISMATCH",
+      "expected": 1,
+      "found": 7,
+      "benign": true,
+      "detail": "the prompt sets no criterion for what counts as a peak"
+    },
+    {
+      "code": "PEAK_HEIGHT_MISMATCH",
+      "reference_mAU": 423.754,
+      "candidate_mAU": 367.226
+    }
+  ],
+  "n_findings": 1,
+  "peaks_found": 7,
+  "peaks_reference": 1,
+  "results_dir": [
+    "akta_processed_5520.csv",
+    "akta_results_5520.json",
+    "analysis_results_5520.json",
+    "chromatogram_5520.pdf",
+    "chromatogram_5520.png"
+  ],
+  "plots_produced": [
+    "chromatogram_5520.pdf",
+    "chromatogram_5520.png"
+  ],
+  "csv_produced": [
+    "akta_processed_5520.csv"
+  ],
+  "server_routes": [
+    "/api/akta/results/5520"
+  ],
+  "undefined_endpoints": [],
+  "results_carrier": "analysis_results_5520.json"
+}

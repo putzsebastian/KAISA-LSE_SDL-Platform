@@ -1,0 +1,57 @@
+{
+    "experiment_id": "5549",
+    "status": "success",
+    "message": "AKTA chromatogram analyzed successfully. Identified 2 peak(s).",
+    "plots": {
+        "png": "../results/chromatogram_5549.png",
+        "pdf": "../results/chromatogram_5549.pdf"
+    },
+    "data_outputs": {
+        "experiment_json": "../experiment_5549.json",
+        "akta_json": "../results/akta_results_5549.json",
+        "processed_csv": "../results/processed_akta_data_5549.csv",
+        "peaks_csv": "../results/peak_table_5549.csv"
+    },
+    "metadata": {
+        "Process ID": "37",
+        "CIP_DURATION": "692",
+        "WASH_DURATION": "346",
+        "CIP_3_DURATION": "462",
+        "CIP_4_DURATION": "577",
+        "CIP_5_DURATION": "462",
+        "WASH_FLOW_RATE": "0.5",
+        "CIP_2_HOLD_DURATION": "600",
+        "LOAD_INJECT_DURATION": "150",
+        "LOAD_INJECT_FLOW_RATE": "0.2",
+        "EQUILIBRATION_DURATION": "600",
+        "EQUILIBRATION_FLOW_RATE": "0.5",
+        "ELUTE_ISOCRATIC_DURATION": "404",
+        "ELUTE_ISOCRATIC_PERCENT_B": "32.5",
+        "ELUTE_ISOCRATIC_2_DURATION": "692",
+        "ELUTE_ISOCRATIC_2_PERCENT_B": "80"
+    },
+    "files_processed": 1,
+    "peak_count": 2,
+    "peaks": [
+        {
+            "peak_number": 1,
+            "retention_time_min": 32.3335355758667,
+            "peak_height_mAU": 38.603,
+            "prominence_mAU": 37.084
+        },
+        {
+            "peak_number": 2,
+            "retention_time_min": 56.55013962984085,
+            "peak_height_mAU": 411.149,
+            "prominence_mAU": 410.195
+        }
+    ],
+    "signal_summary": {
+        "time_start_min": 0.000299986203511556,
+        "time_end_min": 102.53346320390702,
+        "uv_max_mAU": 411.149,
+        "uv_min_mAU": -0.374,
+        "cond_max_mS_cm": 238.26,
+        "cond_min_mS_cm": 0.33
+    }
+}

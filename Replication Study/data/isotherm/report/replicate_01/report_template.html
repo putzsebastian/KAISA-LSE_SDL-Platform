@@ -1,0 +1,102 @@
+<p><span style="font-size:18pt;"><strong>[[EXPERIMENT_TITLE]] - Loading Isotherm Determination Report</strong></span></p>
+
+<h4><span style="font-size:14pt;">Experiment Information</span></h4>
+<p><strong>Experiment ID:</strong> [[EXPERIMENT_ID]]</p>
+<p><strong>Process ID:</strong> [[PROCESS_ID]]</p>
+<p><strong>Report Generated:</strong> [[REPORT_DATE]]</p>
+<p><strong>Start Date:</strong> [[EXPERIMENT_DATE]]</p>
+<p><strong>End Date:</strong> [[REPORT_DATE]]</p>
+<p> </p>
+
+<h4><span style="font-size:14pt;">Objective</span></h4>
+<p>Determination of loading isotherms for ligand [[LIGAND_NAME]] on resin using [[RESIN_MASS]] of resin at different salt concentrations ([[SALT_CONCENTRATIONS]] [[SALT_CONCENTRATION_UNIT]]) in buffer [[BUFFER]]. The experiment is performed using an automated workflow to ensure reproducibility across [[NUMBER_OF_SALT_CONCENTRATIONS]] salt conditions and [[NUMBER_OF_LIGAND_CONCENTRATIONS]] ligand concentration levels ([[LIGAND_CONCENTRATIONS]] [[LIGAND_CONCENTRATION_UNIT]]).</p>
+<p> </p>
+
+<h4><span style="font-size:14pt;">Methods</span></h4>
+<h5><span style="font-size:12pt;">Overview of Automated Workflow</span></h5>
+<p>The determination of loading isotherms was carried out using an integrated automated platform consisting of an Opentrons OT-2 liquid handling robot, a UR5 robotic arm, a vacuum manifold with VacuuPump, and a Tecan Spark platereader. The workflow was orchestrated to perform equilibration, ligand loading, filtration, and analytical measurement steps without manual intervention, except at designated pause steps.</p>
+
+<h5><span style="font-size:12pt;">Reagents and Key Parameters</span></h5>
+<ul>
+<li><strong>Ligand:</strong> [[LIGAND_NAME]]; stock concentration: [[LIGAND_STOCK_CONCENTRATION]] [[LIGAND_CONCENTRATION_UNIT]]; working ligand concentration series: [[LIGAND_CONCENTRATIONS]] [[LIGAND_CONCENTRATION_UNIT]] (total of [[NUMBER_OF_LIGAND_CONCENTRATIONS]] levels).</li>
+<li><strong>Resin mass per well:</strong> [[RESIN_MASS]].</li>
+<li><strong>Buffer:</strong> [[BUFFER]].</li>
+<li><strong>Salt:</strong> [[SALT_NAME]]; stock concentration: [[SALT_STOCK_CONCENTRATION]] [[SALT_CONCENTRATION_UNIT]]; salt concentration series in equilibration/loading buffer: [[SALT_CONCENTRATIONS]] [[SALT_CONCENTRATION_UNIT]] (total of [[NUMBER_OF_SALT_CONCENTRATIONS]] conditions).</li>
+<li><strong>Equilibration volume per cycle:</strong> [[EQUILIBRATION_VOLUME]].</li>
+<li><strong>Number of equilibration cycles:</strong> [[EQUILIBRATION_CYCLES]]; duration per cycle: [[EQUILIBRATION_CYCLE_DURATION]] s.</li>
+<li><strong>Total loading volume per well:</strong> [[TOTAL_VOLUME]].</li>
+<li><strong>Pump speed during filtration:</strong> [[PUMP_SPEED]].</li>
+<li><strong>Pump duration per filtration step:</strong> [[PUMP_DURATION]] s; venting time: [[VENTING_TIME]] s.</li>
+<li><strong>Incubation temperature:</strong> [[INCUBATION_TEMPERATURE]]; incubation time: [[INCUBATION_TIME]]; shaker speed during incubation: [[SHAKER_SPEED_INCUBATION]].</li>
+<li><strong>Measurement wavelength (Tecan Spark):</strong> [[MEASUREMENT_WAVELENGTH]] nm.</li>
+<li><strong>Calibration curve parameters:</strong> slope = [[CALIBRATION_CURVE_SLOPE]], intercept = [[CALIBRATION_CURVE_INTERCEPT]].</li>
+<li><strong>Number of replicates:</strong> [[REPLICATES]].</li>
+</ul>
+
+<h5><span style="font-size:12pt;">Automated Workflow Description</span></h5>
+<ol>
+<li><strong>System preparation and plate setup</strong>
+<ul>
+<li>The Opentrons OT-2 was configured with custom labware definition <em>cytiva_96_filterwellplate_1ml</em> for the 96-well filter plate ("Filterplate").</li>
+<li>A 96-deep-well plate ("96DeepWP") containing buffer, salt stock dilutions ([[SALT_CONCENTRATIONS]] [[SALT_CONCENTRATION_UNIT]]), and ligand solutions ([[LIGAND_CONCENTRATIONS]] [[LIGAND_CONCENTRATION_UNIT]]) was placed in storage location and handled by the UR5 arm.</li>
+<li>The Tecan Spark platereader was prepared for absorbance measurements at [[MEASUREMENT_WAVELENGTH]] nm.</li>
+</ul>
+</li>
+<li><strong>Initial equilibration setup</strong>
+<ul>
+<li>The OT-2 executed a protocol using the custom filter plate labware to dispense equilibration buffer [[BUFFER]] with defined salt concentration [[SALT_CONCENTRATIONS]] into the filter plate wells containing [[RESIN_MASS]] of resin.</li>
+<li>The UR5 robot grabbed the 96DeepWP from storage (<em>Storage2</em>) and placed it on the vacuum manifold position (<em>Pump_Pos1</em>).</li>
+<li>The UR5 placed the vacuum manifold and then transferred the filter plate from the OT-2 deck position (<em>OT2_Pos1</em>) to the vacuum manifold position (<em>Pump_Pos2</em>).</li>
+<li>The VacuuPump applied vacuum at speed [[PUMP_SPEED]] for [[PUMP_DURATION]] s to pull equilibration buffer through the resin bed, followed by a venting period of [[VENTING_TIME]] s.</li>
+<li>The UR5 returned the filter plate to the OT-2 deck, ready for further liquid handling.</li>
+</ul>
+</li>
+<li><strong>Automated equilibration cycles</strong>
+<ul>
+<li>A loop of [[EQUILIBRATION_CYCLES]] equilibration cycles was executed. In each cycle, the OT-2 dispensed [[EQUILIBRATION_VOLUME]] of equilibration buffer with the desired salt concentration(s) onto the resin in the filter plate.</li>
+<li>After dispensing, the UR5 transferred the filter plate to the vacuum manifold, and the VacuuPump applied vacuum at speed [[PUMP_SPEED]] for [[PUMP_DURATION]] s, followed by venting for [[VENTING_TIME]] s.</li>
+<li>The UR5 then moved the filter plate back to the OT-2 deck to complete the cycle.</li>
+</ul>
+</li>
+<li><strong>Post-equilibration handling</strong>
+<ul>
+<li>After completion of the equilibration loop, the UR5 removed the vacuum manifold and returned the 96DeepWP from the vacuum position back to storage.</li>
+<li>The OT-2 executed an additional protocol step (using the custom labware) to prepare the filter plate and deep-well plate for ligand loading.</li>
+<li>A user pause was introduced to cover the filter plate with foil and to refresh tips and empty trash, ensuring clean conditions for the loading step.</li>
+<li>The OT-2 then ran a subsequent protocol after the pause to complete pre-loading operations and a second pause to remove the foil prior to loading.</li>
+</ul>
+</li>
+<li><strong>Ligand loading and incubation</strong>
+<ul>
+<li>The UR5 retrieved a fresh 96DeepWP from storage (<em>Storage1</em>) and placed it onto the vacuum station (<em>Pump_Pos1</em>), and the vacuum manifold was positioned.</li>
+<li>The UR5 moved the equilibrated filter plate from the OT-2 deck to the vacuum station (<em>Pump_Pos2</em>) for any preparatory filtration steps, followed by vacuum and venting as above.</li>
+<li>The UR5 then stored the prepared filter plate, and the 96DeepWP containing ligand solutions ([[LIGAND_CONCENTRATIONS]] [[LIGAND_CONCENTRATION_UNIT]] at various [[SALT_CONCENTRATIONS]] [[SALT_CONCENTRATION_UNIT]]) was transferred by UR5 to the OT-2 deck (<em>OT2_Pos5</em>).</li>
+<li>A standard 96-well microplate ("WP1") was placed by UR5 at OT-2 position 1 for collection of supernatants or post-loading samples.</li>
+<li>The OT-2 executed a protocol to dispense ligand solutions into the resin-containing filter plate wells (total loading volume [[TOTAL_VOLUME]] per well) and to transfer supernatant or filtrate into WP1 after incubation.</li>
+<li>Ligand-resin contact occurred at [[INCUBATION_TEMPERATURE]] for [[INCUBATION_TIME]] with shaking at [[SHAKER_SPEED_INCUBATION]] to reach equilibrium binding in each salt condition.</li>
+</ul>
+</li>
+<li><strong>Filtration and sample transfer for analysis</strong>
+<ul>
+<li>Following incubation, filtration was carried out using the vacuum manifold and VacuuPump at speed [[PUMP_SPEED]] for [[PUMP_DURATION]] s, with venting for [[VENTING_TIME]] s, to separate liquid phase from the resin.</li>
+<li>Supernatant or filtrate was collected into the designated plate (WP1), which contained all combinations of [[NUMBER_OF_SALT_CONCENTRATIONS]] salt conditions and [[NUMBER_OF_LIGAND_CONCENTRATIONS]] ligand levels, with [[REPLICATES]] replicates each.</li>
+</ul>
+</li>
+<li><strong>Analytical measurement (Tecan Spark)</strong>
+<ul>
+<li>The UR5 transferred WP1 from the OT-2 deck to the Tecan Spark platereader.</li>
+<li>The Tecan Spark performed an absorbance measurement at [[MEASUREMENT_WAVELENGTH]] nm to determine ligand concentration in the liquid phase.</li>
+<li>Calibration curve parameters (slope [[CALIBRATION_CURVE_SLOPE]], intercept [[CALIBRATION_CURVE_INTERCEPT]]) were used to convert absorbance to concentration, enabling calculation of bound vs. free ligand and construction of loading isotherms for each salt condition.</li>
+<li>After measurement, the UR5 returned WP1 to storage.</li>
+</ul>
+</li>
+</ol>
+
+<h4><span style="font-size:14pt;">Results</span></h4>
+<h5><span style="font-size:12pt;">Loading Isotherms</span></h5>
+[[PLOT_1]]
+<p><em>Figure 1: Loading isotherms of [[LIGAND_NAME]] on resin ([[RESIN_MASS]] per well) at different salt concentrations ([[SALT_CONCENTRATIONS]] [[SALT_CONCENTRATION_UNIT]]). Each curve represents the equilibrium binding behavior at a specific salt condition, constructed from [[NUMBER_OF_LIGAND_CONCENTRATIONS]] ligand concentrations ([[LIGAND_CONCENTRATIONS]] [[LIGAND_CONCENTRATION_UNIT]]) and [[REPLICATES]] replicates per condition. Data were obtained from Tecan Spark absorbance measurements at [[MEASUREMENT_WAVELENGTH]] nm and converted to concentrations using the calibration curve (slope [[CALIBRATION_CURVE_SLOPE]], intercept [[CALIBRATION_CURVE_INTERCEPT]]).</em></p>
+
+<p> </p>
+<h4><span style="font-size:14pt;">Summary</span></h4>
+<p>The automated workflow successfully generated loading isotherms for [[LIGAND_NAME]] binding to resin at multiple salt concentrations ([[SALT_CONCENTRATIONS]] [[SALT_CONCENTRATION_UNIT]]). The combination of OT-2 liquid handling, UR5 plate logistics, vacuum manifold filtration, and Tecan Spark measurements provided reproducible and high-throughput characterization of equilibrium binding across [[NUMBER_OF_SALT_CONCENTRATIONS]] salt conditions and [[NUMBER_OF_LIGAND_CONCENTRATIONS]] ligand levels.</p>

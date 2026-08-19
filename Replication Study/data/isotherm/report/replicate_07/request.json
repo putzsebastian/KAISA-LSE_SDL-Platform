@@ -1,0 +1,196 @@
+{
+  "workflow_type": "report_template_generation",
+  "prompt": "WORKFLOW CONTEXT:\nThe following workflow describes the experimental process:\n{\n  \"type\": \"steps\",\n  \"content\": [\n    {\n      \"device\": \"Opentrons OT-2\",\n      \"method\": \"Run Protocol w/ Custom Labware\",\n      \"params\": {\n        \"labware_file\": \"cytiva_96_filterwellplate_1ml.json\"\n      }\n    },\n    {\n      \"device\": \"UR5\",\n      \"method\": \"Grab\",\n      \"params\": {\n        \"object\": \"96DeepWP\",\n        \"location\": \"Storage2\"\n      }\n    },\n    {\n      \"device\": \"UR5\",\n      \"method\": \"Place\",\n      \"params\": {\n        \"object\": \"96DeepWP\",\n        \"location\": \"Pump_Pos1\",\n        \"rehome\": false\n      }\n    },\n    {\n      \"device\": \"UR5\",\n      \"method\": \"Place_Vacuum_Manifold\",\n      \"params\": {\n        \"rehome\": false\n      }\n    },\n    {\n      \"device\": \"UR5\",\n      \"method\": \"Grab\",\n      \"params\": {\n        \"object\": \"Filterplate\",\n        \"location\": \"OT2_Pos1\"\n      }\n    },\n    {\n      \"device\": \"UR5\",\n      \"method\": \"Place\",\n      \"params\": {\n        \"object\": \"Filterplate\",\n        \"location\": \"Pump_Pos2\",\n        \"rehome\": false\n      }\n    },\n    {\n      \"device\": \"VacuuPump\",\n      \"method\": \"Pump\",\n      \"params\": {\n        \"speed\": \"25\",\n        \"duration\": \"30\"\n      }\n    },\n    {\n      \"device\": \"Utility\",\n      \"method\": \"Wait\",\n      \"params\": {\n        \"duration\": \"300\",\n        \"message\": \"Venting...\"\n      }\n    },\n    {\n      \"device\": \"UR5\",\n      \"method\": \"Grab\",\n      \"params\": {\n        \"object\": \"Filterplate\",\n        \"location\": \"Pump_Pos2\"\n      }\n    },\n    {\n      \"device\": \"UR5\",\n      \"method\": \"Place\",\n      \"params\": {\n        \"object\": \"Filterplate\",\n        \"location\": \"OT2_Pos1\",\n        \"rehome\": true\n      }\n    },\n    {\n      \"type\": \"loop_start\",\n      \"loop_id\": \"loop_1\",\n      \"iteration_type\": \"elabftw\",\n      \"iterations\": \"Equilibration Cycles\",\n      \"variable_name\": \"i\"\n    },\n    {\n      \"device\": \"Opentrons OT-2\",\n      \"method\": \"Run Protocol w/ Custom Labware\",\n      \"params\": {\n        \"labware_file\": \"cytiva_96_filterwellplate_1ml.json\"\n      }\n    },\n    {\n      \"device\": \"UR5\",\n      \"method\": \"Grab\",\n      \"params\": {\n        \"object\": \"Filterplate\",\n        \"location\": \"OT2_Pos1\"\n      }\n    },\n    {\n      \"device\": \"UR5\",\n      \"method\": \"Place\",\n      \"params\": {\n        \"object\": \"Filterplate\",\n        \"location\": \"Pump_Pos2\",\n        \"rehome\": false\n      }\n    },\n    {\n      \"device\": \"VacuuPump\",\n      \"method\": \"Pump\",\n      \"params\": {\n        \"speed\": \"25\",\n        \"duration\": \"30\"\n      }\n    },\n    {\n      \"device\": \"Utility\",\n      \"method\": \"Wait\",\n      \"params\": {\n        \"duration\": \"300\",\n        \"message\": \"Venting\"\n      }\n    },\n    {\n      \"device\": \"UR5\",\n      \"method\": \"Grab\",\n      \"params\": {\n        \"object\": \"Filterplate\",\n        \"location\": \"Pump_Pos2\"\n      }\n    },\n    {\n      \"device\": \"UR5\",\n      \"method\": \"Place\",\n      \"params\": {\n        \"object\": \"Filterplate\",\n        \"location\": \"OT2_Pos1\",\n        \"rehome\": true\n      }\n    },\n    {\n      \"type\": \"loop_end\",\n      \"loop_id\": \"loop_1\"\n    },\n    {\n      \"device\": \"UR5\",\n      \"method\": \"Remove_Vacuum_Manifold\",\n      \"params\": {\n        \"rehome\": false\n      }\n    },\n    {\n      \"device\": \"UR5\",\n      \"method\": \"Grab\",\n      \"params\": {\n        \"object\": \"96DeepWP\",\n        \"location\": \"Pump_Pos1\"\n      }\n    },\n    {\n      \"device\": \"UR5\",\n      \"method\": \"Place\",\n      \"params\": {\n        \"object\": \"96DeepWP\",\n        \"location\": \"Storage2\",\n        \"rehome\": true\n      }\n    },\n    {\n      \"device\": \"Opentrons OT-2\",\n      \"method\": \"Run Protocol w/ Custom Labware\",\n      \"params\": {\n        \"labware_file\": \"cytiva_96_filterwellplate_1ml.json\"\n      }\n    },\n    {\n      \"device\": \"Utility\",\n      \"method\": \"Pause\",\n      \"params\": {\n        \"message\": \"Cover Filterplate with Foil. Remove all other labware. Fresh 300 uL tips in Slot 7. Empty Trash.\"\n      }\n    },\n    {\n      \"device\": \"Opentrons OT-2\",\n      \"method\": \"Run Protocol w/ Custom Labware\",\n      \"params\": {\n        \"labware_file\": \"cytiva_96_filterwellplate_1ml.json\"\n      }\n    },\n    {\n      \"device\": \"Utility\",\n      \"method\": \"Pause\",\n      \"params\": {\n        \"message\": \"Remove Foil from Filterplate\"\n      }\n    },\n    {\n      \"device\": \"UR5\",\n      \"method\": \"Grab\",\n      \"params\": {\n        \"object\": \"96DeepWP\",\n        \"location\": \"Storage1\"\n      }\n    },\n    {\n      \"device\": \"UR5\",\n      \"method\": \"Place\",\n      \"params\": {\n        \"object\": \"96DeepWP\",\n        \"location\": \"Pump_Pos1\",\n        \"rehome\": false\n      }\n    },\n    {\n      \"device\": \"UR5\",\n      \"method\": \"Place_Vacuum_Manifold\",\n      \"params\": {\n        \"rehome\": false\n      }\n    },\n    {\n      \"device\": \"UR5\",\n      \"method\": \"Grab\",\n      \"params\": {\n        \"object\": \"Filterplate\",\n        \"location\": \"OT2_Pos1\"\n      }\n    },\n    {\n      \"device\": \"UR5\",\n      \"method\": \"Place\",\n      \"params\": {\n        \"object\": \"Filterplate\",\n        \"location\": \"Pump_Pos2\",\n        \"rehome\": false\n      }\n    },\n    {\n      \"device\": \"VacuuPump\",\n      \"method\": \"Pump\",\n      \"params\": {\n        \"speed\": \"25\",\n        \"duration\": \"30\"\n      }\n    },\n    {\n      \"device\": \"Utility\",\n      \"method\": \"Wait\",\n      \"params\": {\n        \"duration\": \"300\",\n        \"message\": \"Venting...\"\n      }\n    },\n    {\n      \"device\": \"UR5\",\n      \"method\": \"Grab\",\n      \"params\": {\n        \"object\": \"Filterplate\",\n        \"location\": \"Pump_Pos2\"\n      }\n    },\n    {\n      \"device\": \"UR5\",\n      \"method\": \"Place\",\n      \"params\": {\n        \"object\": \"Filterplate\",\n        \"location\": \"Storage3\",\n        \"rehome\": false\n      }\n    },\n    {\n      \"device\": \"UR5\",\n      \"method\": \"Remove_Vacuum_Manifold\",\n      \"params\": {\n        \"rehome\": false\n      }\n    },\n    {\n      \"device\": \"UR5\",\n      \"method\": \"Grab\",\n      \"params\": {\n        \"object\": \"96DeepWP\",\n        \"location\": \"Pump_Pos1\"\n      }\n    },\n    {\n      \"device\": \"UR5\",\n      \"method\": \"Place\",\n      \"params\": {\n        \"object\": \"96DeepWP\",\n        \"location\": \"OT2_Pos5\",\n        \"rehome\": false\n      }\n    },\n    {\n      \"device\": \"UR5\",\n      \"method\": \"Grab\",\n      \"params\": {\n        \"object\": \"WP1\",\n        \"location\": \"Storage4\"\n      }\n    },\n    {\n      \"device\": \"UR5\",\n      \"method\": \"Place\",\n      \"params\": {\n        \"object\": \"WP1\",\n        \"location\": \"OT2_Pos1\",\n        \"rehome\": true\n      }\n    },\n    {\n      \"device\": \"Opentrons OT-2\",\n      \"method\": \"Run Protocol\",\n      \"params\": {}\n    },\n    {\n      \"device\": \"UR5\",\n      \"method\": \"Grab\",\n      \"params\": {\n        \"object\": \"96DeepWP\",\n        \"location\": \"OT2_Pos5\"\n      }\n    },\n    {\n      \"device\": \"UR5\",\n      \"method\": \"Place\",\n      \"params\": {\n        \"object\": \"96DeepWP\",\n        \"location\": \"Storage1\",\n        \"rehome\": false\n      }\n    },\n    {\n      \"device\": \"UR5\",\n      \"method\": \"Grab\",\n      \"params\": {\n        \"object\": \"WP1\",\n        \"location\": \"OT2_Pos1\"\n      }\n    },\n    {\n      \"device\": \"Tecan Spark\",\n      \"method\": \"Open\",\n      \"params\": {}\n    },\n    {\n      \"device\": \"UR5\",\n      \"method\": \"Place\",\n      \"params\": {\n        \"object\": \"WP1\",\n        \"location\": \"Tecan\",\n        \"rehome\": false\n      }\n    },\n    {\n      \"device\": \"Tecan Spark\",\n      \"method\": \"Close\",\n      \"params\": {}\n    },\n    {\n      \"device\": \"Tecan Spark\",\n      \"method\": \"Run Measurement\",\n      \"params\": {}\n    },\n    {\n      \"device\": \"Tecan Spark\",\n      \"method\": \"Open\",\n      \"params\": {}\n    },\n    {\n      \"device\": \"UR5\",\n      \"method\": \"Grab\",\n      \"params\": {\n        \"object\": \"WP1\",\n        \"location\": \"Tecan\"\n      }\n    },\n    {\n      \"device\": \"Tecan Spark\",\n      \"method\": \"Close\",\n      \"params\": {}\n    },\n    {\n      \"device\": \"UR5\",\n      \"method\": \"Place\",\n      \"params\": {\n        \"object\": \"WP1\",\n        \"location\": \"Storage4\",\n        \"rehome\": false\n      }\n    }\n  ]\n}\n\nUSER REQUEST:\nPlease create a report for loading isotherm determination of ligands to resin at different salt concentrations. Use the existing placeholders and the plots.\nStructure:\nHeading\nStart & End-Date\nMethods (Describe the automated workflow)\nResults (Plots)\n\nSELECTED PLOTS TO INCLUDE:\n1. Loading Isotherms {Id} (loading_isotherms_{ID}.png) - path_variable\n\nPlease create specific sections in the HTML template for each selected plot. Use placeholders like [[PLOT_1]], [[PLOT_2]], etc. for the plot images. Include descriptive headings and proper styling for each plot section. IMPORTANT: The plots will be uploaded to eLabFTW and need proper download URLs.",
+  "original_prompt": "Please create a report for loading isotherm determination of ligands to resin at different salt concentrations. Use the existing placeholders and the plots.\nStructure:\nHeading\nStart & End-Date\nMethods (Describe the automated workflow)\nResults (Plots)",
+  "selected_plots": [
+    {
+      "filename": "loading_isotherms_{ID}.png",
+      "display_name": "Loading Isotherms {Id}",
+      "type": "path_variable",
+      "description": "Plot generated by analysis_script_15.py",
+      "source": "evaluation_script",
+      "script_file": "analysis_script_15.py",
+      "expected": true,
+      "size": "Generated"
+    }
+  ],
+  "process_id": 15,
+  "template_id": "278",
+  "process_name": "Loading Isotherm Resin",
+  "process_folder_path": "/app/data/replication/batches/<run>/replicate_007",
+  "user_id": 1,
+  "timestamp": "2026-08-07T10:15:00.152207+00:00",
+  "lab_id": "167",
+  "elab_integration_required": true,
+  "plot_longname_handling": true,
+  "available_template_fields": [
+    {
+      "name": "Buffer",
+      "type": "text",
+      "placeholder": "BUFFER"
+    },
+    {
+      "name": "Salt Name",
+      "type": "text",
+      "placeholder": "SALT_NAME"
+    },
+    {
+      "name": "Process ID",
+      "type": "text",
+      "placeholder": "PROCESS_ID"
+    },
+    {
+      "name": "Pump Speed",
+      "type": "number",
+      "placeholder": "PUMP_SPEED"
+    },
+    {
+      "name": "Replicates",
+      "type": "number",
+      "placeholder": "REPLICATES"
+    },
+    {
+      "name": "Resin Mass",
+      "type": "number",
+      "placeholder": "RESIN_MASS"
+    },
+    {
+      "name": "Ligand Name",
+      "type": "text",
+      "placeholder": "LIGAND_NAME"
+    },
+    {
+      "name": "Total volume",
+      "type": "number",
+      "placeholder": "TOTAL_VOLUME"
+    },
+    {
+      "name": "Venting time",
+      "type": "number",
+      "placeholder": "VENTING_TIME"
+    },
+    {
+      "name": "Pump Duration",
+      "type": "number",
+      "placeholder": "PUMP_DURATION"
+    },
+    {
+      "name": "Incubation Time",
+      "type": "number",
+      "placeholder": "INCUBATION_TIME"
+    },
+    {
+      "name": "Salt concentrations",
+      "type": "text",
+      "placeholder": "SALT_CONCENTRATIONS"
+    },
+    {
+      "name": "Equilibration Cycles",
+      "type": "number",
+      "placeholder": "EQUILIBRATION_CYCLES"
+    },
+    {
+      "name": "Equilibration Volume",
+      "type": "number",
+      "placeholder": "EQUILIBRATION_VOLUME"
+    },
+    {
+      "name": "Ligand concentrations",
+      "type": "text",
+      "placeholder": "LIGAND_CONCENTRATIONS"
+    },
+    {
+      "name": "Incubation Temperature",
+      "type": "number",
+      "placeholder": "INCUBATION_TEMPERATURE"
+    },
+    {
+      "name": "Measurement Wavelength",
+      "type": "number",
+      "placeholder": "MEASUREMENT_WAVELENGTH"
+    },
+    {
+      "name": "Calibration Curve Slope",
+      "type": "number",
+      "placeholder": "CALIBRATION_CURVE_SLOPE"
+    },
+    {
+      "name": "Salt concentration unit",
+      "type": "text",
+      "placeholder": "SALT_CONCENTRATION_UNIT"
+    },
+    {
+      "name": "Shaker Speed Incubation",
+      "type": "number",
+      "placeholder": "SHAKER_SPEED_INCUBATION"
+    },
+    {
+      "name": "Salt Stock Concentration",
+      "type": "number",
+      "placeholder": "SALT_STOCK_CONCENTRATION"
+    },
+    {
+      "name": "Ligand concentration unit",
+      "type": "text",
+      "placeholder": "LIGAND_CONCENTRATION_UNIT"
+    },
+    {
+      "name": "Ligand Stock Concentration",
+      "type": "number",
+      "placeholder": "LIGAND_STOCK_CONCENTRATION"
+    },
+    {
+      "name": "Calibration Curve Intercept",
+      "type": "number",
+      "placeholder": "CALIBRATION_CURVE_INTERCEPT"
+    },
+    {
+      "name": "Equilibration Cycle Duration",
+      "type": "number",
+      "placeholder": "EQUILIBRATION_CYCLE_DURATION"
+    },
+    {
+      "name": "Number of salt concentrations",
+      "type": "number",
+      "placeholder": "NUMBER_OF_SALT_CONCENTRATIONS"
+    },
+    {
+      "name": "Number of ligand concentrations",
+      "type": "number",
+      "placeholder": "NUMBER_OF_LIGAND_CONCENTRATIONS"
+    }
+  ],
+  "available_placeholders": [
+    "BUFFER",
+    "SALT_NAME",
+    "PROCESS_ID",
+    "PUMP_SPEED",
+    "REPLICATES",
+    "RESIN_MASS",
+    "LIGAND_NAME",
+    "TOTAL_VOLUME",
+    "VENTING_TIME",
+    "PUMP_DURATION",
+    "INCUBATION_TIME",
+    "SALT_CONCENTRATIONS",
+    "EQUILIBRATION_CYCLES",
+    "EQUILIBRATION_VOLUME",
+    "LIGAND_CONCENTRATIONS",
+    "INCUBATION_TEMPERATURE",
+    "MEASUREMENT_WAVELENGTH",
+    "CALIBRATION_CURVE_SLOPE",
+    "SALT_CONCENTRATION_UNIT",
+    "SHAKER_SPEED_INCUBATION",
+    "SALT_STOCK_CONCENTRATION",
+    "LIGAND_CONCENTRATION_UNIT",
+    "LIGAND_STOCK_CONCENTRATION",
+    "CALIBRATION_CURVE_INTERCEPT",
+    "EQUILIBRATION_CYCLE_DURATION",
+    "NUMBER_OF_SALT_CONCENTRATIONS",
+    "NUMBER_OF_LIGAND_CONCENTRATIONS",
+    "EXPERIMENT_ID",
+    "EXPERIMENT_TITLE",
+    "EXPERIMENT_DATE",
+    "REPORT_DATE"
+  ]
+}

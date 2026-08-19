@@ -1,0 +1,1 @@
+from opentrons import protocol_api\n\nmetadata = {\n  'protocolName': 'Heater Shaker incubation with placeholders',\n  'author': 'Generated',\n  'description': 'Demo protocol with placeholders for incubation time/temperature and shaker speed'\n}\n\ndef run(protocol: protocol_api.ProtocolContext):\n  protocol.comment('This is a placeholder protocol.')\n

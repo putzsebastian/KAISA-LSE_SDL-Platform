@@ -1,0 +1,19 @@
+{
+  "experiment_id": "5523",
+  "template_id": "387",
+  "lab_id": "168",
+  "status": "completed",
+  "steps_completed": [
+    "valve_set_to_waste",
+    "syringe_connected",
+    "valve_set_to_load",
+    "loop_filled",
+    "akta_protocol_executed"
+  ],
+  "errors": [],
+  "file_paths": {
+    "akta_protocol": "/app/experiments/experiment_5523/protocols/Template_387_AKTA_Protocol_1.py",
+    "experiment_results": "/app/experiments/experiment_5523/results/Experiment_5523_Results.json",
+    "akta_results": "/app/experiments/experiment_5523/results/akta_results_5523.json"
+  }
+}

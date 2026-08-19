@@ -1,0 +1,14 @@
+{
+  "started_at": "2026-08-12T10:15:50.134Z",
+  "stopped_at": "2026-08-12T10:17:26.419Z",
+  "status": "success",
+  "node_run_counts": {
+    "Webhook": 1,
+    "Simple Memory1": 2,
+    "OpenAI Chat Model": 2,
+    "Validate Script": 1,
+    "AI Agent1": 1,
+    "Code in JavaScript1": 1,
+    "Respond to Webhook": 1
+  }
+}

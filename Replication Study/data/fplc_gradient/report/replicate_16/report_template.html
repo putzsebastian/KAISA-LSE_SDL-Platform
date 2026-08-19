@@ -1,0 +1,117 @@
+<p><span style="font-size:18pt;"><strong>[[EXPERIMENT_TITLE]] – ÄKTA Chromatography Run Report</strong></span></p>
+
+<h4><span style="font-size:14pt;">1. Experiment Information</span></h4>
+<p><strong>Experiment ID:</strong> [[EXPERIMENT_ID]]</p>
+<p><strong>Process ID:</strong> [[PROCESS_ID]]</p>
+<p><strong>Report Generated:</strong> [[REPORT_DATE]]</p>
+
+<h4><span style="font-size:14pt;">2. Start &amp; End Date</span></h4>
+<p><strong>Start Date:</strong> [[EXPERIMENT_DATE]]</p>
+<p><strong>End Date:</strong> [[REPORT_DATE]]</p>
+
+<h4><span style="font-size:14pt;">3. Methods</span></h4>
+<h5><span style="font-size:12pt;">3.1 Overview of Automated Workflow</span></h5>
+<p>The ÄKTA Pure chromatography run was executed using an automated workflow consisting of a brief manual preparation step followed by an automated protocol on the ÄKTA system.</p>
+<ul>
+<li><strong>Manual preparation (Utility – Pause):</strong> The system was paused with the instruction to manually fill the sample loop prior to starting the automated run.</li>
+<li><strong>ÄKTA Pure – Run Protocol:</strong> After the sample loop was filled, the ÄKTA Pure system executed the predefined method while recording UV (uv1) and conductivity (cond) signals with a sampling time of 1&nbsp;s.</li>
+</ul>
+
+<h5><span style="font-size:12pt;">3.2 Run Parameters</span></h5>
+<p>The following run parameters were configured for this ÄKTA chromatography run. Values are populated from the process metadata.</p>
+<table style="border-collapse:collapse;width:99.9866%;" border="1">
+<tr>
+<th>Parameter</th>
+<th>Placeholder</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Equilibration duration</td>
+<td>[[EQUILIBRATION_DURATION]]</td>
+<td>Time for column equilibration before loading.</td>
+</tr>
+<tr>
+<td>Equilibration flow rate</td>
+<td>[[EQUILIBRATION_FLOW_RATE]]</td>
+<td>Flow rate during column equilibration.</td>
+</tr>
+<tr>
+<td>Load/inject duration</td>
+<td>[[LOAD_INJECT_DURATION]]</td>
+<td>Duration of sample loading/injection onto the column.</td>
+</tr>
+<tr>
+<td>Load/inject flow rate</td>
+<td>[[LOAD_INJECT_FLOW_RATE]]</td>
+<td>Flow rate used during sample loading/injection.</td>
+</tr>
+<tr>
+<td>Elution gradient duration</td>
+<td>[[ELUTE_GRADIENT_DURATION]]</td>
+<td>Total time over which the elution gradient was applied.</td>
+</tr>
+<tr>
+<td>Elution gradient start</td>
+<td>[[ELUTE_GRADIENT_GRADIENT_START]]</td>
+<td>Starting buffer composition (e.g. %B) at the beginning of the gradient.</td>
+</tr>
+<tr>
+<td>Elution gradient end</td>
+<td>[[ELUTE_GRADIENT_GRADIENT_END]]</td>
+<td>Final buffer composition (e.g. %B) at the end of the gradient.</td>
+</tr>
+<tr>
+<td>Wash duration</td>
+<td>[[WASH_DURATION]]</td>
+<td>Duration of the post-elution wash step.</td>
+</tr>
+<tr>
+<td>Wash flow rate</td>
+<td>[[WASH_FLOW_RATE]]</td>
+<td>Flow rate used during the wash step.</td>
+</tr>
+<tr>
+<td>CIP duration (overall or primary step)</td>
+<td>[[CIP_DURATION]]</td>
+<td>Total or primary cleaning-in-place (CIP) duration.</td>
+</tr>
+<tr>
+<td>CIP step 2 hold duration</td>
+<td>[[CIP_2_HOLD_DURATION]]</td>
+<td>Hold time during the second CIP step.</td>
+</tr>
+<tr>
+<td>CIP step 3 duration</td>
+<td>[[CIP_3_DURATION]]</td>
+<td>Duration of the third CIP step.</td>
+</tr>
+<tr>
+<td>CIP step 4 duration</td>
+<td>[[CIP_4_DURATION]]</td>
+<td>Duration of the fourth CIP step.</td>
+</tr>
+<tr>
+<td>CIP step 5 duration</td>
+<td>[[CIP_5_DURATION]]</td>
+<td>Duration of the fifth CIP step.</td>
+</tr>
+</table>
+
+<h5><span style="font-size:12pt;">3.3 Signals and Data Acquisition</span></h5>
+<ul>
+<li><strong>Recorded signals:</strong> UV (uv1), conductivity (cond)</li>
+<li><strong>Sampling time:</strong> 1&nbsp;s per data point</li>
+<li><strong>System:</strong> ÄKTA Pure chromatography system running a predefined method.</li>
+</ul>
+
+<h4><span style="font-size:14pt;">4. Results</span></h4>
+<h5><span style="font-size:12pt;">4.1 Chromatogram</span></h5>
+[[PLOT_1]]
+<p><em>Figure 1: Chromatogram of the ÄKTA run (UV and conductivity signals vs. time or volume). The figure is linked via an eLabFTW file URL associated with this experiment.</em></p>
+
+<h5><span style="font-size:12pt;">4.2 Notes on Peak Evaluation</span></h5>
+<ul>
+<li>Document main peaks (retention time/volume, peak height, peak area) and corresponding fractions, if applicable.</li>
+<li>Comment on resolution between critical peaks and any signs of overloading or column deterioration.</li>
+<li>Relate observed peak shapes and positions to the configured gradient and flow parameters listed above.</li>
+</ul>

@@ -1,0 +1,124 @@
+<p><span style="font-size:18pt;"><strong>[[EXPERIMENT_TITLE]] - ÄKTA Chromatography Run Report</strong></span></p>
+
+<h4><span style="font-size:14pt;">Experiment Information</span></h4>
+<p><strong>Experiment ID:</strong> [[EXPERIMENT_ID]]</p>
+<p><strong>Process ID:</strong> [[PROCESS_ID]]</p>
+<p><strong>Report Generated:</strong> [[REPORT_DATE]]</p>
+<p> </p>
+
+<h4><span style="font-size:14pt;">Start &amp; End Date</span></h4>
+<p><strong>Start Date:</strong> [[EXPERIMENT_DATE]]</p>
+<p><strong>End Date:</strong> [[REPORT_DATE]]</p>
+<p> </p>
+
+<h4><span style="font-size:14pt;">Methods</span></h4>
+<p>The ÄKTA chromatography run was executed using an automated workflow comprising manual sample loading followed by an ÄKTA Pure protocol run. The workflow consisted of the following main steps:</p>
+<ol>
+<li><strong>Manual Preparation</strong>
+<ul>
+<li>Utility pause step prompted the operator to manually fill the sample loop according to the experimental plan ("Manually fill sample loop").</li>
+<li>After confirmation, the automated workflow resumed.</li>
+</ul>
+</li>
+<li><strong>ÄKTA Pure Chromatography Run</strong>
+<ul>
+<li>The predefined ÄKTA method was started via the automation interface ("Run Protocol").</li>
+<li>During the run, the following sample signals were recorded at the system sampling interval:
+<ul>
+<li>UV signal (uv1)</li>
+<li>Conductivity (cond)</li>
+</ul>
+</li>
+<li>Sample data were acquired with a sampling time of 1 second throughout the run.</li>
+</ul>
+</li>
+</ol>
+
+<h5><span style="font-size:12pt;">Run Parameters</span></h5>
+<table style="border-collapse:collapse;width:99.9866%;" border="1">
+<tr>
+<th>Parameter</th>
+<th>Placeholder</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Process ID</td>
+<td>[[PROCESS_ID]]</td>
+<td>Identifier of the automated ÄKTA run process.</td>
+</tr>
+<tr>
+<td>Equilibration Duration</td>
+<td>[[EQUILIBRATION_DURATION]]</td>
+<td>Duration of column equilibration before loading.</td>
+</tr>
+<tr>
+<td>Equilibration Flow Rate</td>
+<td>[[EQUILIBRATION_FLOW_RATE]]</td>
+<td>Flow rate used during equilibration.</td>
+</tr>
+<tr>
+<td>Load/Inject Duration</td>
+<td>[[LOAD_INJECT_DURATION]]</td>
+<td>Total duration of the sample loading/injection step.</td>
+</tr>
+<tr>
+<td>Load/Inject Flow Rate</td>
+<td>[[LOAD_INJECT_FLOW_RATE]]</td>
+<td>Flow rate used during sample loading/injection.</td>
+</tr>
+<tr>
+<td>Elution Gradient Duration</td>
+<td>[[ELUTE_GRADIENT_DURATION]]</td>
+<td>Total time of the elution gradient.</td>
+</tr>
+<tr>
+<td>Elution Gradient Start</td>
+<td>[[ELUTE_GRADIENT_GRADIENT_START]]</td>
+<td>Starting value of the gradient (e.g. %B at gradient start).</td>
+</tr>
+<tr>
+<td>Elution Gradient End</td>
+<td>[[ELUTE_GRADIENT_GRADIENT_END]]</td>
+<td>Final value of the gradient (e.g. %B at gradient end).</td>
+</tr>
+<tr>
+<td>Wash Duration</td>
+<td>[[WASH_DURATION]]</td>
+<td>Duration of the post-elution wash step.</td>
+</tr>
+<tr>
+<td>Wash Flow Rate</td>
+<td>[[WASH_FLOW_RATE]]</td>
+<td>Flow rate during the wash step.</td>
+</tr>
+<tr>
+<td>CIP Duration</td>
+<td>[[CIP_DURATION]]</td>
+<td>Total duration of the column cleaning-in-place (CIP) step.</td>
+</tr>
+<tr>
+<td>CIP Step 2 Hold Duration</td>
+<td>[[CIP_2_HOLD_DURATION]]</td>
+<td>Hold time during the second CIP segment.</td>
+</tr>
+<tr>
+<td>CIP Step 3 Duration</td>
+<td>[[CIP_3_DURATION]]</td>
+<td>Duration of the third CIP segment.</td>
+</tr>
+<tr>
+<td>CIP Step 4 Duration</td>
+<td>[[CIP_4_DURATION]]</td>
+<td>Duration of the fourth CIP segment.</td>
+</tr>
+<tr>
+<td>CIP Step 5 Duration</td>
+<td>[[CIP_5_DURATION]]</td>
+<td>Duration of the fifth CIP segment.</td>
+</tr>
+</table>
+
+<h4><span style="font-size:14pt;">Results</span></h4>
+<h5><span style="font-size:12pt;">ÄKTA Chromatogram</span></h5>
+[[PLOT_1]]
+<p><em>Figure 1: ÄKTA chromatogram showing UV (uv1) and conductivity (cond) traces over the course of the run. Key method phases (equilibration, load/inject, elution gradient, wash, and CIP) correspond to the run parameters summarized above.</em></p>

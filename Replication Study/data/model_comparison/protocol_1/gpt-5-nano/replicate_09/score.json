@@ -1,0 +1,11 @@
+{
+  "pass": false,
+  "codes": [
+    "DEST_VOLUME_MISMATCH"
+  ],
+  "systematic_multiples": null,
+  "destinations_matched": 28,
+  "destinations_total": 44,
+  "candidate_error": null,
+  "comparator": "destinations"
+}

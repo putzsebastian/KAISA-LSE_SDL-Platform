@@ -1,0 +1,3 @@
+# Place opentrons_docs.snapshot here (produced by make_snapshot.py). It is restored
+# into Qdrant on startup by ../docker-compose.yml. The snapshot is derived from the
+# Apache-2.0 Opentrons docs + OpenAI embeddings; commit it with attribution.

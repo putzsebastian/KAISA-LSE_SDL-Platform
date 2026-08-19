@@ -1,0 +1,11 @@
+{
+  "pass": false,
+  "codes": [
+    "EXEC_FAILED"
+  ],
+  "findings": [
+    {
+      "candidate_error": "exit 1:   File \"/tmp/tmp417towuk/db/commit_to_db.py\", line 268\n    match = re.search(r\"[-+]?\\d*\\.?\\d+(?:[eE][-+\"]?\\d+)?\", candidate)\n                                                 ^\nSyntaxError: closing parenthesis ']' does not match opening parenthesis '('\n"
+    }
+  ]
+}

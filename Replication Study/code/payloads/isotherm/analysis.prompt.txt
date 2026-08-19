@@ -1,0 +1,173 @@
+# isotherm — analysis agent
+#
+# The instruction as SENT (payload field `prompt`), extracted from the requests of
+# the published replicates and verified across all 20 of them. This file is
+# generated; the authoritative copy is that field in the payload beside it and
+# in every request.json.
+# ---------------------------------------------------------------------------
+
+
+USER ANALYSIS REQUIREMENTS:
+Generate a Python data analysis script with the following requirements:
+
+SCRIPT USAGE CONTEXT:
+**IMPORTANT**: This script will be called programmatically from an external endpoint/system with specific parameters. The script must be designed for:
+- ✅ External execution via command line or function calls
+- ✅ Robust error handling with informative messages  
+- ✅ Structured output (JSON results + files)
+- ✅ Flexible parameter handling (experiment ID, paths)
+- ✅ Both standalone and importable functionality
+
+EXPERIMENT DATA ACCESS:
+The script should load experiment data from a JSON file using:
+```python
+import json
+import sys
+import argparse
+from pathlib import Path
+
+# Accept experiment ID as parameter (command line or function argument)
+def analyze_experiment(experiment_id=None, data_folder='../data', results_folder='../results'):
+    # Auto-detect experiment ID if not provided
+    if experiment_id is None:
+        if len(sys.argv) > 1:
+            experiment_id = sys.argv[1]
+        else:
+            # Auto-detect from most recent file or raise error
+            pass
+    
+    # Load experiment data with proper error handling
+    data_file_path = Path(data_folder) / f'experiment_{experiment_id}.json'
+    try:
+        with open(data_file_path, 'r') as f:
+            experiment_data = json.load(f)
+    except FileNotFoundError:
+        raise FileNotFoundError(f"Data file not found: {data_file_path}")
+    except json.JSONDecodeError as e:
+        raise ValueError(f"Invalid JSON format: {e}")
+
+# Access eLabFTW extra fields with error handling:
+try:
+    metadata = experiment_data['metadata_decoded']['extra_fields']
+    # Available eLabFTW fields from template:
+    # Buffer: metadata['Buffer']['value']
+    # Salt Name: metadata['Salt Name']['value']
+    # Process ID: metadata['Process ID']['value']
+    # Pump Speed: metadata['Pump Speed']['value']
+    # Replicates: metadata['Replicates']['value']
+    # Resin Mass: metadata['Resin Mass']['value']
+    # Ligand Name: metadata['Ligand Name']['value']
+    # Total volume: metadata['Total volume']['value']
+    # Venting time: metadata['Venting time']['value']
+    # Pump Duration: metadata['Pump Duration']['value']
+    # Incubation Time: metadata['Incubation Time']['value']
+    # Salt concentrations: metadata['Salt concentrations']['value']
+    # Equilibration Cycles: metadata['Equilibration Cycles']['value']
+    # Equilibration Volume: metadata['Equilibration Volume']['value']
+    # Ligand concentrations: metadata['Ligand concentrations']['value']
+    # Incubation Temperature: metadata['Incubation Temperature']['value']
+    # Measurement Wavelength: metadata['Measurement Wavelength']['value']
+    # Calibration Curve Slope: metadata['Calibration Curve Slope']['value']
+    # Salt concentration unit: metadata['Salt concentration unit']['value']
+    # Shaker Speed Incubation: metadata['Shaker Speed Incubation']['value']
+    # Salt Stock Concentration: metadata['Salt Stock Concentration']['value']
+    # Ligand concentration unit: metadata['Ligand concentration unit']['value']
+    # Ligand Stock Concentration: metadata['Ligand Stock Concentration']['value']
+    # Calibration Curve Intercept: metadata['Calibration Curve Intercept']['value']
+    # Equilibration Cycle Duration: metadata['Equilibration Cycle Duration']['value']
+    # Number of salt concentrations: metadata['Number of salt concentrations']['value']
+    # Number of ligand concentrations: metadata['Number of ligand concentrations']['value']
+except KeyError as e:
+    raise KeyError(f"Missing expected metadata field: {e}")
+```
+
+REQUIRED SCRIPT STRUCTURE:
+```python
+#!/usr/bin/env python3
+"""
+Analysis Script - [Brief Description]
+Can be called externally with experiment ID as parameter.
+"""
+
+def analyze_experiment(experiment_id=None, data_folder='../data', results_folder='../results'):
+    """
+    Main analysis function
+    
+    Args:
+        experiment_id (str): Experiment ID 
+        data_folder (str): Path to data folder
+        results_folder (str): Path to results folder
+    
+    Returns:
+        dict: Analysis results with all key metrics
+    """
+    # Implementation here
+    return results_dict
+
+def main():
+    """Command line interface"""
+    parser = argparse.ArgumentParser(description='Analyze experiment data')
+    parser.add_argument('experiment_id', nargs='?', help='Experiment ID')
+    parser.add_argument('--data-folder', default='../data', help='Data folder path')
+    parser.add_argument('--results-folder', default='../results', help='Results folder path')
+    
+    args = parser.parse_args()
+    
+    try:
+        results = analyze_experiment(
+            experiment_id=args.experiment_id,
+            data_folder=args.data_folder,
+            results_folder=args.results_folder
+        )
+        print(f"✅ Analysis successful!")
+        return 0
+    except Exception as e:
+        print(f"❌ Analysis failed: {e}")
+        return 1
+
+if __name__ == "__main__":
+    sys.exit(main())
+```
+
+FOLDER STRUCTURE & FILE HANDLING:
+- **protocols/** folder: Contains protocol files (Python, XML)
+- **data/** folder: Contains experimental output data (experiment_[ID].json files)
+- **results/** folder: Save ALL analysis outputs here
+- **analysis/** folder: Current script location
+
+OUTPUT REQUIREMENTS:
+1. **Save results as JSON**: Include all key metrics, file paths, metadata
+2. **Generate plots**: Save as PNG/PDF with descriptive filenames  
+3. **Export processed data**: Save as CSV for further analysis
+4. **Progress logging**: Use print() statements for debugging/monitoring
+5. **File naming**: Use experiment ID in all output filenames
+
+ERROR HANDLING REQUIREMENTS:
+- ✅ Validate all input parameters and file paths
+- ✅ Handle missing/corrupted data files gracefully  
+- ✅ Provide specific error messages (not generic "failed")
+- ✅ Validate eLabFTW field existence and data types
+- ✅ Handle missing or invalid experimental data points
+- ✅ Return proper exit codes (0=success, 1=error)
+
+CALLING PATTERNS:
+The script should support these usage patterns:
+1. **Command line**: `python analysis_script.py 3914`
+2. **Function import**: `from analysis_script import analyze_experiment; results = analyze_experiment("3914")`
+3. **Auto-detection**: `python analysis_script.py` (finds most recent experiment)
+4. **Custom paths**: `python analysis_script.py 3914 --data-folder /path/to/data`
+
+USER REQUIREMENTS:
+Please create script for data analysis of Tecan platereader data for loading isotherm determination. The file contains the raw absorbance data.
+Tested concentrations:
+[[NUMBER_OF_LIGAND_CONCENTRATIONS]] different initial ligand concentrations (up to 8) were tested with [[NUMBER_OF_SALT_CONCENTRATIONS]] different salt concentrations and each point was replicated [[REPLICATES]] times. The exact ligand and salt concentrations are given in [[LIGAND_CONCENTRATIONS]] and [[SALT_CONCENTRATIONS]] as strings separated by semicolons.
+Plate layout:
+In a column of wells, the initial ligand concentrations, c0, are ascending with increasing row number, e.g. from A1-H1 if [[NUMBER_OF_LIGAND_CONCENTRATIONS]]=8. The exact ligand concentrations are given in [[LIGAND_CONCENTRATIONS]] as strings separated by semicolons. The ligand concentration unit is given in [[LIGAND_CONCENTRATION_UNIT]]. The salt concentrations are ascending row-wise, but the replicates are grouped together. The exact salt concentrations are given in [[SALT_CONCENTRATIONS]] as strings separated by semicolons and replicates are given in [[REPLICATES]]. The salt concentration unit is given in [[SALT_CONCENTRATION_UNIT]]. For example if [[NUMBER_OF_SALT_CONCENTRATIONS]]=4, [[SALT_CONCENTRATIONS]]=’0;100;200;500’ and [[REPLICATES]]=3, the columns A1-A3 have a salt concentration of 0, A4-A6 have 100, A7-A9 have 200 and A10-A12 have 500. All columns have the same initial ligand concentrations c0, e.g. if [[NUMBER_OF_LIGAND_CONCENTRATIONS]]=8 and [[LIGAND_CONCENTRATIONS]]=’0;0.5;1;2;3;5;7;10’ the initial ligand concentrations during binding (c0) are ascending by row in each column from 0 in A to 10 in H. All 96 wells of the plate are measured, but not in every case each well contains a datapoint, e.g. if [[NUMBER_OF_LIGAND_CONCENTRATIONS]]=6, only rows A-F contain data for the evaluation.
+Analysis steps:
+1.	For each required well, calculate the equilibrium ligand concentration in the supernatant (cE). The slope of the calibration curve and the intercept are given in [[CALIBRATION_CURVE_SLOPE]] and [[CALIBRATION_CURVE_INTERCEPT]]. The calibration curve maps concentration to absorbance as Absorbance = slope * concentration + intercept, so you must INVERT it to obtain a concentration from a measured absorbance: cE = (Absorbance - intercept) / slope. Do not apply it the other way round. Sanity-check the result: every cE must lie between 0 and the largest initial concentration c0, and cE must vary strongly across a column as c0 varies. If it does not, the calibration has been applied backwards.
+2.	Calculate the Mean and Standard Deviation of the equilibrium ligand concentrations in the supernatant for all replicates of a parameter combination (wells with same ligand and salt concentration). This must yield exactly [[NUMBER_OF_LIGAND_CONCENTRATIONS]] x [[NUMBER_OF_SALT_CONCENTRATIONS]] aggregated points, one per combination, each averaging [[REPLICATES]] wells. If you obtain a different number of groups, the well-to-condition mapping is wrong - re-check it against the plate layout above rather than continuing.
+3.	Calculate the loading q of the adsorbent material for each parameter combination. The mass of the adsorbent resin/particles in each well, m_resin is given in [[RESIN_MASS]] (in mg). The total volume, v_total, in each well is [[TOTAL_VOLUME]] (in uL). Therefore q=(c0-cE)*v_total/m_resin. Use v_total in uL and m_resin in mg exactly as given - the formula is already dimensionally consistent, so do NOT convert either to other units (no uL->mL, no mg->g). q is then in the ligand concentration unit times uL per mg.
+4.	For each salt concentration make a Langmuir fit through the existing data points for that salt concentration. Fit the loading q against the EQUILIBRIUM ligand concentration cE (the mean value calculated in step 2) as the independent variable - not against the initial concentration c0.
+5.	Plot all isotherms (actual data points + fits) in one graph. Use different colors for the different salt concentrations. Include the fit parameters and the R² of the fit in the legend.
+Example data:
+The attached example file shows how the data would look like with [[NUMBER_OF_LIGAND_CONCENTRATIONS]]=8, [[NUMBER_OF_SALT_CONCENTRATIONS]]=4 and [[REPLICATES]]=3.

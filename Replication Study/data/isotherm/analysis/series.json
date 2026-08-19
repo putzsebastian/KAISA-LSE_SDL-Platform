@@ -1,0 +1,10 @@
+{
+  "experiment": "isotherm",
+  "artifact": "analysis",
+  "comparator": "analysis",
+  "replicates": 20,
+  "passed": 16,
+  "upstream_gate": null,
+  "excluded_bad_upstream": 0,
+  "gating": null
+}

@@ -1,0 +1,206 @@
+{
+  "experiments": {
+    "isotherm": {
+      "orchestration": {
+        "replicates": 20,
+        "passed": 20
+      },
+      "analysis": {
+        "replicates": 20,
+        "passed": 16
+      },
+      "report": {
+        "replicates": 20,
+        "passed": 19
+      },
+      "database": {
+        "replicates": 20,
+        "passed": 19
+      },
+      "device_protocol_1": {
+        "replicates": 20,
+        "passed": 10
+      },
+      "device_protocol_2": {
+        "replicates": 20,
+        "passed": 19
+      },
+      "device_protocol_3": {
+        "replicates": 20,
+        "passed": 18
+      },
+      "device_protocol_4": {
+        "replicates": 20,
+        "passed": 20
+      },
+      "device_protocol_5": {
+        "replicates": 20,
+        "passed": 20
+      }
+    },
+    "fplc_gradient": {
+      "orchestration": {
+        "replicates": 20,
+        "passed": 20
+      },
+      "analysis": {
+        "replicates": 20,
+        "passed": 19
+      },
+      "report": {
+        "replicates": 20,
+        "passed": 17
+      },
+      "database": {
+        "replicates": 20,
+        "passed": 18
+      }
+    },
+    "model_comparison": {
+      "protocol_1/gpt-5-nano": {
+        "replicates": 20,
+        "passed": 0
+      },
+      "protocol_1/gpt-5-mini": {
+        "replicates": 20,
+        "passed": 11
+      },
+      "protocol_1/gpt-5.1": {
+        "replicates": 20,
+        "passed": 10
+      },
+      "protocol_1/gpt-5.5": {
+        "replicates": 20,
+        "passed": 20
+      },
+      "protocol_4/gpt-5-nano": {
+        "replicates": 20,
+        "passed": 11
+      },
+      "protocol_4/gpt-5-mini": {
+        "replicates": 20,
+        "passed": 20
+      },
+      "protocol_4/gpt-5.1": {
+        "replicates": 20,
+        "passed": 20
+      },
+      "protocol_4/gpt-5.5": {
+        "replicates": 20,
+        "passed": 20
+      }
+    }
+  },
+  "provenance": {
+    "isotherm/orchestration": {
+      "comparator": "orchestration",
+      "upstream_gate": null
+    },
+    "isotherm/analysis": {
+      "comparator": "analysis",
+      "upstream_gate": null
+    },
+    "isotherm/report": {
+      "comparator": "report",
+      "upstream_gate": null
+    },
+    "isotherm/database": {
+      "comparator": "database",
+      "upstream_gate": "analysis"
+    },
+    "fplc_gradient/orchestration": {
+      "comparator": "orchestration",
+      "upstream_gate": null
+    },
+    "fplc_gradient/analysis": {
+      "comparator": "analysis",
+      "upstream_gate": null
+    },
+    "fplc_gradient/report": {
+      "comparator": "report",
+      "upstream_gate": null
+    },
+    "fplc_gradient/database": {
+      "comparator": "database",
+      "upstream_gate": "analysis"
+    },
+    "isotherm/device_protocol_1": {
+      "protocol": "1",
+      "comparator": "destinations"
+    },
+    "isotherm/device_protocol_2": {
+      "protocol": "2",
+      "comparator": "destinations"
+    },
+    "isotherm/device_protocol_3": {
+      "protocol": "3",
+      "comparator": "destinations"
+    },
+    "isotherm/device_protocol_4": {
+      "protocol": "4",
+      "comparator": "destinations"
+    },
+    "isotherm/device_protocol_5": {
+      "protocol": "5",
+      "comparator": "destinations"
+    },
+    "model_comparison/protocol_1/gpt-5-nano": {
+      "protocol": "1",
+      "comparator": "destinations"
+    },
+    "model_comparison/protocol_1/gpt-5-mini": {
+      "protocol": "1",
+      "comparator": "destinations"
+    },
+    "model_comparison/protocol_1/gpt-5.1": {
+      "protocol": "1",
+      "comparator": "destinations"
+    },
+    "model_comparison/protocol_1/gpt-5.5": {
+      "protocol": "1",
+      "comparator": "destinations"
+    },
+    "model_comparison/protocol_4/gpt-5-nano": {
+      "protocol": "4",
+      "comparator": "destinations"
+    },
+    "model_comparison/protocol_4/gpt-5-mini": {
+      "protocol": "4",
+      "comparator": "destinations"
+    },
+    "model_comparison/protocol_4/gpt-5.1": {
+      "protocol": "4",
+      "comparator": "destinations"
+    },
+    "model_comparison/protocol_4/gpt-5.5": {
+      "protocol": "4",
+      "comparator": "destinations"
+    }
+  },
+  "excluded": [
+    "config/secrets.env - contains the n8n API key",
+    "the n8n agent workflows and their system prompts - versioned separately"
+  ],
+  "code": [
+    {
+      "path": "code/runner",
+      "files": 7,
+      "purpose": "the runner, agent chain, replicate layout, scoring, experiment registry"
+    },
+    {
+      "path": "code/runner/helpers",
+      "files": 4,
+      "purpose": "model switching for the model arm, delivery scoring, plot scanning, chained seeding"
+    },
+    {
+      "path": "code/comparators",
+      "files": 9,
+      "purpose": "one comparator per artifact type"
+    },
+    {
+      "path": "code/analysis",
+      "files": 5,
+      "purpose": "collection, statistics, failure taxonomy, correction cycles, figures"
+    }
+  ]
+}

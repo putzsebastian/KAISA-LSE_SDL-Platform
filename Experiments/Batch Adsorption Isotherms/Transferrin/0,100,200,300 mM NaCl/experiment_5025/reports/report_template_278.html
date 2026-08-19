@@ -1,0 +1,122 @@
+<p><span style="font-size:18pt;"><strong>[[EXPERIMENT_TITLE]] - Loading Isotherm Determination of [[LIGAND_NAME]] on Resin</strong></span></p>
+<p><strong>Experiment ID:</strong> [[EXPERIMENT_ID]]</p>
+<p><strong>Process ID:</strong> [[PROCESS_ID]]</p>
+<p> </p>
+
+<h4><span style="font-size:14pt;">Start & End-Date</span></h4>
+<p>Started: [[EXPERIMENT_DATE]]</p>
+<p>Finished: [[REPORT_DATE]]</p>
+<p> </p>
+
+<h4><span style="font-size:14pt;">Methods (Automated Workflow)</span></h4>
+<h5><span style="font-size:12pt;">Overview</span></h5>
+<p>Loading isotherms were determined across [[NUMBER_OF_SALT_CONCENTRATIONS]] [[SALT_NAME]] concentration(s) ([[SALT_CONCENTRATIONS]] [[SALT_CONCENTRATION_UNIT]]) and [[NUMBER_OF_LIGAND_CONCENTRATIONS]] ligand level(s) ([[LIGAND_CONCENTRATIONS]] [[LIGAND_CONCENTRATION_UNIT]]) using a Cytiva 96-well filter plate on Opentrons OT-2 with UR5 handling and a vacuum manifold. Resin mass per well: [[RESIN_MASS]]. Total volume per well: [[TOTAL_VOLUME]]. Buffer: [[BUFFER]].</p>
+
+<h5><span style="font-size:12pt;">Automated sequence</span></h5>
+<ol>
+<li><strong>Initial setup and vacuum manifold preparation</strong>:
+<ul>
+<li>UR5 staged receiver plate and vacuum manifold; filter plate positioned for vacuum filtration.</li>
+<li>Vacuum pump set to [[PUMP_SPEED]] for [[PUMP_DURATION]] s, followed by venting for [[VENTING_TIME]] s.</li>
+</ul>
+</li>
+<li><strong>Equilibration cycles (n = [[EQUILIBRATION_CYCLES]])</strong>:
+<ul>
+<li>OT-2 dispensed equilibration buffer ([[BUFFER]]) at [[EQUILIBRATION_VOLUME]] per well using custom labware (Cytiva 96-well filter plate).</li>
+<li>UR5 transferred the filter plate to the vacuum manifold; applied vacuum ([[PUMP_SPEED]] for [[PUMP_DURATION]] s), then vented ([[VENTING_TIME]] s), and returned the plate to the OT-2.</li>
+<li>Each cycle duration: [[EQUILIBRATION_CYCLE_DURATION]].</li>
+</ul>
+</li>
+<li><strong>Ligand loading</strong>:
+<ul>
+<li>OT-2 dispensed [[LIGAND_NAME]] solutions (stock [[LIGAND_STOCK_CONCENTRATION]]) across concentrations [[LIGAND_CONCENTRATIONS]] [[LIGAND_CONCENTRATION_UNIT]] in [[REPLICATES]] replicate(s) per condition onto resin mass [[RESIN_MASS]] per well.</li>
+<li>Incubated at [[INCUBATION_TEMPERATURE]]°C with shaking [[SHAKER_SPEED_INCUBATION]] rpm for [[INCUBATION_TIME]].</li>
+</ul>
+</li>
+<li><strong>Salt variation</strong>:
+<ul>
+<li>[[SALT_NAME]] stock ([[SALT_STOCK_CONCENTRATION]]) was used to prepare [[SALT_CONCENTRATIONS]] [[SALT_CONCENTRATION_UNIT]] conditions (n = [[NUMBER_OF_SALT_CONCENTRATIONS]]).</li>
+</ul>
+</li>
+<li><strong>Post-incubation filtration and handling</strong>:
+<ul>
+<li>UR5 repositioned plates for vacuum filtration; applied vacuum ([[PUMP_SPEED]] for [[PUMP_DURATION]] s) and vented ([[VENTING_TIME]] s).</li>
+<li>Workflow included operator pauses for covering/uncovering the filter plate and tip exchange as prompted.</li>
+</ul>
+</li>
+<li><strong>Measurement</strong>:
+<ul>
+<li>UR5 loaded the assay plate into the Tecan Spark; absorbance measured at [[MEASUREMENT_WAVELENGTH]] nm.</li>
+<li>Quantification used calibration parameters: slope [[CALIBRATION_CURVE_SLOPE]], intercept [[CALIBRATION_CURVE_INTERCEPT]].</li>
+</ul>
+</li>
+</ol>
+
+<h5><span style="font-size:12pt;">Key parameters</span></h5>
+<table style="border-collapse:collapse;width:99.9866%;" border="1">
+<tr>
+<td style="height:22.3828px;"><strong>Parameter</strong></td>
+<td style="height:22.3828px;"><strong>Value</strong></td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Buffer</td>
+<td style="height:22.3828px;">[[BUFFER]]</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Ligand</td>
+<td style="height:22.3828px;">[[LIGAND_NAME]] (stock: [[LIGAND_STOCK_CONCENTRATION]])</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Ligand concentrations</td>
+<td style="height:22.3828px;">[[LIGAND_CONCENTRATIONS]] [[LIGAND_CONCENTRATION_UNIT]] (n = [[NUMBER_OF_LIGAND_CONCENTRATIONS]])</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Salt</td>
+<td style="height:22.3828px;">[[SALT_NAME]] (stock: [[SALT_STOCK_CONCENTRATION]])</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Salt concentrations</td>
+<td style="height:22.3828px;">[[SALT_CONCENTRATIONS]] [[SALT_CONCENTRATION_UNIT]] (n = [[NUMBER_OF_SALT_CONCENTRATIONS]])</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Resin mass per well</td>
+<td style="height:22.3828px;">[[RESIN_MASS]]</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Total volume per well</td>
+<td style="height:22.3828px;">[[TOTAL_VOLUME]]</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Equilibration</td>
+<td style="height:22.3828px;">Cycles: [[EQUILIBRATION_CYCLES]]; volume per cycle: [[EQUILIBRATION_VOLUME]]; cycle duration: [[EQUILIBRATION_CYCLE_DURATION]]</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Vacuum settings</td>
+<td style="height:22.3828px;">Speed: [[PUMP_SPEED]]; duration: [[PUMP_DURATION]] s; venting: [[VENTING_TIME]] s</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Incubation</td>
+<td style="height:22.3828px;">[[INCUBATION_TEMPERATURE]]°C for [[INCUBATION_TIME]] at [[SHAKER_SPEED_INCUBATION]] rpm</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Measurement wavelength</td>
+<td style="height:22.3828px;">[[MEASUREMENT_WAVELENGTH]] nm</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Calibration</td>
+<td style="height:22.3828px;">Slope: [[CALIBRATION_CURVE_SLOPE]]; Intercept: [[CALIBRATION_CURVE_INTERCEPT]]</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Replicates</td>
+<td style="height:22.3828px;">[[REPLICATES]]</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Process ID</td>
+<td style="height:22.3828px;">[[PROCESS_ID]]</td>
+</tr>
+</table>
+
+<h4><span style="font-size:14pt;">Results</span></h4>
+<h5><span style="font-size:12pt;">Loading isotherms across salt concentrations</span></h5>
+[[PLOT_1]]
+<p><em>Figure 1: Loading isotherms of [[LIGAND_NAME]] on resin across [[SALT_CONCENTRATIONS]] [[SALT_CONCENTRATION_UNIT]] [[SALT_NAME]] conditions (n = [[REPLICATES]]; [[NUMBER_OF_LIGAND_CONCENTRATIONS]] ligand levels). Measurement at [[MEASUREMENT_WAVELENGTH]] nm. Source: analysis_script_15.py (loading_isotherms_[[EXPERIMENT_ID]].png).</em></p>

@@ -1,0 +1,135 @@
+{
+  "name": "Tool - Validate Script",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://agent-tools:8100/validate",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ script: $json.script, script_type: $json.script_type || 'analysis', check_imports: true, check_structure: true }) }}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        16,
+        -192
+      ],
+      "id": "84df774a-576d-4421-9147-b83d798afe8c",
+      "name": "Call Script Validator"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "result",
+              "name": "result",
+              "value": "={{ $json.valid ? 'VALID' : 'INVALID' }}: {{ $json.summary }}",
+              "type": "string"
+            },
+            {
+              "id": "valid",
+              "name": "valid",
+              "value": "={{ $json.valid }}",
+              "type": "boolean"
+            },
+            {
+              "id": "errors",
+              "name": "errors",
+              "value": "={{ $json.errors }}",
+              "type": "number"
+            },
+            {
+              "id": "warnings",
+              "name": "warnings",
+              "value": "={{ $json.warnings }}",
+              "type": "number"
+            },
+            {
+              "id": "summary",
+              "name": "summary",
+              "value": "={{ $json.summary }}",
+              "type": "string"
+            },
+            {
+              "id": "issues",
+              "name": "issues",
+              "value": "={{ JSON.stringify($json.issues) }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        256,
+        -192
+      ],
+      "id": "2feb515d-0f78-4e2d-bbf2-119f70585971",
+      "name": "Format Response"
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "script"
+            },
+            {
+              "name": "script_type"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -368,
+        -320
+      ],
+      "id": "faaad1d8-96e4-435e-ae7d-8d6a1f12f294",
+      "name": "When Executed by Another Workflow"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Call Script Validator": {
+      "main": [
+        [
+          {
+            "node": "Format Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Call Script Validator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "49c20508-c070-4316-9c26-ba7672f91662",
+  "meta": {
+    "instanceId": "9de26e042b6a3bb3f3fb559beb9c4cda97cf0b09a34ed131ddcd1aa5eb2ec1f3"
+  },
+  "id": "XEWSbLGB63oFY9MA",
+  "tags": []
+}

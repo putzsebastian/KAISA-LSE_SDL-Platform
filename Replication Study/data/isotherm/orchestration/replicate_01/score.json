@@ -1,0 +1,58 @@
+{
+  "pass": true,
+  "codes": [
+    "TEARDOWN_EXTRA"
+  ],
+  "fatal_codes": [],
+  "findings": [
+    {
+      "code": "TEARDOWN_EXTRA",
+      "objects": [
+        "zs"
+      ],
+      "detail": "teardown for devices this workflow does not use; generated scripts commonly guard these with `if dev is not None`"
+    }
+  ],
+  "workflow_devices": [
+    "Opentrons OT-2",
+    "UR5",
+    "VacuuPump",
+    "Utility",
+    "Tecan Spark"
+  ],
+  "workflow_steps": 50,
+  "reference_calls": 55,
+  "candidate_calls": 55,
+  "reference_lifecycle": {
+    "tecan": [
+      "disconnect"
+    ],
+    "ur5": [
+      "Disconnect_Robot"
+    ],
+    "vacuupump": [
+      "disconnect"
+    ]
+  },
+  "candidate_lifecycle": {
+    "tecan": [
+      "disconnect"
+    ],
+    "ur5": [
+      "Disconnect_Robot"
+    ],
+    "vacuupump": [
+      "disconnect"
+    ],
+    "zs": [
+      "disconnect"
+    ]
+  },
+  "devices_driven": [
+    "Opentrons OT-2",
+    "Tecan Spark",
+    "UR5",
+    "Utility",
+    "VacuuPump"
+  ]
+}

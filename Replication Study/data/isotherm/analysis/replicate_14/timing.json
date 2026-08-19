@@ -1,0 +1,18 @@
+{
+  "started_at": "2026-08-07T13:09:47.430Z",
+  "stopped_at": "2026-08-07T13:11:04.020Z",
+  "status": "crashed",
+  "node_run_counts": {
+    "Webhook": 1,
+    "If": 1,
+    "Convert to File": 1,
+    "Switch": 1,
+    "Extract from File": 1,
+    "Aggregate": 1,
+    "Aggregate5": 1,
+    "Formate Example Data": 1,
+    "Simple Memory": 1,
+    "OpenAI Chat Model": 2,
+    "Validate Script": 1
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "pass": false,
+  "codes": [
+    "SIM_FAILED"
+  ],
+  "systematic_multiples": null,
+  "destinations_matched": null,
+  "destinations_total": null,
+  "candidate_error": "MalformedPythonProtocolError: unmatched ')' (Template_278_OT_Protocol_1.py, line 103)\n\n  File \"/tmp/harness/runs/s5_<run>/replicate_003/instantiated/experiment_5016/protocols/Template_278",
+  "comparator": "destinations"
+}

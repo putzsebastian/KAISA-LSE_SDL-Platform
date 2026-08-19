@@ -1,0 +1,48 @@
+{
+    "experiment_id": "5522",
+    "status": "success",
+    "message": "AKTA analysis completed successfully. Identified 1 peak(s).",
+    "plots": {
+        "chromatogram_png": "../results/chromatogram_5522.png",
+        "chromatogram_pdf": "../results/chromatogram_5522.pdf"
+    },
+    "data_outputs": {
+        "experiment_json": "../experiment_5522.json",
+        "akta_results_json": "../results/akta_results_5522.json",
+        "processed_csv": "../results/processed_chromatogram_5522.csv"
+    },
+    "metadata": {
+        "source_type": "elabftw",
+        "extra_fields": {
+            "Process ID": "36",
+            "CIP_DURATION": "346",
+            "WASH_DURATION": "346",
+            "CIP_3_DURATION": "462",
+            "CIP_4_DURATION": "577",
+            "CIP_5_DURATION": "462",
+            "WASH_FLOW_RATE": "0.5",
+            "CIP_2_HOLD_DURATION": "600",
+            "LOAD_INJECT_DURATION": "150",
+            "LOAD_INJECT_FLOW_RATE": "0.2",
+            "EQUILIBRATION_DURATION": "600",
+            "ELUTE_GRADIENT_DURATION": "2309",
+            "EQUILIBRATION_FLOW_RATE": "0.5",
+            "ELUTE_GRADIENT_GRADIENT_END": "100",
+            "ELUTE_GRADIENT_GRADIENT_START": "0"
+        },
+        "process_id": "36"
+    },
+    "files_processed": 1,
+    "peak_analysis": {
+        "num_peaks": 1,
+        "peaks": [
+            {
+                "peak_index": 4131,
+                "retention_time_s": 4132.003518342972,
+                "retention_time_min": 68.8667253057162,
+                "peak_height_mAU": 418.313,
+                "prominence_mAU": 418.042
+            }
+        ]
+    }
+}

@@ -1,0 +1,48 @@
+{
+    "experiment_id": "5024",
+    "status": "success",
+    "message": "Analysis completed successfully.",
+    "plots": {
+        "isotherms_png": "../results/loading_isotherms_5024.png",
+        "isotherms_pdf": "../results/loading_isotherms_5024.pdf"
+    },
+    "data_outputs": {
+        "tecan_data_source": "../results/tecan_data_5024.xlsx",
+        "replicates_csv": "../results/processed_replicates_5024.csv",
+        "aggregated_csv": "../results/processed_aggregated_5024.csv",
+        "fits_csv": "../results/langmuir_fits_5024.csv"
+    },
+    "metadata": {
+        "replicates": 3,
+        "num_salt_concs": 1,
+        "num_ligand_concs": 7,
+        "ligand_concs": [
+            0.2,
+            0.5,
+            1.0,
+            1.5,
+            2.0,
+            5.0,
+            7.0
+        ],
+        "salt_concs": [
+            500.0
+        ],
+        "ligand_conc_unit": "mg/mL",
+        "salt_conc_unit": "mM",
+        "calibration_slope": 0.3548,
+        "calibration_intercept": 0.0532,
+        "resin_volume_ul": 7.7,
+        "total_volume_uL": 300.0,
+        "q_unit": "mg/mL",
+        "measurement_wavelength": "280"
+    },
+    "fits_by_salt": {
+        "500.0": {
+            "qmax": 70.51464087664442,
+            "K": 6.878517027694578,
+            "r2": 0.9708399473131242,
+            "n_points": 7
+        }
+    }
+}

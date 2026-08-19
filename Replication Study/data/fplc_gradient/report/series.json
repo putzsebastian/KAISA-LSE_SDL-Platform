@@ -1,0 +1,10 @@
+{
+  "experiment": "fplc_gradient",
+  "artifact": "report",
+  "comparator": "report",
+  "replicates": 20,
+  "passed": 17,
+  "upstream_gate": null,
+  "excluded_bad_upstream": 0,
+  "gating": null
+}

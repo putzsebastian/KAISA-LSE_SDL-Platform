@@ -1,0 +1,35 @@
+{
+  "result_type": "chromatogram_single",
+  "config": {
+    "metrics": {
+      "retention_time": {
+        "enabled": true
+      },
+      "peak_concentration": {
+        "enabled": true
+      },
+      "peak_width_half": {
+        "enabled": true
+      },
+      "recovery": {
+        "enabled": true
+      }
+    },
+    "plots": {
+      "chromatogram": {
+        "enabled": true
+      },
+      "inlet_profile": {
+        "enabled": true
+      }
+    },
+    "dataExports": {
+      "chromatogram_csv": {
+        "enabled": true
+      },
+      "inlet_csv": {
+        "enabled": true
+      }
+    }
+  }
+}

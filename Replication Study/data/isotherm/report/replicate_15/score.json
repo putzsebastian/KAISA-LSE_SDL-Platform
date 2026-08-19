@@ -1,0 +1,90 @@
+{
+  "pass": true,
+  "codes": [
+    "SECTION_NAMING_DIFFERS"
+  ],
+  "fatal_codes": [],
+  "findings": [
+    {
+      "code": "SECTION_NAMING_DIFFERS",
+      "requested": "Start & End-Date",
+      "detail": "content present but under no similarly-named heading"
+    }
+  ],
+  "requested_sections": [
+    "Heading",
+    "Start & End-Date",
+    "Methods (Describe the automated workflow)",
+    "Results (Plots)"
+  ],
+  "section_evidence": [
+    {
+      "requested": "Heading",
+      "kind": "title",
+      "satisfied": true
+    },
+    {
+      "requested": "Start & End-Date",
+      "tokens": [
+        "start",
+        "end",
+        "date"
+      ],
+      "matched": [
+        "start",
+        "end",
+        "date"
+      ],
+      "headings": [],
+      "satisfied": true
+    },
+    {
+      "requested": "Methods (Describe the automated workflow)",
+      "tokens": [
+        "methods",
+        "automated",
+        "workflow"
+      ],
+      "matched": [
+        "methods",
+        "automated",
+        "workflow"
+      ],
+      "headings": [
+        "methods",
+        "experimental conditions",
+        "automated workflow overview"
+      ],
+      "satisfied": true
+    },
+    {
+      "requested": "Results (Plots)",
+      "tokens": [
+        "results",
+        "plots"
+      ],
+      "matched": [
+        "results",
+        "plots"
+      ],
+      "headings": [
+        "results",
+        "loading isotherms of [[ligand_name]] on resin at different [[salt_name]] concentrations"
+      ],
+      "satisfied": true
+    }
+  ],
+  "candidate_sections": [
+    "experiment information",
+    "objective",
+    "methods",
+    "experimental conditions",
+    "automated workflow overview",
+    "results",
+    "loading isotherms of [[ligand_name]] on resin at different [[salt_name]] concentrations"
+  ],
+  "candidate_placeholders": 32,
+  "reference_placeholders": 32,
+  "parameter_set_size": 31,
+  "selected_plots": 1
+}

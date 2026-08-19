@@ -1,0 +1,32 @@
+{
+  "step": "database",
+  "status": "completed",
+  "wall_clock_s": 70.2,
+  "job_id": null,
+  "artifact_chars": 21690,
+  "execution_id": "3761",
+  "execution_status": "success",
+  "tool_calls": 1,
+  "tokens_total": 38923,
+  "failure_class": null,
+  "failure_signature": null,
+  "finished_at": "2026-08-12T10:48:11.479236+00:00",
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": "completed",
+      "wall_clock_s": 70.2,
+      "tool_calls": 1,
+      "tokens_total": 38923,
+      "execution_id": "3761",
+      "failure_class": null,
+      "failure_signature": null
+    }
+  ],
+  "attempt_count": 1,
+  "first_attempt_status": "completed",
+  "converged_first_attempt": true,
+  "infrastructure_retries": 0,
+  "tokens_successful_attempt": 38923,
+  "wall_clock_successful_attempt_s": 70.2
+}

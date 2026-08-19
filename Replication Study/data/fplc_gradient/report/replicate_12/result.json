@@ -1,0 +1,32 @@
+{
+  "step": "report",
+  "status": "completed",
+  "wall_clock_s": 24.4,
+  "job_id": null,
+  "artifact_chars": 4958,
+  "execution_id": "3505",
+  "execution_status": "success",
+  "tool_calls": 1,
+  "tokens_total": 14692,
+  "failure_class": null,
+  "failure_signature": null,
+  "finished_at": "2026-08-11T16:29:37.549413+00:00",
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": "completed",
+      "wall_clock_s": 24.4,
+      "tool_calls": 1,
+      "tokens_total": 14692,
+      "execution_id": "3505",
+      "failure_class": null,
+      "failure_signature": null
+    }
+  ],
+  "attempt_count": 1,
+  "first_attempt_status": "completed",
+  "converged_first_attempt": true,
+  "infrastructure_retries": 0,
+  "tokens_successful_attempt": 14692,
+  "wall_clock_successful_attempt_s": 24.4
+}

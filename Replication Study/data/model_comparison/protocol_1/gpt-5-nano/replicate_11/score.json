@@ -1,0 +1,11 @@
+{
+  "pass": false,
+  "codes": [
+    "SIM_FAILED"
+  ],
+  "systematic_multiples": null,
+  "destinations_matched": null,
+  "destinations_total": null,
+  "candidate_error": "ProtocolEngineExecuteError: [ErrorOccurrence(id='8af9d2ff-7909-4e1e-ab96-d1a9eb4eb21b', createdAt=datetime.datetime(2026, 8, 12, 14, 58, 45, 399872, tzinfo=datetime.timezone.utc), isDefine",
+  "comparator": "destinations"
+}

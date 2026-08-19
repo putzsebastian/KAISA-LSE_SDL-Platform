@@ -1,0 +1,33 @@
+{
+  "experiment_id": 5545,
+  "mode": "automated",
+  "timestamp": "2026-05-20T10:43:18.402340",
+  "replacements_made": {
+    "[[CIP_2_HOLD_DURATION]]": "600",
+    "[[CIP_3_DURATION]]": "462",
+    "[[CIP_4_DURATION]]": "577",
+    "[[CIP_5_DURATION]]": "462",
+    "[[CIP_DURATION]]": "692",
+    "[[ELUTE_ISOCRATIC_2_DURATION]]": "692",
+    "[[ELUTE_ISOCRATIC_2_PERCENT_B]]": "80",
+    "[[ELUTE_ISOCRATIC_DURATION]]": "404",
+    "[[ELUTE_ISOCRATIC_PERCENT_B]]": "32.5",
+    "[[EQUILIBRATION_DURATION]]": "600",
+    "[[EQUILIBRATION_FLOW_RATE]]": "0.5",
+    "[[LOAD_INJECT_DURATION]]": "150",
+    "[[LOAD_INJECT_FLOW_RATE]]": "0.2",
+    "[[PROCESS_ID]]": "37",
+    "[[WASH_DURATION]]": "346",
+    "[[WASH_FLOW_RATE]]": "0.5"
+  },
+  "modified_files": [
+    "protocols/Template_388_AKTA_Protocol_1.py"
+  ],
+  "template_id": 388,
+  "process_id": 37,
+  "autonomous_data": {
+    "parameter_combinations_count": 0,
+    "well_mappings_count": 0,
+    "data_files_found": false
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "step": "device_protocol_1",
+  "status": "completed",
+  "wall_clock_s": 359.8,
+  "job_id": "15_opentrons_1_015_528273937",
+  "artifact_chars": 7574,
+  "execution_id": "3638",
+  "execution_status": "success",
+  "tool_calls": 3,
+  "tokens_total": 126492,
+  "failure_class": null,
+  "failure_signature": null,
+  "finished_at": "2026-08-12T09:57:20.048763+00:00",
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": "completed",
+      "wall_clock_s": 359.8,
+      "tool_calls": 3,
+      "tokens_total": 126492,
+      "execution_id": "3638",
+      "failure_class": null,
+      "failure_signature": null
+    }
+  ],
+  "attempt_count": 1,
+  "first_attempt_status": "completed",
+  "converged_first_attempt": true,
+  "infrastructure_retries": 0,
+  "tokens_successful_attempt": 126492,
+  "wall_clock_successful_attempt_s": 359.8
+}

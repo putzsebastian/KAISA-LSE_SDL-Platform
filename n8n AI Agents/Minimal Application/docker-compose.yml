@@ -1,0 +1,13 @@
+services:
+  agent-tools:
+    build: .
+    container_name: sdl-agent-tools
+    ports:
+      - "8100:8100"
+    volumes:
+      # Mount a directory for saving generated scripts
+      # Replace with your experiment directory when integrating with an SDL
+      - ./data:/data
+    environment:
+      - SCRIPTS_BASE_DIR=/data
+    restart: unless-stopped

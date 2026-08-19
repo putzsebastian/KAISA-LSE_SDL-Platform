@@ -1,0 +1,11 @@
+{
+  "pass": false,
+  "codes": [
+    "SIM_FAILED"
+  ],
+  "systematic_multiples": null,
+  "destinations_matched": null,
+  "destinations_total": null,
+  "candidate_error": "SimulationTimeout: protocol calls time.sleep(): it blocks real time instead of using protocol.delay(), so the robot and the simulator both wait out the full duration",
+  "comparator": "destinations"
+}

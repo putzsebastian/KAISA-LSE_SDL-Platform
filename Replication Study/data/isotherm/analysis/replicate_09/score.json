@@ -1,0 +1,22 @@
+{
+  "pass": false,
+  "codes": [
+    "EXEC_FAILED"
+  ],
+  "findings": [
+    {
+      "error": "exit 1: r experiment 5016 from device control server...\nTecan data found on server: 1 file(s)\nSuccessfully downloaded Tecan data to: /tmp/tmppxy5yers/results/tecan_data_5016.xlsx\nINFO: Reading Tecan absorbance data from /tmp/tmppxy5yers/results/tecan_data_5016.xlsx\nINFO: Absorbance data shape: (8, 11)\nERROR: Error while mapping wells to conditions: Expected row A in absorbance data, but it is missing.\nSaved analysis results JSON to: /tmp/tmppxy5yers/results/analysis_results_5016.json\nERROR: Analysis failed: Error while mapping wells to conditions: Expected row A in absorbance data, but it is missing.\n"
+    }
+  ],
+  "plots_produced": [
+    "n/a"
+  ],
+  "results_carrier": null,
+  "fits_carrier": null,
+  "undefined_endpoints": [],
+  "data_route": "none",
+  "results_dir": [
+    "analysis_results_5016.json",
+    "tecan_data_5016.xlsx"
+  ]
+}

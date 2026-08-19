@@ -1,0 +1,61 @@
+[
+  {
+    "timestamp": "2026-03-26T16:19:47.298994+00:00",
+    "action": "evaluation_script_generated",
+    "process_id": "37",
+    "process_type": "automated",
+    "autonomous_mode": false,
+    "optimization_target": null,
+    "optimization_target_configured": false,
+    "autonomous_enhancement_added": false,
+    "filename": "analysis_script_37.py",
+    "saved_by": "n8n",
+    "reported_path": "/app/processes/automated/AKTA_-_Two_Step_Elution_20260326_155121_37/analysis/analysis_script_37.py",
+    "user": "sebastianputz",
+    "n8n_webhook": "http://<APP_SERVER>:5678/webhook/evaluation-script-generator",
+    "success": true,
+    "prompt_length": 6068,
+    "enhanced_prompt_length": 6098,
+    "template_fields_count": 16,
+    "example_file_included": false,
+    "structured_output_required": false
+  },
+  {
+    "timestamp": "2026-03-26T16:28:42.484269+00:00",
+    "action": "enhanced_report_script_generated",
+    "process_id": 37,
+    "template_id": "388",
+    "selected_plots_count": 1,
+    "selected_plots": [
+      "chromatogram_{ID}.png"
+    ],
+    "script_filename": "report_generator_388.py",
+    "template_filename": "report_template_388.html",
+    "elab_integration": true,
+    "longname_handling": true,
+    "available_placeholders": [
+      "PROCESS_ID",
+      "CIP_DURATION",
+      "WASH_DURATION",
+      "CIP_3_DURATION",
+      "CIP_4_DURATION",
+      "CIP_5_DURATION",
+      "WASH_FLOW_RATE",
+      "CIP_2_HOLD_DURATION",
+      "LOAD_INJECT_DURATION",
+      "LOAD_INJECT_FLOW_RATE",
+      "EQUILIBRATION_DURATION",
+      "EQUILIBRATION_FLOW_RATE",
+      "ELUTE_ISOCRATIC_DURATION",
+      "ELUTE_ISOCRATIC_PERCENT_B",
+      "ELUTE_ISOCRATIC_2_DURATION",
+      "ELUTE_ISOCRATIC_2_PERCENT_B",
+      "EXPERIMENT_ID",
+      "EXPERIMENT_TITLE",
+      "EXPERIMENT_DATE",
+      "REPORT_DATE"
+    ],
+    "user": "sebastianputz",
+    "success": true
+  }
+]

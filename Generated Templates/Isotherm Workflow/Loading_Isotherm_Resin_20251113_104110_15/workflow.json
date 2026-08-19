@@ -1,0 +1,409 @@
+{
+  "process_name": "Loading Isotherm Resin",
+  "process_type": "automated",
+  "workflow": {
+    "type": "steps",
+    "content": [
+      {
+        "device": "Opentrons OT-2",
+        "method": "Run Protocol w/ Custom Labware",
+        "params": {
+          "labware_file": "cytiva_96_filterwellplate_1ml.json"
+        }
+      },
+      {
+        "device": "UR5",
+        "method": "Grab",
+        "params": {
+          "object": "96DeepWP",
+          "location": "Storage2"
+        }
+      },
+      {
+        "device": "UR5",
+        "method": "Place",
+        "params": {
+          "object": "96DeepWP",
+          "location": "Pump_Pos1",
+          "rehome": false
+        }
+      },
+      {
+        "device": "UR5",
+        "method": "Place_Vacuum_Manifold",
+        "params": {
+          "rehome": false
+        }
+      },
+      {
+        "device": "UR5",
+        "method": "Grab",
+        "params": {
+          "object": "Filterplate",
+          "location": "OT2_Pos1"
+        }
+      },
+      {
+        "device": "UR5",
+        "method": "Place",
+        "params": {
+          "object": "Filterplate",
+          "location": "Pump_Pos2",
+          "rehome": false
+        }
+      },
+      {
+        "device": "VacuuPump",
+        "method": "Pump",
+        "params": {
+          "speed": "25",
+          "duration": "30"
+        }
+      },
+      {
+        "device": "Utility",
+        "method": "Wait",
+        "params": {
+          "duration": "300",
+          "message": "Venting..."
+        }
+      },
+      {
+        "device": "UR5",
+        "method": "Grab",
+        "params": {
+          "object": "Filterplate",
+          "location": "Pump_Pos2"
+        }
+      },
+      {
+        "device": "UR5",
+        "method": "Place",
+        "params": {
+          "object": "Filterplate",
+          "location": "OT2_Pos1",
+          "rehome": true
+        }
+      },
+      {
+        "type": "loop_start",
+        "loop_id": "loop_1",
+        "iteration_type": "elabftw",
+        "iterations": "Equilibration Cycles",
+        "variable_name": "i"
+      },
+      {
+        "device": "Opentrons OT-2",
+        "method": "Run Protocol w/ Custom Labware",
+        "params": {
+          "labware_file": "cytiva_96_filterwellplate_1ml.json"
+        }
+      },
+      {
+        "device": "UR5",
+        "method": "Grab",
+        "params": {
+          "object": "Filterplate",
+          "location": "OT2_Pos1"
+        }
+      },
+      {
+        "device": "UR5",
+        "method": "Place",
+        "params": {
+          "object": "Filterplate",
+          "location": "Pump_Pos2",
+          "rehome": false
+        }
+      },
+      {
+        "device": "VacuuPump",
+        "method": "Pump",
+        "params": {
+          "speed": "25",
+          "duration": "30"
+        }
+      },
+      {
+        "device": "Utility",
+        "method": "Wait",
+        "params": {
+          "duration": "300",
+          "message": "Venting"
+        }
+      },
+      {
+        "device": "UR5",
+        "method": "Grab",
+        "params": {
+          "object": "Filterplate",
+          "location": "Pump_Pos2"
+        }
+      },
+      {
+        "device": "UR5",
+        "method": "Place",
+        "params": {
+          "object": "Filterplate",
+          "location": "OT2_Pos1",
+          "rehome": true
+        }
+      },
+      {
+        "type": "loop_end",
+        "loop_id": "loop_1"
+      },
+      {
+        "device": "UR5",
+        "method": "Remove_Vacuum_Manifold",
+        "params": {
+          "rehome": false
+        }
+      },
+      {
+        "device": "UR5",
+        "method": "Grab",
+        "params": {
+          "object": "96DeepWP",
+          "location": "Pump_Pos1"
+        }
+      },
+      {
+        "device": "UR5",
+        "method": "Place",
+        "params": {
+          "object": "96DeepWP",
+          "location": "Storage2",
+          "rehome": true
+        }
+      },
+      {
+        "device": "Opentrons OT-2",
+        "method": "Run Protocol w/ Custom Labware",
+        "params": {
+          "labware_file": "cytiva_96_filterwellplate_1ml.json"
+        }
+      },
+      {
+        "device": "Utility",
+        "method": "Pause",
+        "params": {
+          "message": "Cover Filterplate with Foil. Remove all other labware. Fresh 300 uL tips in Slot 7. Empty Trash."
+        }
+      },
+      {
+        "device": "Opentrons OT-2",
+        "method": "Run Protocol w/ Custom Labware",
+        "params": {
+          "labware_file": "cytiva_96_filterwellplate_1ml.json"
+        }
+      },
+      {
+        "device": "Utility",
+        "method": "Pause",
+        "params": {
+          "message": "Remove Foil from Filterplate"
+        }
+      },
+      {
+        "device": "UR5",
+        "method": "Grab",
+        "params": {
+          "object": "96DeepWP",
+          "location": "Storage1"
+        }
+      },
+      {
+        "device": "UR5",
+        "method": "Place",
+        "params": {
+          "object": "96DeepWP",
+          "location": "Pump_Pos1",
+          "rehome": false
+        }
+      },
+      {
+        "device": "UR5",
+        "method": "Place_Vacuum_Manifold",
+        "params": {
+          "rehome": false
+        }
+      },
+      {
+        "device": "UR5",
+        "method": "Grab",
+        "params": {
+          "object": "Filterplate",
+          "location": "OT2_Pos1"
+        }
+      },
+      {
+        "device": "UR5",
+        "method": "Place",
+        "params": {
+          "object": "Filterplate",
+          "location": "Pump_Pos2",
+          "rehome": false
+        }
+      },
+      {
+        "device": "VacuuPump",
+        "method": "Pump",
+        "params": {
+          "speed": "25",
+          "duration": "30"
+        }
+      },
+      {
+        "device": "Utility",
+        "method": "Wait",
+        "params": {
+          "duration": "300",
+          "message": "Venting..."
+        }
+      },
+      {
+        "device": "UR5",
+        "method": "Grab",
+        "params": {
+          "object": "Filterplate",
+          "location": "Pump_Pos2"
+        }
+      },
+      {
+        "device": "UR5",
+        "method": "Place",
+        "params": {
+          "object": "Filterplate",
+          "location": "Storage3",
+          "rehome": false
+        }
+      },
+      {
+        "device": "UR5",
+        "method": "Remove_Vacuum_Manifold",
+        "params": {
+          "rehome": false
+        }
+      },
+      {
+        "device": "UR5",
+        "method": "Grab",
+        "params": {
+          "object": "96DeepWP",
+          "location": "Pump_Pos1"
+        }
+      },
+      {
+        "device": "UR5",
+        "method": "Place",
+        "params": {
+          "object": "96DeepWP",
+          "location": "OT2_Pos5",
+          "rehome": false
+        }
+      },
+      {
+        "device": "UR5",
+        "method": "Grab",
+        "params": {
+          "object": "WP1",
+          "location": "Storage4"
+        }
+      },
+      {
+        "device": "UR5",
+        "method": "Place",
+        "params": {
+          "object": "WP1",
+          "location": "OT2_Pos1",
+          "rehome": true
+        }
+      },
+      {
+        "device": "Opentrons OT-2",
+        "method": "Run Protocol",
+        "params": {}
+      },
+      {
+        "device": "UR5",
+        "method": "Grab",
+        "params": {
+          "object": "96DeepWP",
+          "location": "OT2_Pos5"
+        }
+      },
+      {
+        "device": "UR5",
+        "method": "Place",
+        "params": {
+          "object": "96DeepWP",
+          "location": "Storage1",
+          "rehome": false
+        }
+      },
+      {
+        "device": "UR5",
+        "method": "Grab",
+        "params": {
+          "object": "WP1",
+          "location": "OT2_Pos1"
+        }
+      },
+      {
+        "device": "Tecan Spark",
+        "method": "Open",
+        "params": {}
+      },
+      {
+        "device": "UR5",
+        "method": "Place",
+        "params": {
+          "object": "WP1",
+          "location": "Tecan",
+          "rehome": false
+        }
+      },
+      {
+        "device": "Tecan Spark",
+        "method": "Close",
+        "params": {}
+      },
+      {
+        "device": "Tecan Spark",
+        "method": "Run Measurement",
+        "params": {}
+      },
+      {
+        "device": "Tecan Spark",
+        "method": "Open",
+        "params": {}
+      },
+      {
+        "device": "UR5",
+        "method": "Grab",
+        "params": {
+          "object": "WP1",
+          "location": "Tecan"
+        }
+      },
+      {
+        "device": "Tecan Spark",
+        "method": "Close",
+        "params": {}
+      },
+      {
+        "device": "UR5",
+        "method": "Place",
+        "params": {
+          "object": "WP1",
+          "location": "Storage4",
+          "rehome": false
+        }
+      }
+    ]
+  },
+  "elab_template_id": "278",
+  "lab_id": "167",
+  "created_at": "2025-11-13T10:41:10.882916"
+}

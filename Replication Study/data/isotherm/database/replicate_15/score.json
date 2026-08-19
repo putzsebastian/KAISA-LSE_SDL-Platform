@@ -1,0 +1,11 @@
+{
+  "pass": false,
+  "codes": [
+    "EXEC_FAILED"
+  ],
+  "findings": [
+    {
+      "candidate_error": "exit 1: Error: {'S': 'ERROR', 'V': 'ERROR', 'C': '22P02', 'M': 'invalid input syntax for type json', 'D': 'Token \"NaN\" is invalid.', 'W': 'JSON data, line 1: ...ts\": [{\"salt_index\": 0, \"salt_concentration\": NaN...\\nunnamed portal parameter $11 = \\'...\\'', 'F': 'jsonfuncs.c', 'L': '646', 'R': 'json_errsave_error'}\n"
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "name": "Simulate Opentrons",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "protocol",
+              "type": "any"
+            },
+            {
+              "name": "protocol_path",
+              "type": "any"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -608,
+        256
+      ],
+      "id": "f9870864-28e8-4a6b-a84c-04f89cd4a5e0",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "operation": "toText",
+        "sourceProperty": "query",
+        "options": {
+          "encoding": "utf8",
+          "fileName": "test_protocol.py"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        -48
+      ],
+      "id": "0d6ee3ec-8b92-4ca5-8c3f-3bc7d32f8cc0",
+      "name": "Convert to File"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://agent-tools:8100/save/upload",
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "data"
+            },
+            {
+              "name": "protocol_path",
+              "value": "={{ $('When Executed by Another Workflow').item.json.protocol_path }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        368,
+        16
+      ],
+      "id": "ca04095d-3f44-40d2-8a00-5928ca4ba67c",
+      "name": "Save Script"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://agent-tools:8100/simulate/opentrons",
+        "sendBody": true,
+        "contentType": "=json",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "script",
+              "value": "={{ $('Edit Fields').item.json.query }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        944,
+        240
+      ],
+      "id": "bba99fa7-9180-4a70-9e13-eb06d5b0c5cd",
+      "name": "Simulate Script"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "768e5468-6826-46ec-ba3c-e322204d8247",
+              "name": "query",
+              "value": "={{ $json.protocol.replace(/```python/g, '').replace(/```/g, '') }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -336,
+        -16
+      ],
+      "id": "6d0c60b3-7b60-4594-8a8e-5fae362acb57",
+      "name": "Edit Fields"
+    }
+  ],
+  "pinData": {
+    "When Executed by Another Workflow": [
+      {
+        "json": {
+          "protocol": "from opentrons import protocol_api\nimport math\n\nmetadata = {\n    'protocolName': 'Calibration Curve Protocol',\n    'author': 'Your Name',\n    'description': 'Generate a templated calibration curve with varying concentrations.',\n}\nrequirements = {\"robotType\": \"Flex\", \"apiLevel\": \"2.19\"}\n\ndef run(protocol):\n    # Constants - These will be replaced by user inputs in the template\n    NUMBER_OF_POINTS = [[NUMBER_OF_POINTS]]\n    STOCK_CONCENTRATION = [[STOCK_CONCENTRATION]]\n    CONCENTRATION_LOWER_LIMIT = [[CONCENTRATION_LOWER_LIMIT]]\n    CONCENTRATION_UPPER_LIMIT = [[CONCENTRATION_UPPER_LIMIT]]\n    TOTAL_WELL_VOLUME = [[TOTAL_WELL_VOLUME]] # Example total volume for each well in the calibration curve. Adjust as needed.\n    DILUENT_CONCENTRATION = 0 # Given in prompt\n\n    # Modules\n    heater_shaker = protocol.load_module('heaterShakerModuleV1', 'A1')\n    hs_adapter = heater_shaker.load_adapter('opentrons_universal_flat_adapter')\n\n    # Trash\n    trash = protocol.load_trash_bin(\"A3\")\n\n    # Labware\n    well_plate = protocol.load_labware('corning_96_wellplate_360ul_flat', 'D1')\n    tiprack_1000 = protocol.load_labware('opentrons_flex_96_filtertiprack_1000ul', 'B1')\n    reservoir = protocol.load_labware('nest_12_reservoir_15ml', 'C1')\n\n    # Pipettes\n    p1000 = protocol.load_instrument('flex_1channel_1000', mount='left', tip_racks=[tiprack_1000])\n\n    # Define source wells\n    stock_solution_well = reservoir.wells_by_name()['A1'] # Well 0 in reservoir is A1\n    diluent_well = reservoir.wells_by_name()['A2'] # Well 1 in reservoir is A2\n\n    # Calculate target concentrations\n    target_concentrations = []\n    if NUMBER_OF_POINTS > 1:\n        step = (CONCENTRATION_UPPER_LIMIT - CONCENTRATION_LOWER_LIMIT) / (NUMBER_OF_POINTS - 1)\n        for i in range(NUMBER_OF_POINTS):\n            target_concentrations.append(CONCENTRATION_LOWER_LIMIT + i * step)\n    else:\n        target_concentrations.append(CONCENTRATION_LOWER_LIMIT)\n\n    # Pre-calculate volumes for each concentration point\n    diluent_volumes_per_concentration = []\n    stock_volumes_per_concentration = []\n\n    for c_target in target_concentrations:\n        v_stock = (c_target * TOTAL_WELL_VOLUME) / STOCK_CONCENTRATION\n        v_diluent = TOTAL_WELL_VOLUME - v_stock\n        stock_volumes_per_concentration.append(v_stock)\n        diluent_volumes_per_concentration.append(v_diluent)\n\n    # Destination wells for each concentration and replicate\n    # Concentrations will be arranged column-wise (A1, B1, C1, ...), with replicates directly below (A2, A3; B2, B3; etc.)\n    all_destination_wells = []\n    for i in range(NUMBER_OF_POINTS): # Iterate through columns (A, B, C, ...)\n        # For each column, append the first 3 wells for the triplicate measurements\n        all_destination_wells.extend([well_plate.columns()[i][j] for j in range(3)])\n\n    # Create flattened lists of volumes, repeated for each replicate\n    all_diluent_transfer_volumes = []\n    all_stock_transfer_volumes = []\n\n    for i in range(NUMBER_OF_POINTS):\n        # Each concentration point has 3 replicates, so repeat its calculated volume 3 times\n        all_diluent_transfer_volumes.extend([diluent_volumes_per_concentration[i]] * 3)\n        all_stock_transfer_volumes.extend([stock_volumes_per_concentration[i]] * 3)\n\n    # Sources for transfer commands (repeated for each destination well)\n    diluent_sources = [diluent_well] * len(all_destination_wells)\n    stock_sources = [stock_solution_well] * len(all_destination_wells)\n\n    # Commands\n    # 1. Distribute diluent to all wells\n    p1000.transfer(\n        all_diluent_transfer_volumes,\n        diluent_sources,\n        all_destination_wells,\n        new_tip='always', # Use a new tip for each individual dispense\n        air_gap=10 # Adding a small air gap for accuracy\n    )\n\n    # 2. Add stock solution to all wells and mix\n    p1000.transfer(\n        all_stock_transfer_volumes,\n        stock_sources,\n        all_destination_wells,\n        new_tip='always', # Use a new tip for each individual dispense\n        mix_after=(5, TOTAL_WELL_VOLUME * 0.8), # Mix 5 times with 80% of total well volume\n        air_gap=10\n    )",
+          "protocol_path": "<PROCESS_ROOT>/processes/automated/1234_20250721_114522_24/protocols/Template_150_OT_Protocol_1.py"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "Save Script",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Script": {
+      "main": [
+        [
+          {
+            "node": "Simulate Script",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "6864bf75-3ad1-48e3-8698-e067da0f5b96",
+  "meta": {
+    "instanceId": "9de26e042b6a3bb3f3fb559beb9c4cda97cf0b09a34ed131ddcd1aa5eb2ec1f3"
+  },
+  "id": "lBVLCaKFiPCRhhzH",
+  "tags": []
+}

@@ -1,0 +1,19 @@
+{
+  "calls": [
+    {
+      "node": "Get_Opentrons_API_Info",
+      "run_index": 0,
+      "start_ms": 1786540680475,
+      "duration_ms": 21551,
+      "status": "success"
+    },
+    {
+      "node": "OT_Script_Simulation",
+      "run_index": 0,
+      "start_ms": 1786540735734,
+      "duration_ms": 125,
+      "status": "success"
+    }
+  ],
+  "count": 2
+}

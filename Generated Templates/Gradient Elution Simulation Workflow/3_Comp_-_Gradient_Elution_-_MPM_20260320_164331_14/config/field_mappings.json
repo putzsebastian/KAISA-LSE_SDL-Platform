@@ -1,0 +1,320 @@
+{
+  "component_0_name": {
+    "type": "text",
+    "unit": "",
+    "default": "",
+    "description": "Component 0 name"
+  },
+  "component_0_molecular_weight": {
+    "type": "number",
+    "unit": "g/mol",
+    "default": "",
+    "description": "Component 0 molecular weight"
+  },
+  "component_0_charge": {
+    "type": "number",
+    "unit": "",
+    "default": "",
+    "description": "Component 0 charge"
+  },
+  "component_1_name": {
+    "type": "text",
+    "unit": "",
+    "default": "",
+    "description": "Component 1 name"
+  },
+  "component_1_molecular_weight": {
+    "type": "number",
+    "unit": "g/mol",
+    "default": "",
+    "description": "Component 1 molecular weight"
+  },
+  "component_1_charge": {
+    "type": "number",
+    "unit": "",
+    "default": "",
+    "description": "Component 1 charge"
+  },
+  "component_2_name": {
+    "type": "text",
+    "unit": "",
+    "default": "",
+    "description": "Component 2 name"
+  },
+  "component_2_molecular_weight": {
+    "type": "number",
+    "unit": "g/mol",
+    "default": "",
+    "description": "Component 2 molecular weight"
+  },
+  "component_2_charge": {
+    "type": "number",
+    "unit": "",
+    "default": "",
+    "description": "Component 2 charge"
+  },
+  "column_length": {
+    "type": "number",
+    "unit": "m",
+    "default": "",
+    "description": "column column length"
+  },
+  "column_diameter": {
+    "type": "number",
+    "unit": "m",
+    "default": "",
+    "description": "column column diameter"
+  },
+  "column_axial_dispersion": {
+    "type": "number",
+    "unit": "m\u00b2/s",
+    "default": "",
+    "description": "column axial dispersion coefficient"
+  },
+  "column_bed_porosity": {
+    "type": "number",
+    "unit": "",
+    "default": "",
+    "description": "column bed porosity (interstitial volume fraction)"
+  },
+  "column_particle_porosity": {
+    "type": "number",
+    "unit": "",
+    "default": "",
+    "description": "column particle porosity (pore volume fraction)"
+  },
+  "column_particle_radius": {
+    "type": "number",
+    "unit": "m",
+    "default": "",
+    "description": "column particle radius"
+  },
+  "column_film_diffusion_0": {
+    "type": "number",
+    "unit": "m/s",
+    "default": "",
+    "description": "column film diffusion coefficient for component 0"
+  },
+  "column_film_diffusion_1": {
+    "type": "number",
+    "unit": "m/s",
+    "default": "",
+    "description": "column film diffusion coefficient for component 1"
+  },
+  "column_film_diffusion_2": {
+    "type": "number",
+    "unit": "m/s",
+    "default": "",
+    "description": "column film diffusion coefficient for component 2"
+  },
+  "column_binding_is_kinetic": {
+    "type": "checkbox",
+    "unit": "",
+    "default": "",
+    "description": "column use kinetic binding (True) or rapid equilibrium (False)"
+  },
+  "column_binding_0_adsorption_rate": {
+    "type": "number",
+    "unit": "m\u00b3/(mol\u00b7s)",
+    "default": "",
+    "description": "column MPM adsorption rate k_a for component 0"
+  },
+  "column_binding_0_desorption_rate": {
+    "type": "number",
+    "unit": "1/s",
+    "default": "",
+    "description": "column MPM desorption rate k_d for component 0"
+  },
+  "column_binding_0_capacity": {
+    "type": "number",
+    "unit": "mol/m\u00b3",
+    "default": "",
+    "description": "column MPM capacity q_max for component 0"
+  },
+  "column_binding_0_gamma": {
+    "type": "number",
+    "unit": "",
+    "default": "",
+    "description": "column MPM gamma \u03b3 (\u2192 hydrophobicity, salt sensitivity, can be negative) for component 0"
+  },
+  "column_binding_0_beta": {
+    "type": "number",
+    "unit": "",
+    "default": "",
+    "description": "column MPM beta \u03b2 (\u2192 ion exchange characteristic, can be negative) for component 0"
+  },
+  "column_binding_1_adsorption_rate": {
+    "type": "number",
+    "unit": "m\u00b3/(mol\u00b7s)",
+    "default": "",
+    "description": "column MPM adsorption rate k_a for component 1"
+  },
+  "column_binding_1_desorption_rate": {
+    "type": "number",
+    "unit": "1/s",
+    "default": "",
+    "description": "column MPM desorption rate k_d for component 1"
+  },
+  "column_binding_1_capacity": {
+    "type": "number",
+    "unit": "mol/m\u00b3",
+    "default": "",
+    "description": "column MPM capacity q_max for component 1"
+  },
+  "column_binding_1_gamma": {
+    "type": "number",
+    "unit": "",
+    "default": "",
+    "description": "column MPM gamma \u03b3 (\u2192 hydrophobicity, salt sensitivity, can be negative) for component 1"
+  },
+  "column_binding_1_beta": {
+    "type": "number",
+    "unit": "",
+    "default": "",
+    "description": "column MPM beta \u03b2 (\u2192 ion exchange characteristic, can be negative) for component 1"
+  },
+  "column_binding_2_adsorption_rate": {
+    "type": "number",
+    "unit": "m\u00b3/(mol\u00b7s)",
+    "default": "",
+    "description": "column MPM adsorption rate k_a for component 2"
+  },
+  "column_binding_2_desorption_rate": {
+    "type": "number",
+    "unit": "1/s",
+    "default": "",
+    "description": "column MPM desorption rate k_d for component 2"
+  },
+  "column_binding_2_capacity": {
+    "type": "number",
+    "unit": "mol/m\u00b3",
+    "default": "",
+    "description": "column MPM capacity q_max for component 2"
+  },
+  "column_binding_2_gamma": {
+    "type": "number",
+    "unit": "",
+    "default": "",
+    "description": "column MPM gamma \u03b3 (\u2192 hydrophobicity, salt sensitivity, can be negative) for component 2"
+  },
+  "column_binding_2_beta": {
+    "type": "number",
+    "unit": "",
+    "default": "",
+    "description": "column MPM beta \u03b2 (\u2192 ion exchange characteristic, can be negative) for component 2"
+  },
+  "column_initial_c_0": {
+    "type": "number",
+    "unit": "mol/m\u00b3",
+    "default": "",
+    "description": "column initial mobile phase concentration for component 0"
+  },
+  "column_initial_q_0": {
+    "type": "number",
+    "unit": "mol/m\u00b3",
+    "default": "",
+    "description": "column initial bound phase concentration for component 0"
+  },
+  "column_initial_c_1": {
+    "type": "number",
+    "unit": "mol/m\u00b3",
+    "default": "",
+    "description": "column initial mobile phase concentration for component 1"
+  },
+  "column_initial_q_1": {
+    "type": "number",
+    "unit": "mol/m\u00b3",
+    "default": "",
+    "description": "column initial bound phase concentration for component 1"
+  },
+  "column_initial_c_2": {
+    "type": "number",
+    "unit": "mol/m\u00b3",
+    "default": "",
+    "description": "column initial mobile phase concentration for component 2"
+  },
+  "column_initial_q_2": {
+    "type": "number",
+    "unit": "mol/m\u00b3",
+    "default": "",
+    "description": "column initial bound phase concentration for component 2"
+  },
+  "dead_volume_length": {
+    "type": "number",
+    "unit": "m",
+    "default": "",
+    "description": "dead_volume reactor length"
+  },
+  "dead_volume_diameter": {
+    "type": "number",
+    "unit": "m",
+    "default": "",
+    "description": "dead_volume reactor diameter"
+  },
+  "dead_volume_axial_dispersion": {
+    "type": "number",
+    "unit": "m\u00b2/s",
+    "default": "",
+    "description": "dead_volume axial dispersion coefficient"
+  },
+  "flow_rate_injection": {
+    "type": "number",
+    "unit": "m\u00b3/s",
+    "default": "",
+    "description": "Event parameter: flow_rate_injection"
+  },
+  "load_c_1": {
+    "type": "number",
+    "unit": "mol/m\u00b3",
+    "default": "",
+    "description": "Event parameter: load_c_1"
+  },
+  "load_c_2": {
+    "type": "number",
+    "unit": "mol/m\u00b3",
+    "default": "",
+    "description": "Event parameter: load_c_2"
+  },
+  "flow_rate": {
+    "type": "number",
+    "unit": "m\u00b3/s",
+    "default": "",
+    "description": "Event parameter: flow_rate"
+  },
+  "elute_c0_start": {
+    "type": "number",
+    "unit": "",
+    "default": "",
+    "description": "Gradient start value: elute_c0_start"
+  },
+  "elute_c0_end": {
+    "type": "number",
+    "unit": "",
+    "default": "",
+    "description": "Gradient end value: elute_c0_end"
+  },
+  "load_duration": {
+    "type": "number",
+    "unit": "s",
+    "default": "",
+    "description": "Duration of load_duration phase"
+  },
+  "wash_duration": {
+    "type": "number",
+    "unit": "s",
+    "default": "",
+    "description": "Duration of wash_duration phase"
+  },
+  "elute_duration": {
+    "type": "number",
+    "unit": "s",
+    "default": "",
+    "description": "Duration of elute_duration phase"
+  },
+  "cycle_time": {
+    "type": "number",
+    "unit": "s",
+    "default": "",
+    "description": "Total cycle/simulation time"
+  }
+}

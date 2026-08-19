@@ -1,0 +1,205 @@
+{
+  "pass": true,
+  "codes": [
+    "COLUMN_MAPPING_MISMATCH",
+    "DESCRIPTION_TEXT_DIFFERS",
+    "ROW_MISMATCH",
+    "SCHEMA_COLUMN_NAMING_DIFFERS"
+  ],
+  "fatal_codes": [],
+  "findings": [],
+  "n_findings": 0,
+  "n_prose_differences": 86,
+  "findings_by_column": [
+    {
+      "table": "experiment_executions",
+      "column": "results",
+      "code": "ROW_MISMATCH",
+      "count": 28,
+      "example": {
+        "code": "ROW_MISMATCH",
+        "table": "experiment_executions",
+        "row": 0,
+        "column": "results.data_files.Experiment_5520_Results",
+        "reference": "Experiment_5520_Results.json",
+        "candidate": "None"
+      }
+    },
+    {
+      "table": "process_schemas",
+      "column": "field_mapping",
+      "code": "COLUMN_MAPPING_MISMATCH",
+      "count": 15,
+      "example": {
+        "code": "COLUMN_MAPPING_MISMATCH",
+        "table": "process_schemas",
+        "row": 0,
+        "column": "field_mapping.CIP_2_HOLD_DURATION",
+        "reference": "cip_2_hold_duration",
+        "candidate": "cip_naoh_hold_duration_s"
+      }
+    },
+    {
+      "table": "experiment_executions",
+      "column": "metadata",
+      "code": "ROW_MISMATCH",
+      "count": 14,
+      "example": {
+        "code": "ROW_MISMATCH",
+        "table": "experiment_executions",
+        "row": 0,
+        "column": "metadata.Process ID",
+        "reference": "36",
+        "candidate": "36"
+      }
+    },
+    {
+      "table": "process_schemas",
+      "column": "results_schema",
+      "code": "ROW_MISMATCH",
+      "count": 8,
+      "example": {
+        "code": "ROW_MISMATCH",
+        "table": "process_schemas",
+        "row": 0,
+        "column": "results_schema.properties.analysis_status.enum",
+        "reference": "['completed', 'failed', 'pending', 'success']",
+        "candidate": "['completed', 'failed', 'pending']"
+      }
+    },
+    {
+      "table": "process_schemas",
+      "column": "results_schema",
+      "code": "SCHEMA_COLUMN_NAMING_DIFFERS",
+      "count": 8,
+      "example": {
+        "code": "SCHEMA_COLUMN_NAMING_DIFFERS",
+        "table": "process_schemas",
+        "row": 0,
+        "column": "results_schema.properties.data_files.properties",
+        "reference": "None",
+        "candidate": "{'akta_timeseries_csv': {'type': 'string', 'description': 'Path to processed AKTA time-series CSV file'}, 'analysis_resu"
+      }
+    },
+    {
+      "table": "process_schemas",
+      "column": "results_schema",
+      "code": "DESCRIPTION_TEXT_DIFFERS",
+      "count": 6,
+      "example": {
+        "code": "DESCRIPTION_TEXT_DIFFERS",
+        "table": "process_schemas",
+        "row": 0,
+        "column": "results_schema.properties.analysis_status.description",
+        "reference": "Overall status of the analysis and result collection",
+        "candidate": "Status of the AKTA chromatography analysis"
+      }
+    },
+    {
+      "table": "process_schemas",
+      "column": "description",
+      "code": "ROW_MISMATCH",
+      "count": 1,
+      "example": {
+        "code": "ROW_MISMATCH",
+        "table": "process_schemas",
+        "row": 0,
+        "column": "description",
+        "reference": "Automated \u00c4KTA gradient elution process with chromatogram peak detection and plotting.",
+        "candidate": "None"
+      }
+    },
+    {
+      "table": "process_schemas",
+      "column": "expected_files",
+      "code": "ROW_MISMATCH",
+      "count": 1,
+      "example": {
+        "code": "ROW_MISMATCH",
+        "table": "process_schemas",
+        "row": 0,
+        "column": "expected_files.data",
+        "reference": "['akta_results_{elab_id}.json', 'analysis_results_{elab_id}.json', 'processed_chromatogram_{elab_id}.csv']",
+        "candidate": "['akta_timeseries_{elab_id}.csv', 'analysis_results_{elab_id}.json']"
+      }
+    },
+    {
+      "table": "process_schemas",
+      "column": "metadata_schema",
+      "code": "ROW_MISMATCH",
+      "count": 1,
+      "example": {
+        "code": "ROW_MISMATCH",
+        "table": "process_schemas",
+        "row": 0,
+        "column": "metadata_schema.properties.Process ID.type",
+        "reference": "integer",
+        "candidate": "string"
+      }
+    },
+    {
+      "table": "process_schemas",
+      "column": "process_name",
+      "code": "ROW_MISMATCH",
+      "count": 1,
+      "example": {
+        "code": "ROW_MISMATCH",
+        "table": "process_schemas",
+        "row": 0,
+        "column": "process_name",
+        "reference": "\u00c4KTA - Gradient Elution (automated)",
+        "candidate": "AKTA - Gradient Elution (automated)"
+      }
+    },
+    {
+      "table": "experiment_executions",
+      "column": "process_name",
+      "code": "ROW_MISMATCH",
+      "count": 1,
+      "example": {
+        "code": "ROW_MISMATCH",
+        "table": "experiment_executions",
+        "row": 0,
+        "column": "process_name",
+        "reference": "\u00c4KTA - Gradient Elution (automated)",
+        "candidate": "AKTA - Gradient Elution (automated)"
+      }
+    },
+    {
+      "table": "experiment_executions",
+      "column": "started_at",
+      "code": "ROW_MISMATCH",
+      "count": 1,
+      "example": {
+        "code": "ROW_MISMATCH",
+        "table": "experiment_executions",
+        "row": 0,
+        "column": "started_at",
+        "reference": "2026-05-19T11:02:09",
+        "candidate": "None"
+      }
+    },
+    {
+      "table": "experiment_executions",
+      "column": "user",
+      "code": "ROW_MISMATCH",
+      "count": 1,
+      "example": {
+        "code": "ROW_MISMATCH",
+        "table": "experiment_executions",
+        "row": 0,
+        "column": "user",
+        "reference": "Sebastian Putz",
+        "candidate": ""
+      }
+    }
+  ],
+  "reference_rows": {
+    "process_schemas": 1,
+    "experiment_executions": 1
+  },
+  "candidate_rows": {
+    "process_schemas": 1,
+    "experiment_executions": 1
+  }
+}

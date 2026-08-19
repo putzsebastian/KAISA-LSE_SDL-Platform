@@ -1,0 +1,42 @@
+{
+  "step": "analysis",
+  "status": "completed",
+  "wall_clock_s": 312.8,
+  "job_id": null,
+  "artifact_chars": 31596,
+  "execution_id": "1810",
+  "execution_status": "success",
+  "tool_calls": 2,
+  "tokens_total": 145595,
+  "failure_class": null,
+  "failure_signature": null,
+  "finished_at": "2026-08-07T13:15:13.360586+00:00",
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": "webhook_error",
+      "wall_clock_s": 76.7,
+      "tool_calls": 1,
+      "tokens_total": 25638,
+      "execution_id": "1804",
+      "failure_class": "agent",
+      "failure_signature": null
+    },
+    {
+      "attempt": 2,
+      "status": "completed",
+      "wall_clock_s": 236.1,
+      "tool_calls": 2,
+      "tokens_total": 119957,
+      "execution_id": "1810",
+      "failure_class": null,
+      "failure_signature": null
+    }
+  ],
+  "attempt_count": 2,
+  "first_attempt_status": "webhook_error",
+  "converged_first_attempt": false,
+  "infrastructure_retries": 0,
+  "tokens_successful_attempt": 119957,
+  "wall_clock_successful_attempt_s": 236.1
+}

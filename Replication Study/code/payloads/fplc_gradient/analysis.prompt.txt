@@ -1,0 +1,149 @@
+# fplc gradient — analysis agent
+#
+# The instruction as SENT (payload field `prompt`), extracted from the requests of
+# the published replicates and verified across all 20 of them. This file is
+# generated; the authoritative copy is that field in the payload beside it and
+# in every request.json.
+# ---------------------------------------------------------------------------
+
+
+USER ANALYSIS REQUIREMENTS:
+Generate a Python data analysis script with the following requirements:
+
+SCRIPT USAGE CONTEXT:
+**IMPORTANT**: This script will be called programmatically from an external endpoint/system with specific parameters. The script must be designed for:
+- ✅ External execution via command line or function calls
+- ✅ Robust error handling with informative messages  
+- ✅ Structured output (JSON results + files)
+- ✅ Flexible parameter handling (experiment ID, paths)
+- ✅ Both standalone and importable functionality
+
+EXPERIMENT DATA ACCESS:
+The script should load experiment data from a JSON file using:
+```python
+import json
+import sys
+import argparse
+from pathlib import Path
+
+# Accept experiment ID as parameter (command line or function argument)
+def analyze_experiment(experiment_id=None, data_folder='../data', results_folder='../results'):
+    # Auto-detect experiment ID if not provided
+    if experiment_id is None:
+        if len(sys.argv) > 1:
+            experiment_id = sys.argv[1]
+        else:
+            # Auto-detect from most recent file or raise error
+            pass
+    
+    # Load experiment data with proper error handling
+    data_file_path = Path(data_folder) / f'experiment_{experiment_id}.json'
+    try:
+        with open(data_file_path, 'r') as f:
+            experiment_data = json.load(f)
+    except FileNotFoundError:
+        raise FileNotFoundError(f"Data file not found: {data_file_path}")
+    except json.JSONDecodeError as e:
+        raise ValueError(f"Invalid JSON format: {e}")
+
+# Access eLabFTW extra fields with error handling:
+try:
+    metadata = experiment_data['metadata_decoded']['extra_fields']
+    # Available eLabFTW fields from template:
+    # Process ID: metadata['Process ID']['value']
+    # CIP_DURATION: metadata['CIP_DURATION']['value']
+    # WASH_DURATION: metadata['WASH_DURATION']['value']
+    # CIP_3_DURATION: metadata['CIP_3_DURATION']['value']
+    # CIP_4_DURATION: metadata['CIP_4_DURATION']['value']
+    # CIP_5_DURATION: metadata['CIP_5_DURATION']['value']
+    # WASH_FLOW_RATE: metadata['WASH_FLOW_RATE']['value']
+    # CIP_2_HOLD_DURATION: metadata['CIP_2_HOLD_DURATION']['value']
+    # LOAD_INJECT_DURATION: metadata['LOAD_INJECT_DURATION']['value']
+    # LOAD_INJECT_FLOW_RATE: metadata['LOAD_INJECT_FLOW_RATE']['value']
+    # EQUILIBRATION_DURATION: metadata['EQUILIBRATION_DURATION']['value']
+    # ELUTE_GRADIENT_DURATION: metadata['ELUTE_GRADIENT_DURATION']['value']
+    # EQUILIBRATION_FLOW_RATE: metadata['EQUILIBRATION_FLOW_RATE']['value']
+    # ELUTE_GRADIENT_GRADIENT_END: metadata['ELUTE_GRADIENT_GRADIENT_END']['value']
+    # ELUTE_GRADIENT_GRADIENT_START: metadata['ELUTE_GRADIENT_GRADIENT_START']['value']
+except KeyError as e:
+    raise KeyError(f"Missing expected metadata field: {e}")
+```
+
+REQUIRED SCRIPT STRUCTURE:
+```python
+#!/usr/bin/env python3
+"""
+Analysis Script - [Brief Description]
+Can be called externally with experiment ID as parameter.
+"""
+
+def analyze_experiment(experiment_id=None, data_folder='../data', results_folder='../results'):
+    """
+    Main analysis function
+    
+    Args:
+        experiment_id (str): Experiment ID 
+        data_folder (str): Path to data folder
+        results_folder (str): Path to results folder
+    
+    Returns:
+        dict: Analysis results with all key metrics
+    """
+    # Implementation here
+    return results_dict
+
+def main():
+    """Command line interface"""
+    parser = argparse.ArgumentParser(description='Analyze experiment data')
+    parser.add_argument('experiment_id', nargs='?', help='Experiment ID')
+    parser.add_argument('--data-folder', default='../data', help='Data folder path')
+    parser.add_argument('--results-folder', default='../results', help='Results folder path')
+    
+    args = parser.parse_args()
+    
+    try:
+        results = analyze_experiment(
+            experiment_id=args.experiment_id,
+            data_folder=args.data_folder,
+            results_folder=args.results_folder
+        )
+        print(f"✅ Analysis successful!")
+        return 0
+    except Exception as e:
+        print(f"❌ Analysis failed: {e}")
+        return 1
+
+if __name__ == "__main__":
+    sys.exit(main())
+```
+
+FOLDER STRUCTURE & FILE HANDLING:
+- **protocols/** folder: Contains protocol files (Python, XML)
+- **data/** folder: Contains experimental output data (experiment_[ID].json files)
+- **results/** folder: Save ALL analysis outputs here
+- **analysis/** folder: Current script location
+
+OUTPUT REQUIREMENTS:
+1. **Save results as JSON**: Include all key metrics, file paths, metadata
+2. **Generate plots**: Save as PNG/PDF with descriptive filenames  
+3. **Export processed data**: Save as CSV for further analysis
+4. **Progress logging**: Use print() statements for debugging/monitoring
+5. **File naming**: Use experiment ID in all output filenames
+
+ERROR HANDLING REQUIREMENTS:
+- ✅ Validate all input parameters and file paths
+- ✅ Handle missing/corrupted data files gracefully  
+- ✅ Provide specific error messages (not generic "failed")
+- ✅ Validate eLabFTW field existence and data types
+- ✅ Handle missing or invalid experimental data points
+- ✅ Return proper exit codes (0=success, 1=error)
+
+CALLING PATTERNS:
+The script should support these usage patterns:
+1. **Command line**: `python analysis_script.py 3914`
+2. **Function import**: `from analysis_script import analyze_experiment; results = analyze_experiment("3914")`
+3. **Auto-detection**: `python analysis_script.py` (finds most recent experiment)
+4. **Custom paths**: `python analysis_script.py 3914 --data-folder /path/to/data`
+
+USER REQUIREMENTS:
+Please create a data analysis script for my AKTA run. Plot the chromatogram. Use different colors for UV 280nm and conductivity. Identify peaks if present and calculate their retention time. Include the peak labelling with their retention time in the plot, but only if peaks were identified.

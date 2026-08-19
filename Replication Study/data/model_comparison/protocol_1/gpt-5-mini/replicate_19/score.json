@@ -1,0 +1,12 @@
+{
+  "pass": false,
+  "codes": [
+    "DEST_EXTRA",
+    "DEST_MISSING"
+  ],
+  "systematic_multiples": null,
+  "destinations_matched": 42,
+  "destinations_total": 44,
+  "candidate_error": null,
+  "comparator": "destinations"
+}

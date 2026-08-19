@@ -1,0 +1,10 @@
+{
+  "experiment": "isotherm",
+  "artifact": "database",
+  "comparator": "database",
+  "replicates": 20,
+  "passed": 19,
+  "upstream_gate": "analysis",
+  "excluded_bad_upstream": 6,
+  "gating": "replicates whose analysis step failed are excluded rather than counted as failures of this agent"
+}

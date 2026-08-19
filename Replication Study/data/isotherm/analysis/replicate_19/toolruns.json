@@ -1,0 +1,20 @@
+{
+  "node_runs": {
+    "Webhook": 1,
+    "If": 1,
+    "Convert to File": 1,
+    "Switch": 1,
+    "Extract from File": 1,
+    "Aggregate": 1,
+    "Aggregate5": 1,
+    "Formate Example Data": 1,
+    "Simple Memory": 2,
+    "OpenAI Chat Model": 4,
+    "Validate Script": 2,
+    "Save_Script": 1,
+    "Structured Output Parser": 2,
+    "AI Agent": 1,
+    "Respond to Webhook": 1
+  },
+  "source": "execution.raw.json"
+}

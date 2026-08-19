@@ -1,0 +1,71 @@
+# Combined stack for the SDL AI-agent layer: n8n (workflow engine) + agent-tools
+# (script validation / saving / Opentrons simulation) on one Docker network, so
+# n8n can reach the tools service by name at http://agent-tools:8100.
+#
+# Usage (from this "n8n AI Agents" directory):
+#   docker compose up -d
+#   docker compose ps
+#   curl http://localhost:8100/health
+#
+# Then open http://localhost:5678 to set up n8n and import the workflows in
+# ./Workflows/  (see the README section "Running the n8n agent layer with Docker").
+#
+# To run ONLY the agent-tools service, use ./Minimal Application/docker-compose.yml instead.
+
+# Note: container names are intentionally left unset so Compose derives them from
+# the project (e.g. n8naiagents-n8n-1). This avoids clashing with any existing
+# n8n / agent-tools containers on the host. Services still reach each other by
+# service name on the shared network (n8n -> http://agent-tools:8100).
+
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_SECURE_COOKIE=false          # allows http://localhost access for local testing
+      - GENERIC_TIMEZONE=Europe/Berlin
+    volumes:
+      - n8n_data:/home/node/.n8n
+    networks: [sdl]
+    restart: unless-stopped
+
+  agent-tools:
+    build: "./Minimal Application"     # contains the Dockerfile + app.py (quote: name has a space)
+    ports:
+      - "8100:8100"
+    volumes:
+      - ./data:/data                     # where generated scripts are saved (host: ./n8n AI Agents/data)
+    environment:
+      - SCRIPTS_BASE_DIR=/data
+    networks: [sdl]
+    restart: unless-stopped
+
+  # Vector store for the device-protocol agents' `Get_Opentrons_API_Info` doc-retrieval
+  # tool. n8n reaches it at http://qdrant:6333 (host: http://localhost:6333).
+  #
+  # The shipped snapshot ./Documentation Retrieval/snapshots/opentrons_docs.snapshot is
+  # restored into the `opentrons_docs` collection on startup (--snapshot ...:collection),
+  # so end users get a pre-ingested collection with NO OpenAI key / ingest step.
+  # --force-snapshot makes the restore idempotent across restarts.
+  #
+  # IMPORTANT: pin the image tag to the SAME Qdrant version used to CREATE the snapshot —
+  # snapshots are version-specific. See ./Documentation Retrieval/README.md to (re)build it.
+  qdrant:
+    image: qdrant/qdrant:v1.12.4       # <-- set to the version you created the snapshot with
+    command: ["./qdrant", "--snapshot", "/snapshots/opentrons_docs.snapshot:opentrons_docs", "--force-snapshot"]
+    ports:
+      - "6333:6333"   # REST API
+      - "6334:6334"   # gRPC
+    volumes:
+      - qdrant_storage:/qdrant/storage
+      - "./Documentation Retrieval/snapshots:/snapshots:ro"   # mounted dir; holds opentrons_docs.snapshot
+    networks: [sdl]
+    restart: unless-stopped
+
+volumes:
+  n8n_data:
+  qdrant_storage:
+
+networks:
+  sdl:

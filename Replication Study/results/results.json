@@ -1,0 +1,3992 @@
+{
+  "agents": {
+    "isotherm": {
+      "orchestration": {
+        "passed": 20,
+        "n": 20,
+        "comparator": "orchestration",
+        "telemetry": {
+          "tokens": {
+            "n": 20,
+            "median": 83963.0,
+            "q1": 76708,
+            "q3": 100283,
+            "min": 69794,
+            "max": 122207
+          },
+          "wall_clock_s": {
+            "n": 20,
+            "median": 170.55,
+            "q1": 146.6,
+            "q3": 223.0,
+            "min": 119.3,
+            "max": 311.1
+          },
+          "tool_calls": {
+            "n": 20,
+            "median": 2.0,
+            "q1": 2,
+            "q3": 2,
+            "min": 2,
+            "max": 3
+          },
+          "tokens_in": {
+            "n": 20,
+            "median": 62764.0,
+            "q1": 58620,
+            "q3": 72096,
+            "min": 54674,
+            "max": 94589
+          },
+          "tokens_out": {
+            "n": 20,
+            "median": 21199.0,
+            "q1": 18088,
+            "q3": 25664,
+            "min": 15120,
+            "max": 29837
+          },
+          "per_replicate": [
+            {
+              "replicate": "01",
+              "in": 68720,
+              "out": 25664,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "02",
+              "in": 68720,
+              "out": 25664,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "03",
+              "in": 58336,
+              "out": 17866,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "04",
+              "in": 62372,
+              "out": 20903,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "05",
+              "in": 62372,
+              "out": 20903,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "06",
+              "in": 86168,
+              "out": 22812,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "07",
+              "in": 62764,
+              "out": 21199,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "08",
+              "in": 62764,
+              "out": 21199,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "09",
+              "in": 54674,
+              "out": 15120,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "10",
+              "in": 58062,
+              "out": 17662,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "11",
+              "in": 58620,
+              "out": 18088,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "12",
+              "in": 58108,
+              "out": 17705,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "13",
+              "in": 59168,
+              "out": 18498,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "14",
+              "in": 58520,
+              "out": 18008,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "15",
+              "in": 67196,
+              "out": 24517,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "16",
+              "in": 94589,
+              "out": 27618,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "17",
+              "in": 74292,
+              "out": 29837,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "18",
+              "in": 64540,
+              "out": 22516,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "19",
+              "in": 72096,
+              "out": 28187,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "20",
+              "in": 72096,
+              "out": 28187,
+              "status": "completed",
+              "pass": true
+            }
+          ]
+        }
+      },
+      "analysis": {
+        "passed": 16,
+        "n": 20,
+        "comparator": "analysis",
+        "telemetry": {
+          "tokens": {
+            "n": 20,
+            "median": 109951.0,
+            "q1": 105052,
+            "q3": 116416,
+            "min": 25638,
+            "max": 178428
+          },
+          "wall_clock_s": {
+            "n": 20,
+            "median": 198.25,
+            "q1": 178.8,
+            "q3": 254.8,
+            "min": 140.7,
+            "max": 330.5
+          },
+          "tool_calls": {
+            "n": 20,
+            "median": 2.0,
+            "q1": 2,
+            "q3": 2,
+            "min": 1,
+            "max": 3
+          },
+          "tokens_in": {
+            "n": 20,
+            "median": 84913.0,
+            "q1": 82141,
+            "q3": 88599,
+            "min": 17139,
+            "max": 138610
+          },
+          "tokens_out": {
+            "n": 20,
+            "median": 25038.0,
+            "q1": 22911,
+            "q3": 27817,
+            "min": 8499,
+            "max": 39818
+          },
+          "per_replicate": [
+            {
+              "replicate": "01",
+              "in": 86283,
+              "out": 26007,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "02",
+              "in": 88599,
+              "out": 27817,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "03",
+              "in": 88599,
+              "out": 27817,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "04",
+              "in": 80189,
+              "out": 21472,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "05",
+              "in": 120736,
+              "out": 29646,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "06",
+              "in": 80189,
+              "out": 21472,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "07",
+              "in": 84159,
+              "out": 24428,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "08",
+              "in": 84159,
+              "out": 24428,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "09",
+              "in": 84159,
+              "out": 24428,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "10",
+              "in": 82141,
+              "out": 22911,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "11",
+              "in": 82141,
+              "out": 22911,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "12",
+              "in": 82141,
+              "out": 22911,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "13",
+              "in": 90621,
+              "out": 29336,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "14",
+              "in": 17139,
+              "out": 8499,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "15",
+              "in": 90621,
+              "out": 29336,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "16",
+              "in": 86765,
+              "out": 26374,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "17",
+              "in": 84913,
+              "out": 25038,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "18",
+              "in": 84913,
+              "out": 25038,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "19",
+              "in": 138610,
+              "out": 39818,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "20",
+              "in": 87757,
+              "out": 27112,
+              "status": "completed",
+              "pass": true
+            }
+          ]
+        }
+      },
+      "report": {
+        "passed": 19,
+        "n": 20,
+        "comparator": "report",
+        "telemetry": {
+          "tokens": {
+            "n": 20,
+            "median": 31554.5,
+            "q1": 27412,
+            "q3": 46739,
+            "min": 21120,
+            "max": 57430
+          },
+          "wall_clock_s": {
+            "n": 20,
+            "median": 67.44999999999999,
+            "q1": 59.4,
+            "q3": 86.2,
+            "min": 41.1,
+            "max": 193.3
+          },
+          "tool_calls": {
+            "n": 20,
+            "median": 2.0,
+            "q1": 2,
+            "q3": 3,
+            "min": 1,
+            "max": 3
+          },
+          "tokens_in": {
+            "n": 20,
+            "median": 24303.0,
+            "q1": 20112,
+            "q3": 39215,
+            "min": 16936,
+            "max": 46031
+          },
+          "tokens_out": {
+            "n": 20,
+            "median": 7300.0,
+            "q1": 5827,
+            "q3": 8328,
+            "min": 4184,
+            "max": 11399
+          },
+          "per_replicate": [
+            {
+              "replicate": "01",
+              "in": 27090,
+              "out": 5827,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "02",
+              "in": 27090,
+              "out": 5827,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "03",
+              "in": 27090,
+              "out": 5827,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "04",
+              "in": 39215,
+              "out": 7524,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "05",
+              "in": 39215,
+              "out": 7524,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "06",
+              "in": 28050,
+              "out": 6547,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "07",
+              "in": 17968,
+              "out": 5216,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "08",
+              "in": 19315,
+              "out": 6501,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "09",
+              "in": 20112,
+              "out": 7300,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "10",
+              "in": 20112,
+              "out": 7300,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "11",
+              "in": 20112,
+              "out": 7300,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "12",
+              "in": 30203,
+              "out": 8172,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "13",
+              "in": 21417,
+              "out": 8604,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "14",
+              "in": 21516,
+              "out": 8676,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "15",
+              "in": 40534,
+              "out": 8328,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "16",
+              "in": 40854,
+              "out": 8484,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "17",
+              "in": 46031,
+              "out": 11399,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "18",
+              "in": 17548,
+              "out": 4796,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "19",
+              "in": 16936,
+              "out": 4184,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "20",
+              "in": 16936,
+              "out": 4184,
+              "status": "completed",
+              "pass": true
+            }
+          ]
+        }
+      },
+      "database": {
+        "passed": 19,
+        "n": 20,
+        "comparator": "database",
+        "telemetry": {
+          "tokens": {
+            "n": 20,
+            "median": 45705.5,
+            "q1": 44942,
+            "q3": 48015,
+            "min": 42938,
+            "max": 50238
+          },
+          "wall_clock_s": {
+            "n": 20,
+            "median": 93.69999999999999,
+            "q1": 87.4,
+            "q3": 98.1,
+            "min": 79.9,
+            "max": 112.9
+          },
+          "tool_calls": {
+            "n": 20,
+            "median": 1.0,
+            "q1": 1,
+            "q3": 1,
+            "min": 1,
+            "max": 1
+          },
+          "tokens_in": {
+            "n": 20,
+            "median": 31803.0,
+            "q1": 30837,
+            "q3": 33698,
+            "min": 29659,
+            "max": 35058
+          },
+          "tokens_out": {
+            "n": 20,
+            "median": 14058.5,
+            "q1": 13439,
+            "q3": 14407,
+            "min": 12464,
+            "max": 15655
+          },
+          "per_replicate": [
+            {
+              "replicate": "01",
+              "in": 31552,
+              "out": 13390,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "02",
+              "in": 31552,
+              "out": 13390,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "03",
+              "in": 34061,
+              "out": 15617,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "04",
+              "in": 33698,
+              "out": 14317,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "05",
+              "in": 29923,
+              "out": 13071,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "06",
+              "in": 29659,
+              "out": 13439,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "07",
+              "in": 31955,
+              "out": 13715,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "08",
+              "in": 31587,
+              "out": 14027,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "09",
+              "in": 34583,
+              "out": 15655,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "10",
+              "in": 30474,
+              "out": 12464,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "11",
+              "in": 30792,
+              "out": 14446,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "12",
+              "in": 34404,
+              "out": 14186,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "13",
+              "in": 32724,
+              "out": 13989,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "14",
+              "in": 31651,
+              "out": 14090,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "15",
+              "in": 35058,
+              "out": 14863,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "16",
+              "in": 33311,
+              "out": 14407,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "17",
+              "in": 29959,
+              "out": 14262,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "18",
+              "in": 32074,
+              "out": 14354,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "19",
+              "in": 32523,
+              "out": 13791,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "20",
+              "in": 30837,
+              "out": 13257,
+              "status": "completed",
+              "pass": true
+            }
+          ]
+        },
+        "upstream_gate": "analysis",
+        "excluded_bad_upstream": 6
+      }
+    },
+    "fplc_gradient": {
+      "orchestration": {
+        "passed": 20,
+        "n": 20,
+        "comparator": "orchestration",
+        "telemetry": {
+          "tokens": {
+            "n": 20,
+            "median": 51681.5,
+            "q1": 51213,
+            "q3": 51765,
+            "min": 50786,
+            "max": 52254
+          },
+          "wall_clock_s": {
+            "n": 20,
+            "median": 69.85,
+            "q1": 66.1,
+            "q3": 72.9,
+            "min": 56.5,
+            "max": 88.6
+          },
+          "tool_calls": {
+            "n": 20,
+            "median": 1.0,
+            "q1": 1,
+            "q3": 1,
+            "min": 1,
+            "max": 1
+          },
+          "tokens_in": {
+            "n": 20,
+            "median": 41044.0,
+            "q1": 40872,
+            "q3": 41098,
+            "min": 40626,
+            "max": 41342
+          },
+          "tokens_out": {
+            "n": 20,
+            "median": 10637.5,
+            "q1": 10391,
+            "q3": 10670,
+            "min": 9894,
+            "max": 10912
+          },
+          "per_replicate": [
+            {
+              "replicate": "01",
+              "in": 40892,
+              "out": 9894,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "02",
+              "in": 41128,
+              "out": 10697,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "03",
+              "in": 40892,
+              "out": 9894,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "04",
+              "in": 40686,
+              "out": 10255,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "05",
+              "in": 41092,
+              "out": 10661,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "06",
+              "in": 40822,
+              "out": 10391,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "07",
+              "in": 40626,
+              "out": 10195,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "08",
+              "in": 41058,
+              "out": 10652,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "09",
+              "in": 41098,
+              "out": 10667,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "10",
+              "in": 40872,
+              "out": 10442,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "11",
+              "in": 41030,
+              "out": 10623,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "12",
+              "in": 41098,
+              "out": 10685,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "13",
+              "in": 41082,
+              "out": 10669,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "14",
+              "in": 41082,
+              "out": 10669,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "15",
+              "in": 41086,
+              "out": 10670,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "16",
+              "in": 40980,
+              "out": 10575,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "17",
+              "in": 41342,
+              "out": 10912,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "18",
+              "in": 41114,
+              "out": 10685,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "19",
+              "in": 40802,
+              "out": 10371,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "20",
+              "in": 40872,
+              "out": 10441,
+              "status": "completed",
+              "pass": true
+            }
+          ]
+        }
+      },
+      "analysis": {
+        "passed": 19,
+        "n": 20,
+        "comparator": "analysis",
+        "telemetry": {
+          "tokens": {
+            "n": 20,
+            "median": 82346.5,
+            "q1": 78913,
+            "q3": 85213,
+            "min": 76903,
+            "max": 87523
+          },
+          "wall_clock_s": {
+            "n": 20,
+            "median": 119.4,
+            "q1": 109.9,
+            "q3": 133.8,
+            "min": 93.4,
+            "max": 230.3
+          },
+          "tool_calls": {
+            "n": 20,
+            "median": 2.0,
+            "q1": 2,
+            "q3": 2,
+            "min": 2,
+            "max": 2
+          },
+          "tokens_in": {
+            "n": 20,
+            "median": 65946.0,
+            "q1": 63976,
+            "q3": 67584,
+            "min": 62836,
+            "max": 68904
+          },
+          "tokens_out": {
+            "n": 20,
+            "median": 16400.5,
+            "q1": 14937,
+            "q3": 17629,
+            "min": 14067,
+            "max": 18619
+          },
+          "per_replicate": [
+            {
+              "replicate": "01",
+              "in": 63692,
+              "out": 14710,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "02",
+              "in": 63692,
+              "out": 14710,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "03",
+              "in": 63692,
+              "out": 14710,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "04",
+              "in": 68388,
+              "out": 18229,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "05",
+              "in": 64760,
+              "out": 15510,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "06",
+              "in": 64760,
+              "out": 15510,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "07",
+              "in": 68048,
+              "out": 17979,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "08",
+              "in": 68444,
+              "out": 18274,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "09",
+              "in": 62836,
+              "out": 14067,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "10",
+              "in": 65992,
+              "out": 16435,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "11",
+              "in": 65992,
+              "out": 16435,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "12",
+              "in": 67584,
+              "out": 17629,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "13",
+              "in": 66168,
+              "out": 16567,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "14",
+              "in": 66168,
+              "out": 16567,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "15",
+              "in": 64600,
+              "out": 15390,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "16",
+              "in": 68904,
+              "out": 18619,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "17",
+              "in": 63976,
+              "out": 14937,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "18",
+              "in": 63976,
+              "out": 14937,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "19",
+              "in": 65900,
+              "out": 16366,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "20",
+              "in": 66264,
+              "out": 16638,
+              "status": "completed",
+              "pass": true
+            }
+          ]
+        }
+      },
+      "report": {
+        "passed": 17,
+        "n": 20,
+        "comparator": "report",
+        "telemetry": {
+          "tokens": {
+            "n": 20,
+            "median": 15245.0,
+            "q1": 14097,
+            "q3": 21978,
+            "min": 13337,
+            "max": 48115
+          },
+          "wall_clock_s": {
+            "n": 20,
+            "median": 26.85,
+            "q1": 22.8,
+            "q3": 37.8,
+            "min": 17.9,
+            "max": 58.6
+          },
+          "tool_calls": {
+            "n": 20,
+            "median": 1.0,
+            "q1": 1,
+            "q3": 2,
+            "min": 1,
+            "max": 4
+          },
+          "tokens_in": {
+            "n": 20,
+            "median": 11769.0,
+            "q1": 11193,
+            "q3": 17977,
+            "min": 10817,
+            "max": 39888
+          },
+          "tokens_out": {
+            "n": 20,
+            "median": 3476.0,
+            "q1": 2904,
+            "q3": 5058,
+            "min": 2520,
+            "max": 8227
+          },
+          "per_replicate": [
+            {
+              "replicate": "01",
+              "in": 10817,
+              "out": 2520,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "02",
+              "in": 10817,
+              "out": 2520,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "03",
+              "in": 10817,
+              "out": 2520,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "04",
+              "in": 11826,
+              "out": 3538,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "05",
+              "in": 11990,
+              "out": 3692,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "06",
+              "in": 39888,
+              "out": 8227,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "07",
+              "in": 26568,
+              "out": 5459,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "08",
+              "in": 11712,
+              "out": 3414,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "09",
+              "in": 11602,
+              "out": 3304,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "10",
+              "in": 11443,
+              "out": 3157,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "11",
+              "in": 10919,
+              "out": 2628,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "12",
+              "in": 11492,
+              "out": 3200,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "13",
+              "in": 17977,
+              "out": 4001,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "14",
+              "in": 10956,
+              "out": 2670,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "15",
+              "in": 26983,
+              "out": 5664,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "16",
+              "in": 11193,
+              "out": 2904,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "17",
+              "in": 13865,
+              "out": 5505,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "18",
+              "in": 12192,
+              "out": 3894,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "19",
+              "in": 25942,
+              "out": 5058,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "20",
+              "in": 12092,
+              "out": 3821,
+              "status": "completed",
+              "pass": true
+            }
+          ]
+        }
+      },
+      "database": {
+        "passed": 18,
+        "n": 20,
+        "comparator": "database",
+        "telemetry": {
+          "tokens": {
+            "n": 20,
+            "median": 37618.0,
+            "q1": 36987,
+            "q3": 38756,
+            "min": 35614,
+            "max": 39733
+          },
+          "wall_clock_s": {
+            "n": 20,
+            "median": 67.4,
+            "q1": 65.0,
+            "q3": 72.5,
+            "min": 57.2,
+            "max": 77.6
+          },
+          "tool_calls": {
+            "n": 20,
+            "median": 1.0,
+            "q1": 1,
+            "q3": 1,
+            "min": 1,
+            "max": 1
+          },
+          "tokens_in": {
+            "n": 20,
+            "median": 26440.5,
+            "q1": 25975,
+            "q3": 27480,
+            "min": 25350,
+            "max": 27927
+          },
+          "tokens_out": {
+            "n": 20,
+            "median": 11057.5,
+            "q1": 10878,
+            "q3": 11800,
+            "min": 9932,
+            "max": 12163
+          },
+          "per_replicate": [
+            {
+              "replicate": "01",
+              "in": 25462,
+              "out": 10939,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "02",
+              "in": 25462,
+              "out": 10939,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "03",
+              "in": 25682,
+              "out": 9932,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "04",
+              "in": 27480,
+              "out": 11276,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "05",
+              "in": 26041,
+              "out": 10946,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "06",
+              "in": 26087,
+              "out": 11555,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "07",
+              "in": 27643,
+              "out": 11926,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "08",
+              "in": 27333,
+              "out": 10878,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "09",
+              "in": 25500,
+              "out": 12134,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "10",
+              "in": 27927,
+              "out": 11800,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "11",
+              "in": 26538,
+              "out": 11011,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "12",
+              "in": 27570,
+              "out": 12163,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "13",
+              "in": 26542,
+              "out": 10867,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "14",
+              "in": 25984,
+              "out": 11618,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "15",
+              "in": 27622,
+              "out": 11104,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "16",
+              "in": 26483,
+              "out": 10698,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "17",
+              "in": 25350,
+              "out": 10657,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "18",
+              "in": 25975,
+              "out": 10380,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "19",
+              "in": 27000,
+              "out": 11923,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "20",
+              "in": 26398,
+              "out": 11424,
+              "status": "completed",
+              "pass": true
+            }
+          ]
+        },
+        "upstream_gate": "analysis",
+        "excluded_bad_upstream": 1
+      }
+    }
+  },
+  "device_protocol": {
+    "isotherm": {
+      "by_protocol": {
+        "1": {
+          "pass": 10,
+          "n": 20
+        },
+        "2": {
+          "pass": 19,
+          "n": 20
+        },
+        "3": {
+          "pass": 18,
+          "n": 20
+        },
+        "4": {
+          "pass": 20,
+          "n": 20
+        },
+        "5": {
+          "pass": 20,
+          "n": 20
+        }
+      },
+      "telemetry": {
+        "device_protocol_1": {
+          "tokens": {
+            "n": 20,
+            "median": 98685.5,
+            "q1": 87505,
+            "q3": 130458,
+            "min": 65459,
+            "max": 190024
+          },
+          "wall_clock_s": {
+            "n": 20,
+            "median": 122.15,
+            "q1": 107.7,
+            "q3": 144.7,
+            "min": 78.8,
+            "max": 186.2
+          },
+          "tool_calls": {
+            "n": 20,
+            "median": 3.0,
+            "q1": 2,
+            "q3": 3,
+            "min": 2,
+            "max": 6
+          },
+          "tokens_in": {
+            "n": 20,
+            "median": 83671.0,
+            "q1": 79015,
+            "q3": 113127,
+            "min": 54554,
+            "max": 168471
+          },
+          "tokens_out": {
+            "n": 20,
+            "median": 14365.5,
+            "q1": 11695,
+            "q3": 16831,
+            "min": 8490,
+            "max": 21563
+          },
+          "per_replicate": [
+            {
+              "replicate": "01",
+              "in": 94745,
+              "out": 16831,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "02",
+              "in": 81510,
+              "out": 10965,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "03",
+              "in": 54554,
+              "out": 10905,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "04",
+              "in": 110610,
+              "out": 14246,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "05",
+              "in": 63290,
+              "out": 11993,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "06",
+              "in": 130733,
+              "out": 17421,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "07",
+              "in": 56949,
+              "out": 11128,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "08",
+              "in": 125592,
+              "out": 19807,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "09",
+              "in": 100897,
+              "out": 16185,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "10",
+              "in": 82520,
+              "out": 15741,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "11",
+              "in": 79015,
+              "out": 8490,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "12",
+              "in": 168471,
+              "out": 21553,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "13",
+              "in": 82363,
+              "out": 16747,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "14",
+              "in": 58689,
+              "out": 12964,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "15",
+              "in": 107701,
+              "out": 11695,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "16",
+              "in": 113127,
+              "out": 21563,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "17",
+              "in": 120620,
+              "out": 9838,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "18",
+              "in": 80186,
+              "out": 15669,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "19",
+              "in": 84822,
+              "out": 13239,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "20",
+              "in": 66456,
+              "out": 14485,
+              "status": "completed",
+              "pass": false
+            }
+          ]
+        },
+        "device_protocol_2": {
+          "tokens": {
+            "n": 20,
+            "median": 64731.0,
+            "q1": 55702,
+            "q3": 75843,
+            "min": 52965,
+            "max": 113148
+          },
+          "wall_clock_s": {
+            "n": 20,
+            "median": 60.2,
+            "q1": 49.7,
+            "q3": 73.4,
+            "min": 44.0,
+            "max": 93.2
+          },
+          "tool_calls": {
+            "n": 20,
+            "median": 3.0,
+            "q1": 2,
+            "q3": 3,
+            "min": 2,
+            "max": 5
+          },
+          "tokens_in": {
+            "n": 20,
+            "median": 57530.0,
+            "q1": 50518,
+            "q3": 68493,
+            "min": 48316,
+            "max": 102994
+          },
+          "tokens_out": {
+            "n": 20,
+            "median": 6665.5,
+            "q1": 5244,
+            "q3": 7395,
+            "min": 4531,
+            "max": 10154
+          },
+          "per_replicate": [
+            {
+              "replicate": "01",
+              "in": 67949,
+              "out": 7395,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "02",
+              "in": 52486,
+              "out": 7270,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "03",
+              "in": 66335,
+              "out": 6712,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "04",
+              "in": 86440,
+              "out": 8422,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "05",
+              "in": 48316,
+              "out": 4780,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "06",
+              "in": 69517,
+              "out": 6412,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "07",
+              "in": 51161,
+              "out": 6068,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "08",
+              "in": 68107,
+              "out": 6968,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "09",
+              "in": 68493,
+              "out": 7350,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "10",
+              "in": 51062,
+              "out": 5388,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "11",
+              "in": 49543,
+              "out": 5244,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "12",
+              "in": 49318,
+              "out": 4856,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "13",
+              "in": 50518,
+              "out": 5184,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "14",
+              "in": 102994,
+              "out": 10154,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "15",
+              "in": 61833,
+              "out": 7410,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "16",
+              "in": 53227,
+              "out": 6992,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "17",
+              "in": 48399,
+              "out": 5022,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "18",
+              "in": 67299,
+              "out": 6619,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "19",
+              "in": 48434,
+              "out": 4531,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "20",
+              "in": 92840,
+              "out": 9572,
+              "status": "completed",
+              "pass": true
+            }
+          ]
+        },
+        "device_protocol_3": {
+          "tokens": {
+            "n": 20,
+            "median": 61094.0,
+            "q1": 59642,
+            "q3": 68406,
+            "min": 41020,
+            "max": 92012
+          },
+          "wall_clock_s": {
+            "n": 20,
+            "median": 61.5,
+            "q1": 57.7,
+            "q3": 72.6,
+            "min": 44.3,
+            "max": 99.8
+          },
+          "tool_calls": {
+            "n": 20,
+            "median": 2.0,
+            "q1": 2,
+            "q3": 3,
+            "min": 2,
+            "max": 4
+          },
+          "tokens_in": {
+            "n": 20,
+            "median": 54647.5,
+            "q1": 53150,
+            "q3": 60628,
+            "min": 35760,
+            "max": 83855
+          },
+          "tokens_out": {
+            "n": 20,
+            "median": 6574.5,
+            "q1": 6012,
+            "q3": 7799,
+            "min": 5260,
+            "max": 8601
+          },
+          "per_replicate": [
+            {
+              "replicate": "01",
+              "in": 58594,
+              "out": 7307,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "02",
+              "in": 55137,
+              "out": 6649,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "03",
+              "in": 74988,
+              "out": 8601,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "04",
+              "in": 60628,
+              "out": 7778,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "05",
+              "in": 55323,
+              "out": 7799,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "06",
+              "in": 53150,
+              "out": 5952,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "07",
+              "in": 53135,
+              "out": 6507,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "08",
+              "in": 51223,
+              "out": 5642,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "09",
+              "in": 53807,
+              "out": 6595,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "10",
+              "in": 52408,
+              "out": 6012,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "11",
+              "in": 52426,
+              "out": 6508,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "12",
+              "in": 83855,
+              "out": 8157,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "13",
+              "in": 66308,
+              "out": 7496,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "14",
+              "in": 54158,
+              "out": 5741,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "15",
+              "in": 59770,
+              "out": 5921,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "16",
+              "in": 59449,
+              "out": 8058,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "17",
+              "in": 53616,
+              "out": 6071,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "18",
+              "in": 61022,
+              "out": 8489,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "19",
+              "in": 35760,
+              "out": 5260,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "20",
+              "in": 53753,
+              "out": 6554,
+              "status": "completed",
+              "pass": true
+            }
+          ]
+        },
+        "device_protocol_4": {
+          "tokens": {
+            "n": 20,
+            "median": 49259.5,
+            "q1": 48201,
+            "q3": 62550,
+            "min": 46177,
+            "max": 77683
+          },
+          "wall_clock_s": {
+            "n": 20,
+            "median": 36.6,
+            "q1": 32.5,
+            "q3": 41.1,
+            "min": 29.9,
+            "max": 49.8
+          },
+          "tool_calls": {
+            "n": 20,
+            "median": 2.0,
+            "q1": 2,
+            "q3": 3,
+            "min": 2,
+            "max": 5
+          },
+          "tokens_in": {
+            "n": 20,
+            "median": 45500.5,
+            "q1": 44361,
+            "q3": 58681,
+            "min": 43027,
+            "max": 72944
+          },
+          "tokens_out": {
+            "n": 20,
+            "median": 3888.0,
+            "q1": 3537,
+            "q3": 4542,
+            "min": 3005,
+            "max": 4853
+          },
+          "per_replicate": [
+            {
+              "replicate": "01",
+              "in": 44870,
+              "out": 3985,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "02",
+              "in": 45687,
+              "out": 3537,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "03",
+              "in": 43546,
+              "out": 3114,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "04",
+              "in": 45600,
+              "out": 3882,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "05",
+              "in": 44146,
+              "out": 3410,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "06",
+              "in": 44361,
+              "out": 3455,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "07",
+              "in": 51852,
+              "out": 3648,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "08",
+              "in": 45401,
+              "out": 3894,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "09",
+              "in": 72944,
+              "out": 4739,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "10",
+              "in": 43027,
+              "out": 3150,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "11",
+              "in": 45003,
+              "out": 3993,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "12",
+              "in": 58681,
+              "out": 3869,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "13",
+              "in": 61426,
+              "out": 4853,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "14",
+              "in": 43625,
+              "out": 3005,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "15",
+              "in": 63333,
+              "out": 4652,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "16",
+              "in": 45056,
+              "out": 3804,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "17",
+              "in": 44276,
+              "out": 3925,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "18",
+              "in": 51278,
+              "out": 4402,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "19",
+              "in": 52231,
+              "out": 4542,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "20",
+              "in": 61103,
+              "out": 4808,
+              "status": "completed",
+              "pass": true
+            }
+          ]
+        },
+        "device_protocol_5": {
+          "tokens": {
+            "n": 20,
+            "median": 64951.0,
+            "q1": 49902,
+            "q3": 67315,
+            "min": 47111,
+            "max": 94313
+          },
+          "wall_clock_s": {
+            "n": 20,
+            "median": 46.55,
+            "q1": 41.4,
+            "q3": 53.2,
+            "min": 31.1,
+            "max": 71.8
+          },
+          "tool_calls": {
+            "n": 20,
+            "median": 3.0,
+            "q1": 2,
+            "q3": 3,
+            "min": 2,
+            "max": 5
+          },
+          "tokens_in": {
+            "n": 20,
+            "median": 60439.0,
+            "q1": 46131,
+            "q3": 62665,
+            "min": 44028,
+            "max": 87512
+          },
+          "tokens_out": {
+            "n": 20,
+            "median": 4450.0,
+            "q1": 4014,
+            "q3": 5620,
+            "min": 3083,
+            "max": 7028
+          },
+          "per_replicate": [
+            {
+              "replicate": "01",
+              "in": 47523,
+              "out": 4347,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "02",
+              "in": 60294,
+              "out": 4606,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "03",
+              "in": 62120,
+              "out": 4482,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "04",
+              "in": 87512,
+              "out": 6801,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "05",
+              "in": 62665,
+              "out": 4650,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "06",
+              "in": 60584,
+              "out": 4418,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "07",
+              "in": 61729,
+              "out": 4482,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "08",
+              "in": 61425,
+              "out": 4248,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "09",
+              "in": 66755,
+              "out": 5620,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "10",
+              "in": 67006,
+              "out": 6695,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "11",
+              "in": 44028,
+              "out": 3083,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "12",
+              "in": 45675,
+              "out": 3556,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "13",
+              "in": 44580,
+              "out": 3219,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "14",
+              "in": 60779,
+              "out": 4392,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "15",
+              "in": 56906,
+              "out": 4981,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "16",
+              "in": 46131,
+              "out": 3771,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "17",
+              "in": 74601,
+              "out": 7028,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "18",
+              "in": 45000,
+              "out": 4014,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "19",
+              "in": 45188,
+              "out": 3447,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "20",
+              "in": 57526,
+              "out": 6608,
+              "status": "completed",
+              "pass": true
+            }
+          ]
+        }
+      },
+      "comparator": "destinations (net volume per destination well)"
+    }
+  },
+  "models": {
+    "1": {
+      "gpt-5-mini": {
+        "passed": 11,
+        "n": 20,
+        "comparator": "destinations",
+        "telemetry": {
+          "tokens": {
+            "n": 20,
+            "median": 186148.5,
+            "q1": 172091,
+            "q3": 240804,
+            "min": 146310,
+            "max": 322211
+          },
+          "wall_clock_s": {
+            "n": 20,
+            "median": 523.4000000000001,
+            "q1": 387.8,
+            "q3": 633.9,
+            "min": 304.1,
+            "max": 783.6
+          },
+          "tool_calls": {
+            "n": 20,
+            "median": 4.0,
+            "q1": 4,
+            "q3": 5,
+            "min": 3,
+            "max": 7
+          },
+          "tokens_in": {
+            "n": 20,
+            "median": 157107.0,
+            "q1": 147217,
+            "q3": 206205,
+            "min": 120054,
+            "max": 282209
+          },
+          "tokens_out": {
+            "n": 20,
+            "median": 29907.0,
+            "q1": 28920,
+            "q3": 38886,
+            "min": 24641,
+            "max": 40527
+          },
+          "per_replicate": [
+            {
+              "replicate": "01",
+              "in": 154084,
+              "out": 29569,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "02",
+              "in": 120054,
+              "out": 26256,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "03",
+              "in": 125056,
+              "out": 24641,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "04",
+              "in": 206205,
+              "out": 34599,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "05",
+              "in": 128549,
+              "out": 27496,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "06",
+              "in": 147415,
+              "out": 32268,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "07",
+              "in": 147217,
+              "out": 24874,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "08",
+              "in": 181372,
+              "out": 34737,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "09",
+              "in": 134198,
+              "out": 29910,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "10",
+              "in": 282209,
+              "out": 40002,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "11",
+              "in": 218823,
+              "out": 29904,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "12",
+              "in": 149372,
+              "out": 31390,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "13",
+              "in": 151636,
+              "out": 29050,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "14",
+              "in": 184702,
+              "out": 38886,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "15",
+              "in": 188013,
+              "out": 40195,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "16",
+              "in": 121804,
+              "out": 28920,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "17",
+              "in": 191717,
+              "out": 29450,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "18",
+              "in": 224296,
+              "out": 40201,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "19",
+              "in": 217773,
+              "out": 40527,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "20",
+              "in": 160130,
+              "out": 28514,
+              "status": "completed",
+              "pass": true
+            }
+          ]
+        }
+      },
+      "gpt-5-nano": {
+        "passed": 0,
+        "n": 20,
+        "comparator": "destinations",
+        "telemetry": {
+          "tokens": {
+            "n": 20,
+            "median": 191262.0,
+            "q1": 143570,
+            "q3": 276250,
+            "min": 72199,
+            "max": 422738
+          },
+          "wall_clock_s": {
+            "n": 20,
+            "median": 670.8,
+            "q1": 526.6,
+            "q3": 954.0,
+            "min": 359.8,
+            "max": 1391.3
+          },
+          "tool_calls": {
+            "n": 20,
+            "median": 4.0,
+            "q1": 3,
+            "q3": 6,
+            "min": 2,
+            "max": 9
+          },
+          "tokens_in": {
+            "n": 20,
+            "median": 110075.0,
+            "q1": 75578,
+            "q3": 156417,
+            "min": 42695,
+            "max": 269177
+          },
+          "tokens_out": {
+            "n": 20,
+            "median": 85706.0,
+            "q1": 63528,
+            "q3": 116893,
+            "min": 29504,
+            "max": 153561
+          },
+          "per_replicate": [
+            {
+              "replicate": "01",
+              "in": 42695,
+              "out": 29504,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "02",
+              "in": 156417,
+              "out": 124155,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "03",
+              "in": 75037,
+              "out": 63528,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "04",
+              "in": 111947,
+              "out": 81690,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "05",
+              "in": 97420,
+              "out": 58302,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "06",
+              "in": 73651,
+              "out": 54826,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "07",
+              "in": 159357,
+              "out": 116893,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "08",
+              "in": 269177,
+              "out": 153561,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "09",
+              "in": 122321,
+              "out": 86425,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "10",
+              "in": 148784,
+              "out": 111903,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "11",
+              "in": 72916,
+              "out": 70654,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "12",
+              "in": 150493,
+              "out": 112830,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "13",
+              "in": 103445,
+              "out": 84987,
+              "status": "callback_without_artifact",
+              "pass": false
+            },
+            {
+              "replicate": "14",
+              "in": 73510,
+              "out": 54893,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "15",
+              "in": 75578,
+              "out": 50914,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "16",
+              "in": 185114,
+              "out": 143038,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "17",
+              "in": 122920,
+              "out": 103966,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "18",
+              "in": 84558,
+              "out": 87333,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "19",
+              "in": 190718,
+              "out": 130923,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "20",
+              "in": 108203,
+              "out": 80684,
+              "status": "completed",
+              "pass": false
+            }
+          ]
+        }
+      },
+      "gpt-5.1": {
+        "passed": 10,
+        "n": 20,
+        "comparator": "destinations",
+        "telemetry": {
+          "tokens": {
+            "n": 20,
+            "median": 98685.5,
+            "q1": 87505,
+            "q3": 130458,
+            "min": 65459,
+            "max": 190024
+          },
+          "wall_clock_s": {
+            "n": 20,
+            "median": 122.15,
+            "q1": 107.7,
+            "q3": 144.7,
+            "min": 78.8,
+            "max": 186.2
+          },
+          "tool_calls": {
+            "n": 20,
+            "median": 3.0,
+            "q1": 2,
+            "q3": 3,
+            "min": 2,
+            "max": 6
+          },
+          "tokens_in": {
+            "n": 20,
+            "median": 83671.0,
+            "q1": 79015,
+            "q3": 113127,
+            "min": 54554,
+            "max": 168471
+          },
+          "tokens_out": {
+            "n": 20,
+            "median": 14365.5,
+            "q1": 11695,
+            "q3": 16831,
+            "min": 8490,
+            "max": 21563
+          },
+          "per_replicate": [
+            {
+              "replicate": "01",
+              "in": 94745,
+              "out": 16831,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "02",
+              "in": 81510,
+              "out": 10965,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "03",
+              "in": 54554,
+              "out": 10905,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "04",
+              "in": 110610,
+              "out": 14246,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "05",
+              "in": 63290,
+              "out": 11993,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "06",
+              "in": 130733,
+              "out": 17421,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "07",
+              "in": 56949,
+              "out": 11128,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "08",
+              "in": 125592,
+              "out": 19807,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "09",
+              "in": 100897,
+              "out": 16185,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "10",
+              "in": 82520,
+              "out": 15741,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "11",
+              "in": 79015,
+              "out": 8490,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "12",
+              "in": 168471,
+              "out": 21553,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "13",
+              "in": 82363,
+              "out": 16747,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "14",
+              "in": 58689,
+              "out": 12964,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "15",
+              "in": 107701,
+              "out": 11695,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "16",
+              "in": 113127,
+              "out": 21563,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "17",
+              "in": 120620,
+              "out": 9838,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "18",
+              "in": 80186,
+              "out": 15669,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "19",
+              "in": 84822,
+              "out": 13239,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "20",
+              "in": 66456,
+              "out": 14485,
+              "status": "completed",
+              "pass": false
+            }
+          ]
+        }
+      },
+      "gpt-5.5": {
+        "passed": 20,
+        "n": 20,
+        "comparator": "destinations",
+        "telemetry": {
+          "tokens": {
+            "n": 20,
+            "median": 131264.0,
+            "q1": 98904,
+            "q3": 158573,
+            "min": 86515,
+            "max": 293762
+          },
+          "wall_clock_s": {
+            "n": 20,
+            "median": 272.2,
+            "q1": 258.0,
+            "q3": 315.6,
+            "min": 211.9,
+            "max": 432.8
+          },
+          "tool_calls": {
+            "n": 20,
+            "median": 2.0,
+            "q1": 2,
+            "q3": 3,
+            "min": 2,
+            "max": 4
+          },
+          "tokens_in": {
+            "n": 20,
+            "median": 115132.5,
+            "q1": 81261,
+            "q3": 140753,
+            "min": 71670,
+            "max": 270147
+          },
+          "tokens_out": {
+            "n": 20,
+            "median": 17769.0,
+            "q1": 16472,
+            "q3": 20940,
+            "min": 14203,
+            "max": 27137
+          },
+          "per_replicate": [
+            {
+              "replicate": "01",
+              "in": 74571,
+              "out": 15877,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "02",
+              "in": 72312,
+              "out": 14203,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "03",
+              "in": 120221,
+              "out": 17718,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "04",
+              "in": 81261,
+              "out": 17643,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "05",
+              "in": 71670,
+              "out": 17241,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "06",
+              "in": 78012,
+              "out": 18026,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "07",
+              "in": 91574,
+              "out": 19073,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "08",
+              "in": 114120,
+              "out": 16638,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "09",
+              "in": 139877,
+              "out": 16260,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "10",
+              "in": 201177,
+              "out": 27137,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "11",
+              "in": 116145,
+              "out": 15625,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "12",
+              "in": 156169,
+              "out": 22256,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "13",
+              "in": 140753,
+              "out": 17820,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "14",
+              "in": 122479,
+              "out": 17956,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "15",
+              "in": 230936,
+              "out": 22113,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "16",
+              "in": 124773,
+              "out": 18916,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "17",
+              "in": 103686,
+              "out": 16361,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "18",
+              "in": 270147,
+              "out": 23615,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "19",
+              "in": 79698,
+              "out": 16472,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "20",
+              "in": 95363,
+              "out": 20940,
+              "status": "completed",
+              "pass": true
+            }
+          ]
+        }
+      }
+    },
+    "4": {
+      "gpt-5-mini": {
+        "passed": 20,
+        "n": 20,
+        "comparator": "destinations",
+        "telemetry": {
+          "tokens": {
+            "n": 20,
+            "median": 55372.5,
+            "q1": 54499,
+            "q3": 57238,
+            "min": 49388,
+            "max": 76933
+          },
+          "wall_clock_s": {
+            "n": 20,
+            "median": 112.65,
+            "q1": 99.3,
+            "q3": 123.4,
+            "min": 65.7,
+            "max": 146.2
+          },
+          "tool_calls": {
+            "n": 20,
+            "median": 2.0,
+            "q1": 2,
+            "q3": 2,
+            "min": 2,
+            "max": 3
+          },
+          "tokens_in": {
+            "n": 20,
+            "median": 44982.0,
+            "q1": 44340,
+            "q3": 45743,
+            "min": 42888,
+            "max": 65145
+          },
+          "tokens_out": {
+            "n": 20,
+            "median": 10410.5,
+            "q1": 9693,
+            "q3": 11682,
+            "min": 6471,
+            "max": 13260
+          },
+          "per_replicate": [
+            {
+              "replicate": "01",
+              "in": 43781,
+              "out": 7983,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "02",
+              "in": 45010,
+              "out": 11163,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "03",
+              "in": 45722,
+              "out": 11183,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "04",
+              "in": 45180,
+              "out": 10158,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "05",
+              "in": 42917,
+              "out": 6471,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "06",
+              "in": 59867,
+              "out": 12259,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "07",
+              "in": 44843,
+              "out": 10289,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "08",
+              "in": 44773,
+              "out": 10151,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "09",
+              "in": 65145,
+              "out": 11788,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "10",
+              "in": 46296,
+              "out": 10532,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "11",
+              "in": 44551,
+              "out": 10856,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "12",
+              "in": 44340,
+              "out": 10159,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "13",
+              "in": 42902,
+              "out": 7555,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "14",
+              "in": 45540,
+              "out": 12427,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "15",
+              "in": 43612,
+              "out": 7357,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "16",
+              "in": 45743,
+              "out": 10722,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "17",
+              "in": 42888,
+              "out": 7763,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "18",
+              "in": 44954,
+              "out": 9693,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "19",
+              "in": 46696,
+              "out": 13260,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "20",
+              "in": 45556,
+              "out": 11682,
+              "status": "completed",
+              "pass": true
+            }
+          ]
+        }
+      },
+      "gpt-5-nano": {
+        "passed": 11,
+        "n": 20,
+        "comparator": "destinations",
+        "telemetry": {
+          "tokens": {
+            "n": 20,
+            "median": 149806.0,
+            "q1": 126600,
+            "q3": 192540,
+            "min": 78987,
+            "max": 326581
+          },
+          "wall_clock_s": {
+            "n": 20,
+            "median": 322.85,
+            "q1": 277.1,
+            "q3": 500.9,
+            "min": 146.8,
+            "max": 1053.9
+          },
+          "tool_calls": {
+            "n": 20,
+            "median": 5.0,
+            "q1": 4,
+            "q3": 6,
+            "min": 3,
+            "max": 11
+          },
+          "tokens_in": {
+            "n": 20,
+            "median": 105617.0,
+            "q1": 81758,
+            "q3": 138614,
+            "min": 55645,
+            "max": 224278
+          },
+          "tokens_out": {
+            "n": 20,
+            "median": 44936.5,
+            "q1": 38384,
+            "q3": 64215,
+            "min": 23342,
+            "max": 102303
+          },
+          "per_replicate": [
+            {
+              "replicate": "01",
+              "in": 138614,
+              "out": 53926,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "02",
+              "in": 60373,
+              "out": 29564,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "03",
+              "in": 102277,
+              "out": 42829,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "04",
+              "in": 117669,
+              "out": 40159,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "05",
+              "in": 145730,
+              "out": 70918,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "06",
+              "in": 105429,
+              "out": 38384,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "07",
+              "in": 121100,
+              "out": 59757,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "08",
+              "in": 60892,
+              "out": 26848,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "09",
+              "in": 97495,
+              "out": 45031,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "10",
+              "in": 105805,
+              "out": 48701,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "11",
+              "in": 116903,
+              "out": 64215,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "12",
+              "in": 80025,
+              "out": 42791,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "13",
+              "in": 55645,
+              "out": 23342,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "14",
+              "in": 149049,
+              "out": 64532,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "15",
+              "in": 81758,
+              "out": 44842,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "16",
+              "in": 172075,
+              "out": 83117,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "17",
+              "in": 96252,
+              "out": 37467,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "18",
+              "in": 224278,
+              "out": 102303,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "19",
+              "in": 62494,
+              "out": 38050,
+              "status": "completed",
+              "pass": false
+            },
+            {
+              "replicate": "20",
+              "in": 111846,
+              "out": 50852,
+              "status": "completed",
+              "pass": true
+            }
+          ]
+        }
+      },
+      "gpt-5.1": {
+        "passed": 20,
+        "n": 20,
+        "comparator": "destinations",
+        "telemetry": {
+          "tokens": {
+            "n": 20,
+            "median": 49259.5,
+            "q1": 48201,
+            "q3": 62550,
+            "min": 46177,
+            "max": 77683
+          },
+          "wall_clock_s": {
+            "n": 20,
+            "median": 36.6,
+            "q1": 32.5,
+            "q3": 41.1,
+            "min": 29.9,
+            "max": 49.8
+          },
+          "tool_calls": {
+            "n": 20,
+            "median": 2.0,
+            "q1": 2,
+            "q3": 3,
+            "min": 2,
+            "max": 5
+          },
+          "tokens_in": {
+            "n": 20,
+            "median": 45500.5,
+            "q1": 44361,
+            "q3": 58681,
+            "min": 43027,
+            "max": 72944
+          },
+          "tokens_out": {
+            "n": 20,
+            "median": 3888.0,
+            "q1": 3537,
+            "q3": 4542,
+            "min": 3005,
+            "max": 4853
+          },
+          "per_replicate": [
+            {
+              "replicate": "01",
+              "in": 44870,
+              "out": 3985,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "02",
+              "in": 45687,
+              "out": 3537,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "03",
+              "in": 43546,
+              "out": 3114,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "04",
+              "in": 45600,
+              "out": 3882,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "05",
+              "in": 44146,
+              "out": 3410,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "06",
+              "in": 44361,
+              "out": 3455,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "07",
+              "in": 51852,
+              "out": 3648,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "08",
+              "in": 45401,
+              "out": 3894,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "09",
+              "in": 72944,
+              "out": 4739,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "10",
+              "in": 43027,
+              "out": 3150,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "11",
+              "in": 45003,
+              "out": 3993,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "12",
+              "in": 58681,
+              "out": 3869,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "13",
+              "in": 61426,
+              "out": 4853,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "14",
+              "in": 43625,
+              "out": 3005,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "15",
+              "in": 63333,
+              "out": 4652,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "16",
+              "in": 45056,
+              "out": 3804,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "17",
+              "in": 44276,
+              "out": 3925,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "18",
+              "in": 51278,
+              "out": 4402,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "19",
+              "in": 52231,
+              "out": 4542,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "20",
+              "in": 61103,
+              "out": 4808,
+              "status": "completed",
+              "pass": true
+            }
+          ]
+        }
+      },
+      "gpt-5.5": {
+        "passed": 20,
+        "n": 20,
+        "comparator": "destinations",
+        "telemetry": {
+          "tokens": {
+            "n": 20,
+            "median": 61296.0,
+            "q1": 45779,
+            "q3": 62607,
+            "min": 45041,
+            "max": 79283
+          },
+          "wall_clock_s": {
+            "n": 20,
+            "median": 68.6,
+            "q1": 61.5,
+            "q3": 81.7,
+            "min": 50.8,
+            "max": 118.0
+          },
+          "tool_calls": {
+            "n": 20,
+            "median": 3.0,
+            "q1": 2,
+            "q3": 3,
+            "min": 2,
+            "max": 4
+          },
+          "tokens_in": {
+            "n": 20,
+            "median": 57314.0,
+            "q1": 42186,
+            "q3": 58465,
+            "min": 41789,
+            "max": 73328
+          },
+          "tokens_out": {
+            "n": 20,
+            "median": 4259.5,
+            "q1": 3810,
+            "q3": 4891,
+            "min": 3192,
+            "max": 7651
+          },
+          "per_replicate": [
+            {
+              "replicate": "01",
+              "in": 60194,
+              "out": 4891,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "02",
+              "in": 57615,
+              "out": 4732,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "03",
+              "in": 41969,
+              "out": 3810,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "04",
+              "in": 41849,
+              "out": 3192,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "05",
+              "in": 41850,
+              "out": 3308,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "06",
+              "in": 43125,
+              "out": 5234,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "07",
+              "in": 57308,
+              "out": 3924,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "08",
+              "in": 42186,
+              "out": 3480,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "09",
+              "in": 57675,
+              "out": 4329,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "10",
+              "in": 57320,
+              "out": 4307,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "11",
+              "in": 60363,
+              "out": 4826,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "12",
+              "in": 43324,
+              "out": 4900,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "13",
+              "in": 61854,
+              "out": 7651,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "14",
+              "in": 57444,
+              "out": 3916,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "15",
+              "in": 41789,
+              "out": 3522,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "16",
+              "in": 42019,
+              "out": 3498,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "17",
+              "in": 42368,
+              "out": 4817,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "18",
+              "in": 58465,
+              "out": 4142,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "19",
+              "in": 58224,
+              "out": 4212,
+              "status": "completed",
+              "pass": true
+            },
+            {
+              "replicate": "20",
+              "in": 73328,
+              "out": 5955,
+              "status": "completed",
+              "pass": true
+            }
+          ]
+        }
+      }
+    }
+  },
+  "missing": []
+}

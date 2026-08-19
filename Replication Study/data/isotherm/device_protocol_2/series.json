@@ -1,0 +1,10 @@
+{
+  "experiment": "isotherm",
+  "artifact": "device_protocol_2",
+  "comparator": "destinations (net volume per destination well)",
+  "protocol": "2",
+  "replicates": 20,
+  "passed": 19,
+  "model": "gpt-5.1",
+  "prompt": "the corrected prompt"
+}

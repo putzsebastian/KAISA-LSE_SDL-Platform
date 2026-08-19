@@ -1,0 +1,24 @@
+{
+  "pass": false,
+  "codes": [
+    "EXEC_FAILED"
+  ],
+  "findings": [
+    {
+      "error": "exit 1: INFO: Loaded experiment data from ../experiment_5016.json\nFetching Tecan data for experiment 5016 from device control server...\nTecan data found on server: 1 file(s)\nSuccessfully downloaded Tecan data to: /tmp/tmptysfceq3/results/tecan_data_5016.xlsx\nINFO: Reading Tecan absorbance data from /tmp/tmptysfceq3/results/tecan_data_5016.xlsx\nINFO: Plate mapping created with 84 wells, expecting 28 parameter combinations with 3 replicates each.\nERROR: An unhandled error occurred during analysis: name 'aggregated_df' is not defined\n"
+    }
+  ],
+  "plots_produced": [
+    "n/a"
+  ],
+  "results_carrier": null,
+  "fits_carrier": null,
+  "undefined_endpoints": [],
+  "data_route": "none",
+  "results_dir": [
+    "detailed_loading_data_5016.csv",
+    "isotherms_5016.pdf",
+    "isotherms_5016.png",
+    "tecan_data_5016.xlsx"
+  ]
+}

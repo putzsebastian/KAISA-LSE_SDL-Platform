@@ -1,0 +1,12 @@
+# Normalize line endings: text files are stored as LF in the repository and
+# checked out with the platform's native endings locally. Keeps diffs clean and
+# the repo consistent across Windows / macOS / Linux contributors.
+* text=auto
+
+# Binary assets — never line-ending-normalized, never textually diffed.
+*.snapshot binary
+*.png      binary
+*.pdf      binary
+*.docx     binary
+*.xlsx     binary
+*.mp4      binary

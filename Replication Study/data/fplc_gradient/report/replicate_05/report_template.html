@@ -1,0 +1,126 @@
+<p><span style="font-size:18pt;"><strong>[[EXPERIMENT_TITLE]] - ÄKTA Chromatography Run Report</strong></span></p>
+
+<h4><span style="font-size:14pt;">1. Experiment Information</span></h4>
+<p><strong>Experiment ID:</strong> [[EXPERIMENT_ID]]</p>
+<p><strong>Process ID:</strong> [[PROCESS_ID]]</p>
+<p><strong>Report Generated:</strong> [[REPORT_DATE]]</p>
+<p> </p>
+
+<h4><span style="font-size:14pt;">2. Start &amp; End Date</span></h4>
+<p><strong>Start Date:</strong> [[EXPERIMENT_DATE]]</p>
+<p><strong>End Date:</strong> [[REPORT_DATE]]</p>
+<p> </p>
+
+<h4><span style="font-size:14pt;">3. Methods</span></h4>
+<h5><span style="font-size:12pt;">3.1 Automated Workflow Description</span></h5>
+<ol>
+<li><strong>Manual Sample Loading</strong> (Utility &mdash; Pause):
+<ul>
+<li>The system was paused with the instruction: "Manually fill sample loop".</li>
+<li>The operator manually filled the ÄKTA sample loop with the prepared sample before continuing the run.</li>
+</ul>
+</li>
+<li><strong>Chromatography Run</strong> (ÄKTA Pure &mdash; Run Protocol):
+<ul>
+<li>The ÄKTA Pure system was started and the pre-configured method was executed.</li>
+<li>Sample monitoring signals recorded during the run:
+<ul>
+<li>UV signal: <strong>uv1</strong></li>
+<li>Conductivity signal: <strong>cond</strong></li>
+</ul>
+</li>
+<li>Sampling interval for recording process data: <strong>1&nbsp;s</strong>.</li>
+</ul>
+</li>
+</ol>
+
+<h5><span style="font-size:12pt;">3.2 Run Parameters</span></h5>
+<table style="border-collapse:collapse;width:99.9866%;" border="1">
+<tr>
+<th style="height:22.3828px;">Parameter</th>
+<th style="height:22.3828px;">Placeholder</th>
+<th style="height:22.3828px;">Description</th>
+</tr>
+<tr>
+<td style="height:22.3828px;">Process ID</td>
+<td style="height:22.3828px;">[[PROCESS_ID]]</td>
+<td style="height:22.3828px;">Unique identifier of the chromatography process.</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">CIP Duration</td>
+<td style="height:22.3828px;">[[CIP_DURATION]]</td>
+<td style="height:22.3828px;">Total duration of the main CIP phase (e.g. min).</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">CIP 3 Duration</td>
+<td style="height:22.3828px;">[[CIP_3_DURATION]]</td>
+<td style="height:22.3828px;">Duration of CIP phase 3.</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">CIP 4 Duration</td>
+<td style="height:22.3828px;">[[CIP_4_DURATION]]</td>
+<td style="height:22.3828px;">Duration of CIP phase 4.</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">CIP 5 Duration</td>
+<td style="height:22.3828px;">[[CIP_5_DURATION]]</td>
+<td style="height:22.3828px;">Duration of CIP phase 5.</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Wash Duration</td>
+<td style="height:22.3828px;">[[WASH_DURATION]]</td>
+<td style="height:22.3828px;">Total duration of the wash phase.</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Wash Flow Rate</td>
+<td style="height:22.3828px;">[[WASH_FLOW_RATE]]</td>
+<td style="height:22.3828px;">Flow rate during the wash phase (e.g. mL/min).</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">CIP 2 Hold Duration</td>
+<td style="height:22.3828px;">[[CIP_2_HOLD_DURATION]]</td>
+<td style="height:22.3828px;">Hold duration during CIP phase 2.</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Load/Inject Duration</td>
+<td style="height:22.3828px;">[[LOAD_INJECT_DURATION]]</td>
+<td style="height:22.3828px;">Total time for sample loading/injection.</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Load/Inject Flow Rate</td>
+<td style="height:22.3828px;">[[LOAD_INJECT_FLOW_RATE]]</td>
+<td style="height:22.3828px;">Flow rate during loading/injection (e.g. mL/min).</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Equilibration Duration</td>
+<td style="height:22.3828px;">[[EQUILIBRATION_DURATION]]</td>
+<td style="height:22.3828px;">Time used to equilibrate the column.</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Equilibration Flow Rate</td>
+<td style="height:22.3828px;">[[EQUILIBRATION_FLOW_RATE]]</td>
+<td style="height:22.3828px;">Flow rate during column equilibration (e.g. mL/min).</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Elution Gradient Duration</td>
+<td style="height:22.3828px;">[[ELUTE_GRADIENT_DURATION]]</td>
+<td style="height:22.3828px;">Total duration of the elution gradient.</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Elution Gradient Start (%B)</td>
+<td style="height:22.3828px;">[[ELUTE_GRADIENT_GRADIENT_START]]</td>
+<td style="height:22.3828px;">Starting percentage of buffer B in the gradient.</td>
+</tr>
+<tr>
+<td style="height:22.3828px;">Elution Gradient End (%B)</td>
+<td style="height:22.3828px;">[[ELUTE_GRADIENT_GRADIENT_END]]</td>
+<td style="height:22.3828px;">Final percentage of buffer B in the gradient.</td>
+</tr>
+</table>
+<p> </p>
+
+<h4><span style="font-size:14pt;">4. Results</span></h4>
+<h5><span style="font-size:12pt;">4.1 Chromatogram</span></h5>
+[[PLOT_1]]
+<p><em>Figure 1: Chromatogram of the ÄKTA run (UV and conductivity over time) corresponding to PROCESS_ID [[PROCESS_ID]]. The underlying image file is provided as a downloadable resource (e.g. chromatogram_{ID}.png) via the eLabFTW file URL.</em></p>
+<p> </p>
